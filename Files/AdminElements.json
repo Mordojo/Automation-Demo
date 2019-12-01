@@ -1,0 +1,8 @@
+{
+ 	"Username": "id=inputTextUsername",
+    "Password": "id=inputTextPassword",
+    "Login": "id=buttonLogin",
+    "StatusPage": "id=theForm:toolbarTitleWrap",
+    "UserMenu": "id=theForm:userMenu",
+    "Logout": "//div[@id='theForm:j_idt70']//li[2]/a[1]"
+}
