@@ -5,10 +5,13 @@ Library    String
 Library    Dialogs
 Library    REST
 Library    JSONLibrary
-Suite Setup    Set Locators From Json    AdminElements.json    #Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test    
+Suite Setup    Set Locators From Json    AdminElements.json    
 Test Setup    Open JMap Admin    ${URLAdmin}                       
 
+
 *** Variables ***
+#Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
+#Robot AutomationDemo && robotmetrics
 ${URLAdmin}    http://formation1.jmaponline.net:8080
 ${USERNAME}    administrator
 ${PASSWORD}    ${EMPTY}
