@@ -52,8 +52,8 @@ TC_01 Create, Update and Delete The User
     #Pause Execution   
     Delete    /api/v1/delete/${ID}
 
-Shutdown PC
-    Run    shutdown -s -f -t 30
+# Shutdown PC
+    # Run    shutdown -s -f -t 30
             
 
 *** Keywords ***
