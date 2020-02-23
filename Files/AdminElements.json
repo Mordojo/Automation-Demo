@@ -4,5 +4,5 @@
     "Login": "id=buttonLogin",
     "StatusPage": "id=theForm:toolbarTitleWrap",
     "UserMenu": "id=theForm:userMenu",
-    "Logout": "//div[@id='theForm:j_idt70']//li[2]/a[1]"
+    "Logout": "//span[contains(text(),'Logout')]"
 }
