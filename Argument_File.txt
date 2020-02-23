@@ -1,2 +1,0 @@
-AdminDemo.robot
-RestAPIEmployesTests.robot
