@@ -13,8 +13,8 @@ Test Setup    Open JMap Admin    ${URLAdmin}
 # Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
 # Robot AutomationDemo && robotmetrics
 ${URLAdmin}    http://54.39.78.142:8080
-${USERNAME}    administrator
-${PASSWORD}    ${EMPTY}
+${USERNAME}    demo
+${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}    
 
 *** Test Cases ***
