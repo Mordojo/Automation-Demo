@@ -3,14 +3,3 @@ kkkkkkk
 xxxxxxx
 Edit Local
 Edit Remote
-Added Local 01
-Added Remote 01
-<<<<<<< HEAD
-Local 02
-Remote02
-Local 03
-Remote03
-=======
-Romote 02
-Romote 03
->>>>>>> 9cb9db719b1dbfda4fc971e52e8d476069f9a3ed
