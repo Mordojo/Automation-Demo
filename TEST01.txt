@@ -6,5 +6,10 @@ X1X1X1X1
 Y3Y3Y3Y3Y3
 babababababababababab
 hahahahahahahahahahah
+<<<<<<< HEAD
 Remot Remot
 Local Local
+=======
+987654321
+Romote2 Remote2
+>>>>>>> 4aa52b1a0f12356467a352bd54c9ca4c02e0a344
