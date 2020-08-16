@@ -1,6 +1,4 @@
 1234567
-<<<<<<< HEAD
 kkkkkkk
-=======
 xxxxxxx
->>>>>>> 1dbe331ac96618cf8d67b2634cdd5dcf89895487
+
