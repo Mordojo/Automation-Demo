@@ -1,6 +1,14 @@
 1234567
+<<<<<<< HEAD
 kkkkkkkTTTTTTTTTTT
 xxxxxxx
 Edit Local
 Edit Remote
 Added Local 01
+=======
+kkkkkkk
+xxxxxxxHHHHHHHHHHHHHHHHHHHH
+Edit Local
+Edit Remote
+Added Remote 01
+>>>>>>> edd56fad1ae62d215ba65250251eef2a02d6ee3e
