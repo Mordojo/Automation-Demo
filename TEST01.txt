@@ -1,4 +1,8 @@
 1234567
 kkkkkkk
 xxxxxxx
+<<<<<<< HEAD
 Edit Local
+=======
+Edit Remote
+>>>>>>> ee91c9503eba9e0b08f817a6dd285b925bde4c99
