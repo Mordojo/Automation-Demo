@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <keywordspec name="TestlinkAPILibrary" type="library" format="ROBOT" generated="20200816 00:34:08">
+=======
+<keywordspec name="TestlinkAPILibrary" type="library" format="ROBOT" generated="20200816 00:18:59">
+>>>>>>> dc80993b6af6dd255dc473c9fea56e9d55ceb0e8
 <version></version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
