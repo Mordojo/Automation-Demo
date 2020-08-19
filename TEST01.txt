@@ -12,4 +12,6 @@ TestRemote03
 new Local keywords
 New remote keywords
 
+# ----------------------------
+${local}    myLocalVar
 ${remote}   myRemote
