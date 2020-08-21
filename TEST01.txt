@@ -14,6 +14,5 @@ New remote keywords
 
 # ----------------------------
 ${local}    myLocalVar
-${local02}    myLocalVar02
-${local03}    myLocalVar03
 ${remote}   myRemote
+${remote02}   myRemote02
