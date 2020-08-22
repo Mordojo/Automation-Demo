@@ -2,16 +2,14 @@
 I'm Local007
 VVVVVV
 PP_I'm Remote
-Local Two !!!!
-TestLocal01
+delete all line of local
 TestRemote04
 TestRemote02
 TestRemote02-Edited-22-08-2020
-new Local keywords
 New remote keywords
 
 # ----------------------------
-Delete all local variablesXXXXXX
+Delete all local UUUUUUUUU
 ${remote}   myRemote
 ${remote02}   myRemote02-localXXXXXX
 ${remote03}   myRemote-22-08-2020-edited
