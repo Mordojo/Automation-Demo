@@ -4,14 +4,9 @@ VVVVVV
 PP_I'm Remote
 Local Two !!!!
 TestLocal01
-TestRemote04
-TestRemote02
-TestRemote02-Edited-22-08-2020
 new Local keywords
-New remote keywords
+delete all lines of remote
 
 # ----------------------------
 Delete all local variablesXXXXXX
-${remote}   myRemote
-${remote02}   myRemote02-localXXXXXX
-${remote03}   myRemote-22-08-2020-edited
+Delete all remote variables
