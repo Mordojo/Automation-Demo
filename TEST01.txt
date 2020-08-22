@@ -4,7 +4,7 @@ VVVVVV
 PP_I'm Remote
 Local Two !!!!
 TestLocal01
-TestLocal02
+TestLocal02-Edited-22-08-2020
 TestLocal03
 TestRemote04
 TestRemote02
@@ -16,6 +16,7 @@ New remote keywords
 ${local}    myLocalVar
 ${local02}    myLocalVar02
 ${local03}    myLocalVar03
+${local04}    myLocalVar-22-08-2020
 ${remote}   myRemote
 ${remote02}   myRemote02
 ${remote03}   myRemote-22-08-2020
