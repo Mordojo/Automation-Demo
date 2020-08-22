@@ -19,4 +19,4 @@ ${local03}    myLocalVar03
 ${local04}    myLocalVar-22-08-2020
 ${remote}   myRemote
 ${remote02}   myRemote02
-${remote03}   myRemote-22-08-2020
+${remote03}   myRemote-22-08-2020-edited
