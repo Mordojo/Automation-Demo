@@ -12,9 +12,10 @@ Library    REST
 *** Variables ***
 # Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
 # Robot AutomationDemo && robotmetrics
-${BROWSER}    Chrome
+# For github Actions: robot --variable ENV:pp --variable LANG:fr --variable BROWSER:Chrome AdminDemo.robot
 ${ENV}    ta
 ${LANG}    en
+${BROWSER}    Chrome
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
