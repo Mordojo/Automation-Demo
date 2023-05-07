@@ -4,7 +4,7 @@ Library    OperatingSystem
 Library    String
 Library    Dialogs
 Library    REST
-Library    JSONLibrary
+# Library    JSONLibrary
 Suite Setup    Set Locators From Json    AdminElements.json    
 Test Setup    Open JMap Admin    ${URLAdmin}                       
 
@@ -12,6 +12,9 @@ Test Setup    Open JMap Admin    ${URLAdmin}
 *** Variables ***
 # Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
 # Robot AutomationDemo && robotmetrics
+${BROWSER}    Chrome
+${ENV}    ta
+${LANG}    en
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
