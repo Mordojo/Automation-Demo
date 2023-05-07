@@ -10,18 +10,18 @@ on:
         default: ta
         # Input has to be provided for the workflow to run
         required: true
+      LANGUAGE:
+        description: 'Set a LANGUAGE:'
+        # Default value if no value is explicitly provided
+        default: fr
+        # Input has to be provided for the workflow to run
+        required: true
       BROWSER:
         description: 'Set a BROWSER:'
         # Default value if no value is explicitly provided
         default: Chrome
         # Input has to be provided for the workflow to run
         required: true
-      LANGUAGE:
-        description: 'Set a LANGUAGE:'
-        # Default value if no value is explicitly provided
-        default: fr
-        # Input has to be provided for the workflow to run
-        required: true  
 
 jobs:
   # This workflow contains a single job called "build"
@@ -47,5 +47,4 @@ jobs:
           pip install -r Libraries/requirements.txt
       
       - name: Run tests
-        run: |
-                 robot  AdminDemo.robot
+        run: robot --variable ENV:${{github.event.inputs.ENV}} --variable LANG:${{github.event.inputs.LANGUAGE}} --variable BROWSER:${{github.event.inputs.BROWSER}} AdminDemo.robot
