@@ -24,24 +24,19 @@ on:
         required: true  
 
 jobs:
-    run_tests:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Create folder for reports
-          run: mkdir reports
-        - name: Run Robot Framework Tests
-          run: |
-            docker run \
-              -v ${PWD}/reports:/opt/robotframework/reports:Z \
-              -v ${PWD}/tests:/opt/robotframework/tests:Z \
-              -e ROBOT_OPTIONS="--variable ENV:${{ github.event.inputs.ENV }} --variable BROWSER:${{ github.event.inputs.BROWSER }} --variable LANGUAGE:${{ github.event.inputs.LANGUAGE }} " \
-              --user $(id -u):$(id -g) \
-              ppodgorsek/robot-framework:latest
-        - name: Upload reports
-          uses: actions/upload-artifact@v1
-          if: always()
-          with:
-            name: reports
-            # set path to Robot Framework results reports. Exclude dummy file that is needed because of ppodgorsek image priviledges.
-            path: ${{ github.workspace }}/reports
+  Agent:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+        python: ['3.7', '3.8', '3.9', '3.10', '3.11']
+      fail-fast: false
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -r Libraries/pip_requirements.txt
+      - name: Robot Framework
+        run: robot --include ${{ matrix.platform }} AdminDemo.robot
