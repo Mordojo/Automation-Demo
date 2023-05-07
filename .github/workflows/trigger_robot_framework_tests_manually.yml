@@ -4,24 +4,25 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      DINOSAUR:
-        description: 'Creature that is expected to be dinosaur:'
+      ENV:
+        description: 'Set an ENV:'
         # Default value if no value is explicitly provided
-        default: achillobator
+        default: ta
         # Input has to be provided for the workflow to run
         required: true
-      NOT_DINOSAUR:
-        description: 'Creature that is not a dinosaur:'
+      BROWSER:
+        description: 'Set a BROWSER:'
         # Default value if no value is explicitly provided
-        default: dog
+        default: Chrome
         # Input has to be provided for the workflow to run
         required: true
-      tag:
-        description: 'Tag for tests to run. Use "*" to run all'
+      LANGUAGE:
+        description: 'Set a LANGUAGE:'
         # Default value if no value is explicitly provided
-        default: dinosaur
+        default: fr
         # Input has to be provided for the workflow to run
-        required: true
+        required: true  
+
 jobs:
     run_tests:
         runs-on: ubuntu-latest
@@ -34,7 +35,7 @@ jobs:
             docker run \
               -v ${PWD}/reports:/opt/robotframework/reports:Z \
               -v ${PWD}/tests:/opt/robotframework/tests:Z \
-              -e ROBOT_OPTIONS="--variable DINOSAUR:${{ github.event.inputs.DINOSAUR }} --variable NOT_DINOSAUR:${{ github.event.inputs.NOT_DINOSAUR }} --include ${{ github.event.inputs.tag }}" \
+              -e ROBOT_OPTIONS="--variable ENV:${{ github.event.inputs.ENV }} --variable BROWSER:${{ github.event.inputs.BROWSER }} --variable LANGUAGE:${{ github.event.inputs.LANGUAGE }} " \
               --user $(id -u):$(id -g) \
               ppodgorsek/robot-framework:latest
         - name: Upload reports
