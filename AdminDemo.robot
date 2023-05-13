@@ -5,8 +5,9 @@ Library    String
 Library    Dialogs
 Library    REST
 # Library    JSONLibrary
-# Suite Setup    Set Locators From Json    AdminElements.json    
-# Test Setup    Open JMap Admin    ${URLAdmin}                       
+Suite Setup    Set Locators From Json    AdminElements.json    
+Test Setup    Open JMap Admin    ${URLAdmin}
+Test Teardown    Close Browser                           
 
 
 *** Variables ***
@@ -27,10 +28,10 @@ Test Github actions
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
     Log    -----> Actual LANG: ${LANG}    console=yes
 
-# Login_with_valid_credentials
-    # Login With Creddentials    ${USERNAME}    ${PASSWORD}
-    # Verify That The Initial Page Is    Status
-    # Logout From JMap Admin
+Login_with_valid_credentials
+    Login With Creddentials    ${USERNAME}    ${PASSWORD}
+    Verify That The Initial Page Is    Status
+    Logout From JMap Admin
     
 #Test
     #${json}    Load JSON From File    ${CURDIR}${/}Files${/}AdminElements.json
@@ -64,7 +65,6 @@ Logout From JMap Admin
     Click Element    ${AdminElement["UserMenu"]}    
     Wait Until Element Is Visible    ${AdminElement["Logout"]}    7s   
     Click Element    ${AdminElement["Logout"]}
-    Sleep    2s 
-    Close Browser   
+    Sleep    2s   
 	
 # Add new Keywords
