@@ -31,6 +31,7 @@ Test Github actions
 Login_with_valid_credentials
     Login With Creddentials    ${USERNAME}    ${PASSWORD}
     Verify That The Initial Page Is    Status
+    Log    \n-----> Initial Page Is: Status    console=yes
     Logout From JMap Admin
     
 #Test
