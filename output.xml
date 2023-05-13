@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.2 on win32)" generated="20230513 11:46:32.943" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.7.2 on win32)" generated="20230513 11:52:16.310" rpa="false">
 <suite id="s1" name="Automation-Demo" source="C:\Users\Antec\eclipse-workspace\Automation-Demo">
 <suite id="s1-s1" name="AdminDemo" source="C:\Users\Antec\eclipse-workspace\Automation-Demo\AdminDemo.robot">
 <kw name="Set Locators From Json" type="setup">
@@ -14,15 +14,15 @@
 <assign>
 <var>${readJson}</var>
 </assign>
-<msg timestamp="20230513 11:46:33.793" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json"&gt;C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230513 11:46:33.793" level="INFO">${readJson} = {
+<msg timestamp="20230513 11:52:17.054" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json"&gt;C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230513 11:52:17.054" level="INFO">${readJson} = {
  	"Username": "id=inputTextUsername",
     "Password": "id=inputTextPassword",
     "Login": "id=buttonLogin",
     "StatusPage": "id=theForm:toolbarTitleWrap",
     "UserMenu": "id=theForm:userMenu",
  ...</msg>
-<status status="PASS" starttime="20230513 11:46:33.792" endtime="20230513 11:46:33.793"></status>
+<status status="PASS" starttime="20230513 11:52:17.054" endtime="20230513 11:52:17.054"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the results.</doc>
@@ -33,18 +33,18 @@
 <assign>
 <var>${AdminElement}</var>
 </assign>
-<msg timestamp="20230513 11:46:33.794" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
-<status status="PASS" starttime="20230513 11:46:33.794" endtime="20230513 11:46:33.794"></status>
+<msg timestamp="20230513 11:52:17.054" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
+<status status="PASS" starttime="20230513 11:52:17.054" endtime="20230513 11:52:17.054"></status>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
 <arguments>
 <arg>${AdminElement}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:33.795" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
-<status status="PASS" starttime="20230513 11:46:33.795" endtime="20230513 11:46:33.795"></status>
+<msg timestamp="20230513 11:52:17.069" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:33.791" endtime="20230513 11:46:33.796"></status>
+<status status="PASS" starttime="20230513 11:52:17.054" endtime="20230513 11:52:17.069"></status>
 </kw>
 <test id="s1-s1-t1" name="Login_with_valid_credentials">
 <kw name="Open JMap Admin" type="setup">
@@ -67,8 +67,8 @@
 <assign>
 <var>${chrome options}</var>
 </assign>
-<msg timestamp="20230513 11:46:33.799" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x042B7D90&gt;</msg>
-<status status="PASS" starttime="20230513 11:46:33.798" endtime="20230513 11:46:33.799"></status>
+<msg timestamp="20230513 11:52:17.069" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x04306DD0&gt;</msg>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -77,7 +77,7 @@
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:33.799" endtime="20230513 11:46:33.800"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -86,7 +86,7 @@
 <arg>add_argument</arg>
 <arg>disable-gpu</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:33.800" endtime="20230513 11:46:33.800"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -95,7 +95,7 @@
 <arg>add_argument</arg>
 <arg>--ignore-certificate-errors</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:33.801" endtime="20230513 11:46:33.801"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -106,8 +106,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20230513 11:46:33.801" level="INFO">${var} = {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'goog:chromeOptions': {'extensions': [], 'args': ['--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
-<status status="PASS" starttime="20230513 11:46:33.801" endtime="20230513 11:46:33.801"></status>
+<msg timestamp="20230513 11:52:17.069" level="INFO">${var} = {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'goog:chromeOptions': {'extensions': [], 'args': ['--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:17.069"></status>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <doc>Creates an instance of Selenium WebDriver.</doc>
@@ -115,28 +115,27 @@
 <arg>driver_name=Chrome</arg>
 <arg>alias=google</arg>
 <arg>chrome_options=${chrome_options}</arg>
-<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:33.801" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20230513 11:46:33.801" endtime="20230513 11:46:35.539"></status>
+<msg timestamp="20230513 11:52:17.069" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:18.612"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the active browser instance to the provided ``url``.</doc>
 <arguments>
 <arg>${URLAdmin}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:35.555" level="INFO">Opening url 'http://54.39.78.142:8080'</msg>
-<status status="PASS" starttime="20230513 11:46:35.554" endtime="20230513 11:46:40.630"></status>
+<msg timestamp="20230513 11:52:18.613" level="INFO">Opening url 'http://54.39.78.142:8080'</msg>
+<status status="PASS" starttime="20230513 11:52:18.612" endtime="20230513 11:52:21.509"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230513 11:46:40.631" endtime="20230513 11:46:40.741"></status>
+<status status="PASS" starttime="20230513 11:52:21.509" endtime="20230513 11:52:21.622"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:33.798" endtime="20230513 11:46:40.742"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:21.622"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:33.797" endtime="20230513 11:46:40.742"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:21.623"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:33.797" endtime="20230513 11:46:40.743"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:21.623"></status>
 </kw>
 <kw name="Login With Creddentials">
 <arguments>
@@ -148,8 +147,8 @@
 <arguments>
 <arg>${AdminElement["Username"]}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:40.744" level="INFO">id=inputTextUsername</msg>
-<status status="PASS" starttime="20230513 11:46:40.744" endtime="20230513 11:46:40.744"></status>
+<msg timestamp="20230513 11:52:21.625" level="INFO">id=inputTextUsername</msg>
+<status status="PASS" starttime="20230513 11:52:21.624" endtime="20230513 11:52:21.625"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -157,7 +156,7 @@
 <arg>${AdminElement["Username"]}</arg>
 <arg>7s</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:40.745" endtime="20230513 11:46:40.785"></status>
+<status status="PASS" starttime="20230513 11:52:21.625" endtime="20230513 11:52:21.665"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -165,8 +164,8 @@
 <arg>${AdminElement["Username"]}</arg>
 <arg>${pUSERNAME}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:40.786" level="INFO">Typing text 'demo' into text field 'id=inputTextUsername'.</msg>
-<status status="PASS" starttime="20230513 11:46:40.785" endtime="20230513 11:46:40.890"></status>
+<msg timestamp="20230513 11:52:21.666" level="INFO">Typing text 'demo' into text field 'id=inputTextUsername'.</msg>
+<status status="PASS" starttime="20230513 11:52:21.665" endtime="20230513 11:52:21.764"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -174,18 +173,18 @@
 <arg>${AdminElement["Password"]}</arg>
 <arg>${pPASSWORD}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:40.891" level="INFO">Typing text 'demo' into text field 'id=inputTextPassword'.</msg>
-<status status="PASS" starttime="20230513 11:46:40.890" endtime="20230513 11:46:40.988"></status>
+<msg timestamp="20230513 11:52:21.765" level="INFO">Typing text 'demo' into text field 'id=inputTextPassword'.</msg>
+<status status="PASS" starttime="20230513 11:52:21.764" endtime="20230513 11:52:21.856"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks button identified by ``locator``.</doc>
 <arguments>
 <arg>${AdminElement["Login"]}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:40.988" level="INFO">Clicking button 'id=buttonLogin'.</msg>
-<status status="PASS" starttime="20230513 11:46:40.988" endtime="20230513 11:46:41.077"></status>
+<msg timestamp="20230513 11:52:21.856" level="INFO">Clicking button 'id=buttonLogin'.</msg>
+<status status="PASS" starttime="20230513 11:52:21.856" endtime="20230513 11:52:21.941"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:40.743" endtime="20230513 11:46:41.077"></status>
+<status status="PASS" starttime="20230513 11:52:21.623" endtime="20230513 11:52:21.942"></status>
 </kw>
 <kw name="Verify That The Initial Page Is">
 <arguments>
@@ -197,7 +196,7 @@
 <arg>${AdminElement["StatusPage"]}</arg>
 <arg>7s</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:41.078" endtime="20230513 11:46:42.785"></status>
+<status status="PASS" starttime="20230513 11:52:21.943" endtime="20230513 11:52:23.501"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
@@ -212,12 +211,12 @@
 <arg>${AdminElement["StatusPage"]}</arg>
 <arg>${text}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:42.811" level="INFO">Element 'id=theForm:toolbarTitleWrap' contains text 'Status'.</msg>
-<status status="PASS" starttime="20230513 11:46:42.786" endtime="20230513 11:46:42.811"></status>
+<msg timestamp="20230513 11:52:23.529" level="INFO">Element 'id=theForm:toolbarTitleWrap' contains text 'Status'.</msg>
+<status status="PASS" starttime="20230513 11:52:23.502" endtime="20230513 11:52:23.530"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:42.785" endtime="20230513 11:46:42.811"></status>
+<status status="PASS" starttime="20230513 11:52:23.501" endtime="20230513 11:52:23.530"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:41.077" endtime="20230513 11:46:42.811"></status>
+<status status="PASS" starttime="20230513 11:52:21.942" endtime="20230513 11:52:23.530"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -225,9 +224,9 @@
 <arg>\n-----&gt; Initial Page Is: Status</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20230513 11:46:42.811" level="INFO">
+<msg timestamp="20230513 11:52:23.531" level="INFO">
 -----&gt; Initial Page Is: Status</msg>
-<status status="PASS" starttime="20230513 11:46:42.811" endtime="20230513 11:46:42.811"></status>
+<status status="PASS" starttime="20230513 11:52:23.531" endtime="20230513 11:52:23.532"></status>
 </kw>
 <kw name="Logout From JMap Admin">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
@@ -236,15 +235,15 @@
 <arg>${AdminElement["UserMenu"]}</arg>
 <arg>7s</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:42.811" endtime="20230513 11:46:42.844"></status>
+<status status="PASS" starttime="20230513 11:52:23.532" endtime="20230513 11:52:23.543"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${AdminElement["UserMenu"]}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:42.844" level="INFO">Clicking element 'id=theForm:userMenu'.</msg>
-<status status="PASS" starttime="20230513 11:46:42.844" endtime="20230513 11:46:42.890"></status>
+<msg timestamp="20230513 11:52:23.559" level="INFO">Clicking element 'id=theForm:userMenu'.</msg>
+<status status="PASS" starttime="20230513 11:52:23.559" endtime="20230513 11:52:23.612"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until element ``locator`` is visible.</doc>
@@ -252,35 +251,35 @@
 <arg>${AdminElement["Logout"]}</arg>
 <arg>7s</arg>
 </arguments>
-<status status="PASS" starttime="20230513 11:46:42.890" endtime="20230513 11:46:42.925"></status>
+<status status="PASS" starttime="20230513 11:52:23.612" endtime="20230513 11:52:23.639"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>${AdminElement["Logout"]}</arg>
 </arguments>
-<msg timestamp="20230513 11:46:42.926" level="INFO">Clicking element '//span[contains(text(),'Logout')]'.</msg>
-<status status="PASS" starttime="20230513 11:46:42.925" endtime="20230513 11:46:42.976"></status>
+<msg timestamp="20230513 11:52:23.640" level="INFO">Clicking element '//span[contains(text(),'Logout')]'.</msg>
+<status status="PASS" starttime="20230513 11:52:23.639" endtime="20230513 11:52:23.676"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>2s</arg>
 </arguments>
-<msg timestamp="20230513 11:46:44.990" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230513 11:46:42.977" endtime="20230513 11:46:44.990"></status>
+<msg timestamp="20230513 11:52:25.682" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230513 11:52:23.676" endtime="20230513 11:52:25.682"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:42.811" endtime="20230513 11:46:44.990"></status>
+<status status="PASS" starttime="20230513 11:52:23.532" endtime="20230513 11:52:25.682"></status>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="teardown">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230513 11:46:44.990" endtime="20230513 11:46:47.052"></status>
+<status status="PASS" starttime="20230513 11:52:25.682" endtime="20230513 11:52:27.784"></status>
 </kw>
-<status status="PASS" starttime="20230513 11:46:33.796" endtime="20230513 11:46:47.052" critical="yes"></status>
+<status status="PASS" starttime="20230513 11:52:17.069" endtime="20230513 11:52:27.784" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20230513 11:46:33.021" endtime="20230513 11:46:47.052"></status>
+<status status="PASS" starttime="20230513 11:52:16.367" endtime="20230513 11:52:27.784"></status>
 </suite>
-<status status="PASS" starttime="20230513 11:46:32.990" endtime="20230513 11:46:47.052"></status>
+<status status="PASS" starttime="20230513 11:52:16.336" endtime="20230513 11:52:27.784"></status>
 </suite>
 <statistics>
 <total>
