@@ -54,3 +54,12 @@ jobs:
          echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
          robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} AdminDemo.robot
+      - name: Test results
+        uses: actions/upload-artifact@v1
+        with:
+          name: Report
+          path: report.html
+      - name: Clean up stuff
+        run: |
+          history
+          pwd
