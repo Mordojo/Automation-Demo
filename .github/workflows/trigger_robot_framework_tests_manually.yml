@@ -57,7 +57,7 @@ jobs:
       - name: Test results
         uses: actions/upload-artifact@v1
         with:
-          name: Report.html
+          name: Report
           path: report.html
       - name: Clean up stuff
         run: |
