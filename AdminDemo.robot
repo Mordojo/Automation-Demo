@@ -32,7 +32,6 @@ Test Github actions
 Login_with_valid_credentials
     Login With Creddentials    ${USERNAME}    ${PASSWORD}
     Verify That The Initial Page Is    Status
-    Log    \n-----> Initial Page Is: Status    console=yes
     Logout From JMap Admin
     
 #Test
@@ -61,7 +60,10 @@ Open JMap Admin    [Arguments]    ${url}
     Run Keyword If    '${BROWSER}'=='Chrome'    Open Chrome
     
 Login With Creddentials    [Arguments]    ${pUSERNAME}    ${pPASSWORD}
-    Log    ${AdminElement["Username"]}    
+    Log    ${AdminElement["Username"]}  
+    Wait Until Element Is Visible    //div[contains(@class, 'BigTopic')]    
+    ${serverName}    Get Text    //div[contains(@class, 'BigTopic')]
+    Log    \n-----> Server Name: ${serverName}    console=yes
     Wait Until Element Is Visible    ${AdminElement["Username"]}    7s
     Input Text    ${AdminElement["Username"]}    ${pUSERNAME}
     Input Text    ${AdminElement["Password"]}    ${pPASSWORD}
@@ -69,13 +71,18 @@ Login With Creddentials    [Arguments]    ${pUSERNAME}    ${pPASSWORD}
         
 Verify That The Initial Page Is    [Arguments]    ${text}
     Wait Until Element Is Visible    ${AdminElement["StatusPage"]}    7s
-    Run Keyword And Continue On Failure    Element Should Contain    ${AdminElement["StatusPage"]}    ${text}                
+    Run Keyword And Continue On Failure    Element Should Contain    ${AdminElement["StatusPage"]}    ${text}
+    Wait Until Element Is Visible    //div[contains(@class, 'toolbarTitleStyle')]    
+    ${toolbarTitle}    Get Text    //div[contains(@class, 'toolbarTitleStyle')]
+    Log    -----> StatusPage: ${toolbarTitle}    console=yes               
        
 Logout From JMap Admin
     Wait Until Element Is Visible    ${AdminElement["UserMenu"]}    7s
     Click Element    ${AdminElement["UserMenu"]}    
     Wait Until Element Is Visible    ${AdminElement["Logout"]}    7s   
     Click Element    ${AdminElement["Logout"]}
-    Sleep    2s   
+    Wait Until Element Is Visible    //div[contains(@class, 'BigTopic')]    
+    ${serverName}    Get Text    //div[contains(@class, 'BigTopic')]
+    Log    -----> Server Name: ${serverName}    console=yes   
 	
 # Add new Keywords
