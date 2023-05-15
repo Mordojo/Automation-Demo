@@ -54,6 +54,14 @@ jobs:
          echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
          robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} AdminDemo.robot
+      - name: Set Robot Docker
+        uses: joonvena/robotframework-docker-action@v1.0
+      - name: Upload test results
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: reports
+          path: reports 
   generate_report:
         if: always()
         needs: [RobotDemoJob]
