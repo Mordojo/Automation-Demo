@@ -46,7 +46,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r Libraries/requirements.txt
       
-      - name: Run 2nd tests
+      - name: Run tests
         run: |
          TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
          TEST_LANG=$(echo ${{ github.event.inputs.LANGUAGE }} | tr '[:upper:]' '[:lower:]')
@@ -54,12 +54,19 @@ jobs:
          echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
          robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} AdminDemo.robot
+      - name: Upload test results
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: reports
+          path: reports
+            
   generate_report:
         if: always()
         needs: [RobotDemoJob]
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - name: Download reports
           uses: actions/download-artifact@v1
           with:

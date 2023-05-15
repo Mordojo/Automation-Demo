@@ -14,8 +14,8 @@ Test Teardown    Close Browser
 # Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
 # Robot AutomationDemo && robotmetrics
 # For github Actions: robot --variable ENV:pp --variable LANG:fr --variable BROWSER:Chrome AdminDemo.robot
-${ENV}    ta
-${LANG}    en
+${ENV}    pp
+${LANG}    fr
 ${BROWSER}    Chrome
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
