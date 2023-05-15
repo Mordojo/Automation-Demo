@@ -1,5 +1,5 @@
 # run tests manually in the Actions-tab of the project
-name: Trigger Tests Manually
+name: Trigger Robot Reporter Tests Manually
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
