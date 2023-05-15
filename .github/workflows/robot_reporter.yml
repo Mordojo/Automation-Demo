@@ -1,1 +1,79 @@
+# run tests manually in the Actions-tab of the project
+name: Trigger Tests Manually
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      ENV:
+        description: 'Set an ENV:'
+        # Default value if no value is explicitly provided
+        default: ta
+        # Input has to be provided for the workflow to run
+        required: true
+      LANGUAGE:
+        description: 'Set a LANGUAGE:'
+        # Default value if no value is explicitly provided
+        default: fr
+        # Input has to be provided for the workflow to run
+        required: true
+      BROWSER:
+        description: 'Set a BROWSER:'
+        # Default value if no value is explicitly provided
+        default: Chrome
+        # Input has to be provided for the workflow to run
+        required: true
 
+jobs:
+  # This workflow contains a single job called "build"
+  RobotDemoJob:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      #python and robotframework setup
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+        
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r Libraries/requirements.txt
+      
+      - name: Run 2nd tests
+        run: |
+         TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
+         TEST_LANG=$(echo ${{ github.event.inputs.LANGUAGE }} | tr '[:upper:]' '[:lower:]')
+         echo TEST ENVIRONMENT: ${{github.event.inputs.ENV}}
+         echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
+         echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
+         robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} AdminDemo.robot
+      - name: Test results
+        uses: actions/upload-artifact@v1
+        with:
+          name: Report
+          path: report.html
+      - name: Clean up stuff
+        run: |
+          history
+          pwd
+  generate_report:
+        if: always()
+        needs: [RobotDemoJob]
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Download reports
+          uses: actions/download-artifact@v1
+          with:
+            name: reports
+        - name: Send report to commit
+          uses: joonvena/robotframework-reporter-action@v2
+          with:
+            gh_access_token: ${{ secrets.GITHUB_TOKEN }}
