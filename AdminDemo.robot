@@ -21,7 +21,9 @@ Library    REST
 ${ENV}    pp
 ${LANG}    fr
 ${BROWSER}    Chrome
-${USE_TAGE}    ${EMPTY}
+#${USE_TAGE}    ${EMPTY}
+${NEW_TE}    ${EMPTY}
+${USE_JIRA}    ${EMPTY}
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
@@ -34,6 +36,8 @@ Test Github actions
     Log    \n-----> Actual ENV: ${ENV}    console=yes
     Log    -----> Actual LANG: ${LANG}    console=yes
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
+    Log    -----> Actual TE: ${NEW_TE}    console=yes
+    Log    -----> USE JIRA: ${USE_JIRA}    console=yes
 
 Login_with_valid_credentials
     [Tags]    JMap
@@ -41,6 +45,8 @@ Login_with_valid_credentials
     Log    -----> Actual ENV: ${ENV}    console=yes
     Log    -----> Actual LANG: ${LANG}    console=yes
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
+    Log    -----> Actual TE: ${NEW_TE}    console=yes
+    Log    -----> USE JIRA: ${USE_JIRA}    console=yes
     # Login With Creddentials    ${USERNAME}    ${PASSWORD}
     # Verify That The Initial Page Is    Status
     # Logout From JMap Admin
@@ -48,6 +54,11 @@ Login_with_valid_credentials
 Open Facbook Test
     [Tags]    Facebook    Transparency
     Log    \n-----> Open Facebook:    console=yes
+    Log    -----> Actual ENV: ${ENV}    console=yes
+    Log    -----> Actual LANG: ${LANG}    console=yes
+    Log    -----> Actual BROWSER: ${BROWSER}    console=yes
+    Log    -----> Actual TE: ${NEW_TE}    console=yes
+    Log    -----> USE JIRA: ${USE_JIRA}    console=yes
     Open Url    https://www.facebook.com/
     Run Keyword And Continue On Failure    Wait Until Element Contains    //a[@data-testid='open-registration-form-button']    Créer nouveau compte    timeout=60s
     Close Browser
@@ -65,7 +76,7 @@ Open Url    [Arguments]    ${url}
     
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
-    # Call Method    ${chrome_options}   add_argument    headless
+    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    --no-sandbox   # newly added argument
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
