@@ -22,6 +22,7 @@ ${ENV}    pp
 ${LANG}    fr
 ${BROWSER}    Chrome
 ${USE_TAGE}    ${EMPTY}
+${NEW_TE}    ${EMPTY}
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
@@ -65,7 +66,7 @@ Open Url    [Arguments]    ${url}
     
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
-    # Call Method    ${chrome_options}   add_argument    headless
+    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    --no-sandbox   # newly added argument
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
