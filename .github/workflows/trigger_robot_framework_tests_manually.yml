@@ -6,11 +6,7 @@ on:
     inputs:
       ENV:
         type: environment
-        description: 'Select the environment:' 
-        options:
-        - TI
-        - TA
-        - PP
+        description: 'Select the environment:'
         # Default value if no value is explicitly provided
         # default: ta
         # Input has to be provided for the workflow to run
