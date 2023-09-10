@@ -8,9 +8,9 @@ on:
         type: choice
         description: 'Select the environment:'
         options:
-        - TI
-        - TA
-        - PP
+        - ti
+        - ta
+        - pp
         # Default value if no value is explicitly provided
         # default: ta
         # Input has to be provided for the workflow to run
@@ -19,8 +19,8 @@ on:
         type: choice
         description: Set a language
         options:
-        - EN
-        - FR
+        - en
+        - fr
         # Default value if no value is explicitly provided
         # default: fr
         # Input has to be provided for the workflow to run
