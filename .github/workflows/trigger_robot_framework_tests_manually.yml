@@ -15,7 +15,7 @@ on:
         # default: ta
         # Input has to be provided for the workflow to run
         # required: true
-      LANG:
+      LANGUAGE:
         type: choice
         description: Set a language
         options:
@@ -84,7 +84,7 @@ jobs:
          echo TEST ENVIRONMENT: ${{github.event.inputs.ENV}}
          echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
-         robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} --include ${{ github.event.inputs.TAGS }} .
+         robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} --include ${{ github.event.inputs.TAGS }} .
       - name: Test results
         uses: actions/upload-artifact@v1
         with:
