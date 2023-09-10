@@ -23,14 +23,17 @@ ${json}         { "id": 11, "name": "Gil Alexander" }
 
 *** Test Cases ***
 GET an existing user, notice how the schema gets more accurate
+    [Tags]    Employed    Transparency
     GET         /users/1                  # this creates a new instance
     Output schema   response body
     Object      response body             # values are fully optional
     Integer     response body id          1
     String      response body name        Leanne Graham
+    String      response body name        Bret
     [Teardown]  Output schema             # note the updated response schema
 
 GET existing users, use JSONPath for very short but powerful queries
+    [Tags]    Employed
     GET         /users?_limit=5           # further assertions are to this
     Array       response body
     Integer     $[0].id                   1           # first id is 1
