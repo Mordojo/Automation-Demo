@@ -6,47 +6,45 @@ on:
     inputs:
       ENV:
         type: environment
-        description: 'Select the environment:'
-        # Input has to be provided for the workflow to run
+        description: 'Select the environment:' 
         options:
         - TI
         - TA
         - PP
         # Default value if no value is explicitly provided
         # default: ta
+        # Input has to be provided for the workflow to run
         # required: true
       LANG:
         type: language
         description: 'Set a language:'
-        # Input has to be provided for the workflow to run
         options:
         - EN
         - FR
         # Default value if no value is explicitly provided
         # default: fr
+        # Input has to be provided for the workflow to run
         # required: true
       BROWSER:
         type: browser
         description: 'Set a browser:'
-        # Input has to be provided for the workflow to run
         options:
         - Chrome
         - Firefox
         - Edge
         # Default value if no value is explicitly provided
         #default: Chrome
+        # Input has to be provided for the workflow to run
         #required: true
       TAGS:
         type: Test execution
         description: 'Select a TE suite'
-        # Input has to be provided for the workflow to run
         options:
         - Transparency
         - JMap
         - Facebook
         - Employed
       USE_JIRA:
-        # Input has to be provided for the workflow to run
         type: boolean
         description: 'Do you want to update TE?'
         
