@@ -5,24 +5,51 @@ on:
     # Inputs the workflow accepts.
     inputs:
       ENV:
-        description: 'Set an ENV:'
-        # Default value if no value is explicitly provided
-        default: ta
+        type: environment
+        description: 'Select the environment:'
         # Input has to be provided for the workflow to run
-        required: true
-      LANGUAGE:
-        description: 'Set a LANGUAGE:'
+        options:
+        - TI
+        - TA
+        - PP
         # Default value if no value is explicitly provided
-        default: fr
+        # default: ta
+        # required: true
+      LANG:
+        type: language
+        description: 'Set a language:'
         # Input has to be provided for the workflow to run
-        required: true
+        options:
+        - EN
+        - FR
+        # Default value if no value is explicitly provided
+        # default: fr
+        # required: true
       BROWSER:
-        description: 'Set a BROWSER:'
-        # Default value if no value is explicitly provided
-        default: Chrome
+        type: browser
+        description: 'Set a browser:'
         # Input has to be provided for the workflow to run
-        required: true
-
+        options:
+        - Chrome
+        - Firefox
+        - Edge
+        # Default value if no value is explicitly provided
+        #default: Chrome
+        #required: true
+      TAGS:
+        type: Test execution
+        description: 'Select a TE suite'
+        # Input has to be provided for the workflow to run
+        options:
+        - Transparency
+        - JMap
+        - Facebook
+        - Employed
+      USE_JIRA:
+        # Input has to be provided for the workflow to run
+        type: boolean
+        description: 'Do you want to update TE?'
+        
 jobs:
   # This workflow contains a single job called "build"
   RobotDemoJob:
@@ -53,7 +80,7 @@ jobs:
          echo TEST ENVIRONMENT: ${{github.event.inputs.ENV}}
          echo TEST LANGUAGE: ${{github.event.inputs.LANGUAGE}}
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
-         robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} AdminDemo.robot
+         robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} --include ${{ github.event.inputs.TAGS }} .
       - name: Test results
         uses: actions/upload-artifact@v1
         with:
