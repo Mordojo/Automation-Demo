@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.2 on win32)" generated="20230514 16:14:53.811" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.7.2 on win32)" generated="20230910 14:23:49.287" rpa="false">
 <suite id="s1" name="Automation-Demo" source="C:\Users\Antec\eclipse-workspace\Automation-Demo">
 <suite id="s1-s1" name="AdminDemo" source="C:\Users\Antec\eclipse-workspace\Automation-Demo\AdminDemo.robot">
-<kw name="Set Locators From Json" type="setup">
+<test id="s1-s1-t1" name="Test Github actions">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>AdminElements.json</arg>
+<arg>\n-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
 </arguments>
-<kw name="Get File" library="OperatingSystem">
-<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230910 14:23:50.086" level="INFO">
+-----&gt; Actual ENV: ta</msg>
+<status status="PASS" starttime="20230910 14:23:50.085" endtime="20230910 14:23:50.086"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>C:\\Users\\Antec\\eclipse-workspace\\Automation-Demo${/}Files${/}${pJsonFile}</arg>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
 </arguments>
-<assign>
-<var>${readJson}</var>
-</assign>
-<msg timestamp="20230514 16:14:54.704" level="INFO" html="yes">Getting file '&lt;a href="file://C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json"&gt;C:\Users\Antec\eclipse-workspace\Automation-Demo\Files\AdminElements.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230514 16:14:54.705" level="INFO">${readJson} = {
- 	"Username": "id=inputTextUsername",
-    "Password": "id=inputTextPassword",
-    "Login": "id=buttonLogin",
-    "StatusPage": "id=theForm:toolbarTitleWrap",
-    "UserMenu": "id=theForm:userMenu",
- ...</msg>
-<status status="PASS" starttime="20230514 16:14:54.704" endtime="20230514 16:14:54.705"></status>
+<msg timestamp="20230910 14:23:50.087" level="INFO">-----&gt; Actual LANG: en</msg>
+<status status="PASS" starttime="20230910 14:23:50.086" endtime="20230910 14:23:50.087"></status>
 </kw>
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>json.loads('''${readJson}''')</arg>
-<arg>json</arg>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
 </arguments>
-<assign>
-<var>${AdminElement}</var>
-</assign>
-<msg timestamp="20230514 16:14:54.706" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
-<status status="PASS" starttime="20230514 16:14:54.706" endtime="20230514 16:14:54.707"></status>
+<msg timestamp="20230910 14:23:50.087" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20230910 14:23:50.087" endtime="20230910 14:23:50.087"></status>
 </kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<tags>
+<tag>JMap</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20230910 14:23:50.085" endtime="20230910 14:23:50.087" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="Open Facbook Test">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${AdminElement}</arg>
+<arg>\n-----&gt; Open Facebook:</arg>
+<arg>console=yes</arg>
 </arguments>
-<msg timestamp="20230514 16:14:54.708" level="INFO">${AdminElement} = {'Username': 'id=inputTextUsername', 'Password': 'id=inputTextPassword', 'Login': 'id=buttonLogin', 'StatusPage': 'id=theForm:toolbarTitleWrap', 'UserMenu': 'id=theForm:userMenu', 'Logout': "//span[co...</msg>
-<status status="PASS" starttime="20230514 16:14:54.707" endtime="20230514 16:14:54.708"></status>
+<msg timestamp="20230910 14:23:50.089" level="INFO">
+-----&gt; Open Facebook:</msg>
+<status status="PASS" starttime="20230910 14:23:50.089" endtime="20230910 14:23:50.089"></status>
 </kw>
-<status status="PASS" starttime="20230514 16:14:54.702" endtime="20230514 16:14:54.709"></status>
-</kw>
-<test id="s1-s1-t1" name="Login_with_valid_credentials">
-<kw name="Open JMap Admin" type="setup">
+<kw name="Open Url">
 <arguments>
-<arg>${URLAdmin}</arg>
+<arg>https://www.facebook.com/</arg>
 </arguments>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -67,8 +68,8 @@
 <assign>
 <var>${chrome options}</var>
 </assign>
-<msg timestamp="20230514 16:14:54.713" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x042F4F30&gt;</msg>
-<status status="PASS" starttime="20230514 16:14:54.712" endtime="20230514 16:14:54.713"></status>
+<msg timestamp="20230910 14:23:50.091" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0421A430&gt;</msg>
+<status status="PASS" starttime="20230910 14:23:50.091" endtime="20230910 14:23:50.091"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -77,7 +78,7 @@
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 </arguments>
-<status status="PASS" starttime="20230514 16:14:54.713" endtime="20230514 16:14:54.714"></status>
+<status status="PASS" starttime="20230910 14:23:50.091" endtime="20230910 14:23:50.092"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -86,7 +87,7 @@
 <arg>add_argument</arg>
 <arg>disable-gpu</arg>
 </arguments>
-<status status="PASS" starttime="20230514 16:14:54.715" endtime="20230514 16:14:54.715"></status>
+<status status="PASS" starttime="20230910 14:23:50.092" endtime="20230910 14:23:50.092"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -95,7 +96,7 @@
 <arg>add_argument</arg>
 <arg>--ignore-certificate-errors</arg>
 </arguments>
-<status status="PASS" starttime="20230514 16:14:54.716" endtime="20230514 16:14:54.716"></status>
+<status status="PASS" starttime="20230910 14:23:50.092" endtime="20230910 14:23:50.092"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -106,8 +107,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20230514 16:14:54.717" level="INFO">${var} = {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'goog:chromeOptions': {'extensions': [], 'args': ['--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
-<status status="PASS" starttime="20230514 16:14:54.716" endtime="20230514 16:14:54.717"></status>
+<msg timestamp="20230910 14:23:50.093" level="INFO">${var} = {'browserName': 'chrome', 'version': '', 'platform': 'ANY', 'goog:chromeOptions': {'extensions': [], 'args': ['--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
+<status status="PASS" starttime="20230910 14:23:50.093" endtime="20230910 14:23:50.093"></status>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <doc>Creates an instance of Selenium WebDriver.</doc>
@@ -116,246 +117,441 @@
 <arg>alias=google</arg>
 <arg>chrome_options=${chrome_options}</arg>
 </arguments>
-<msg timestamp="20230514 16:14:54.718" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20230514 16:14:54.717" endtime="20230514 16:15:01.754"></status>
+<msg timestamp="20230910 14:23:50.094" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230910 14:23:50.093" endtime="20230910 14:23:57.576"></status>
+</kw>
+<status status="PASS" starttime="20230910 14:23:50.090" endtime="20230910 14:23:57.576"></status>
+</kw>
+<status status="PASS" starttime="20230910 14:23:50.090" endtime="20230910 14:23:57.577"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the active browser instance to the provided ``url``.</doc>
 <arguments>
-<arg>${URLAdmin}</arg>
+<arg>${url}</arg>
 </arguments>
-<msg timestamp="20230514 16:15:01.756" level="INFO">Opening url 'http://54.39.78.142:8080'</msg>
-<status status="PASS" starttime="20230514 16:15:01.755" endtime="20230514 16:15:06.743"></status>
+<msg timestamp="20230910 14:23:57.577" level="INFO">Opening url 'https://www.facebook.com/'</msg>
+<status status="PASS" starttime="20230910 14:23:57.577" endtime="20230910 14:24:09.148"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230514 16:15:06.745" endtime="20230514 16:15:06.860"></status>
+<status status="PASS" starttime="20230910 14:24:09.148" endtime="20230910 14:24:09.260"></status>
 </kw>
-<status status="PASS" starttime="20230514 16:14:54.711" endtime="20230514 16:15:06.860"></status>
-</kw>
-<status status="PASS" starttime="20230514 16:14:54.711" endtime="20230514 16:15:06.861"></status>
-</kw>
-<status status="PASS" starttime="20230514 16:14:54.710" endtime="20230514 16:15:06.861"></status>
-</kw>
-<kw name="Login With Creddentials">
-<arguments>
-<arg>${USERNAME}</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${AdminElement["Username"]}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:06.863" level="INFO">id=inputTextUsername</msg>
-<status status="PASS" starttime="20230514 16:15:06.862" endtime="20230514 16:15:06.863"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>//div[contains(@class, 'BigTopic')]</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:06.864" endtime="20230514 16:15:06.915"></status>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>//div[contains(@class, 'BigTopic')]</arg>
-</arguments>
-<assign>
-<var>${serverName}</var>
-</assign>
-<msg timestamp="20230514 16:15:06.955" level="INFO">${serverName} = Sidekick Server Istanbul</msg>
-<status status="PASS" starttime="20230514 16:15:06.915" endtime="20230514 16:15:06.955"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>\n-----&gt; Server Name: ${serverName}</arg>
-<arg>console=yes</arg>
-</arguments>
-<msg timestamp="20230514 16:15:06.957" level="INFO">
------&gt; Server Name: Sidekick Server Istanbul</msg>
-<status status="PASS" starttime="20230514 16:15:06.956" endtime="20230514 16:15:06.958"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${AdminElement["Username"]}</arg>
-<arg>7s</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:06.958" endtime="20230514 16:15:06.998"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
-<arguments>
-<arg>${AdminElement["Username"]}</arg>
-<arg>${pUSERNAME}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:06.999" level="INFO">Typing text 'demo' into text field 'id=inputTextUsername'.</msg>
-<status status="PASS" starttime="20230514 16:15:06.998" endtime="20230514 16:15:07.105"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
-<arguments>
-<arg>${AdminElement["Password"]}</arg>
-<arg>${pPASSWORD}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:07.107" level="INFO">Typing text 'demo' into text field 'id=inputTextPassword'.</msg>
-<status status="PASS" starttime="20230514 16:15:07.106" endtime="20230514 16:15:07.209"></status>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks button identified by ``locator``.</doc>
-<arguments>
-<arg>${AdminElement["Login"]}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:07.210" level="INFO">Clicking button 'id=buttonLogin'.</msg>
-<status status="PASS" starttime="20230514 16:15:07.209" endtime="20230514 16:15:07.283"></status>
-</kw>
-<status status="PASS" starttime="20230514 16:15:06.861" endtime="20230514 16:15:07.284"></status>
-</kw>
-<kw name="Verify That The Initial Page Is">
-<arguments>
-<arg>Status</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${AdminElement["StatusPage"]}</arg>
-<arg>7s</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:07.285" endtime="20230514 16:15:09.928"></status>
+<status status="PASS" starttime="20230910 14:23:50.089" endtime="20230910 14:24:09.260"></status>
 </kw>
 <kw name="Run Keyword And Continue On Failure" library="BuiltIn">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
 <arguments>
-<arg>Element Should Contain</arg>
-<arg>${AdminElement["StatusPage"]}</arg>
-<arg>${text}</arg>
+<arg>Wait Until Element Contains</arg>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<arg>Créer nouveau compte</arg>
+<arg>timeout=60s</arg>
 </arguments>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` contains ``text``.</doc>
 <arguments>
-<arg>${AdminElement["StatusPage"]}</arg>
-<arg>${text}</arg>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<arg>Créer nouveau compte</arg>
+<arg>timeout=60s</arg>
 </arguments>
-<msg timestamp="20230514 16:15:09.959" level="INFO">Element 'id=theForm:toolbarTitleWrap' contains text 'Status'.</msg>
-<status status="PASS" starttime="20230514 16:15:09.930" endtime="20230514 16:15:09.959"></status>
+<status status="PASS" starttime="20230910 14:24:09.261" endtime="20230910 14:24:09.301"></status>
 </kw>
-<status status="PASS" starttime="20230514 16:15:09.929" endtime="20230514 16:15:09.959"></status>
+<status status="PASS" starttime="20230910 14:24:09.261" endtime="20230910 14:24:09.302"></status>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>//div[contains(@class, 'toolbarTitleStyle')]</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:09.960" endtime="20230514 16:15:09.989"></status>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>//div[contains(@class, 'toolbarTitleStyle')]</arg>
-</arguments>
-<assign>
-<var>${toolbarTitle}</var>
-</assign>
-<msg timestamp="20230514 16:15:10.014" level="INFO">${toolbarTitle} = Status</msg>
-<status status="PASS" starttime="20230514 16:15:09.989" endtime="20230514 16:15:10.014"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>-----&gt; StatusPage: ${toolbarTitle}</arg>
-<arg>console=yes</arg>
-</arguments>
-<msg timestamp="20230514 16:15:10.015" level="INFO">-----&gt; StatusPage: Status</msg>
-<status status="PASS" starttime="20230514 16:15:10.015" endtime="20230514 16:15:10.015"></status>
-</kw>
-<status status="PASS" starttime="20230514 16:15:07.284" endtime="20230514 16:15:10.016"></status>
-</kw>
-<kw name="Logout From JMap Admin">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${AdminElement["UserMenu"]}</arg>
-<arg>7s</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:10.017" endtime="20230514 16:15:10.042"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${AdminElement["UserMenu"]}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:10.043" level="INFO">Clicking element 'id=theForm:userMenu'.</msg>
-<status status="PASS" starttime="20230514 16:15:10.042" endtime="20230514 16:15:10.100"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>${AdminElement["Logout"]}</arg>
-<arg>7s</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:10.102" endtime="20230514 16:15:10.133"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click element identified by ``locator``.</doc>
-<arguments>
-<arg>${AdminElement["Logout"]}</arg>
-</arguments>
-<msg timestamp="20230514 16:15:10.134" level="INFO">Clicking element '//span[contains(text(),'Logout')]'.</msg>
-<status status="PASS" starttime="20230514 16:15:10.133" endtime="20230514 16:15:10.184"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until element ``locator`` is visible.</doc>
-<arguments>
-<arg>//div[contains(@class, 'BigTopic')]</arg>
-</arguments>
-<status status="PASS" starttime="20230514 16:15:10.185" endtime="20230514 16:15:11.456"></status>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<doc>Returns the text value of element identified by ``locator``.</doc>
-<arguments>
-<arg>//div[contains(@class, 'BigTopic')]</arg>
-</arguments>
-<assign>
-<var>${serverName}</var>
-</assign>
-<msg timestamp="20230514 16:15:11.482" level="INFO">${serverName} = Sidekick Server Istanbul</msg>
-<status status="PASS" starttime="20230514 16:15:11.457" endtime="20230514 16:15:11.482"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>\n-----&gt; Server Name: ${serverName}</arg>
-<arg>console=yes</arg>
-</arguments>
-<msg timestamp="20230514 16:15:11.484" level="INFO">
------&gt; Server Name: Sidekick Server Istanbul</msg>
-<status status="PASS" starttime="20230514 16:15:11.483" endtime="20230514 16:15:11.484"></status>
-</kw>
-<status status="PASS" starttime="20230514 16:15:10.016" endtime="20230514 16:15:11.484"></status>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230514 16:15:11.485" endtime="20230514 16:15:13.572"></status>
+<status status="PASS" starttime="20230910 14:24:09.302" endtime="20230910 14:24:11.897"></status>
 </kw>
-<status status="PASS" starttime="20230514 16:14:54.709" endtime="20230514 16:15:13.572" critical="yes"></status>
+<tags>
+<tag>Facebook</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20230910 14:23:50.088" endtime="20230910 14:24:11.897" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20230514 16:14:53.898" endtime="20230514 16:15:13.573"></status>
+<status status="PASS" starttime="20230910 14:23:49.330" endtime="20230910 14:24:11.898"></status>
 </suite>
-<status status="PASS" starttime="20230514 16:14:53.860" endtime="20230514 16:15:13.577"></status>
+<suite id="s1-s2" name="RestAPITests" source="C:\Users\Antec\eclipse-workspace\Automation-Demo\RestAPITests.robot">
+<test id="s1-s2-t1" name="GET an existing user, notice how the schema gets more accurate">
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/users/1</arg>
+</arguments>
+<status status="PASS" starttime="20230910 14:24:11.915" endtime="20230910 14:24:12.198"></status>
+</kw>
+<kw name="Output Schema" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<arguments>
+<arg>response body</arg>
+</arguments>
+<msg timestamp="20230910 14:24:12.199" level="INFO">
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "default": 1
+        },
+        "name": {
+            "type": "string",
+            "default": "Leanne Graham"
+        },
+        "username": {
+            "type": "string",
+            "default": "Bret"
+        },
+        "email": {
+            "type": "string",
+            "default": "Sincere@april.biz"
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "street": {
+                    "type": "string",
+                    "default": "Kulas Light"
+                },
+                "suite": {
+                    "type": "string",
+                    "default": "Apt. 556"
+                },
+                "city": {
+                    "type": "string",
+                    "default": "Gwenborough"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "default": "92998-3874"
+                },
+                "geo": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "string",
+                            "default": "-37.3159"
+                        },
+                        "lng": {
+                            "type": "string",
+                            "default": "81.1496"
+                        }
+                    },
+                    "required": [
+                        "lat",
+                        "lng"
+                    ]
+                }
+            },
+            "required": [
+                "city",
+                "geo",
+                "street",
+                "suite",
+                "zipcode"
+            ]
+        },
+        "phone": {
+            "type": "string",
+            "default": "1-770-736-8031 x56442"
+        },
+        "website": {
+            "type": "string",
+            "default": "hildegard.org"
+        },
+        "company": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "Romaguera-Crona"
+                },
+                "catchPhrase": {
+                    "type": "string",
+                    "default": "Multi-layered client-server neural-net"
+                },
+                "bs": {
+                    "type": "string",
+                    "default": "harness real-time e-markets"
+                }
+            },
+            "required": [
+                "bs",
+                "catchPhrase",
+                "name"
+            ]
+        }
+    },
+    "required": [
+        "address",
+        "company",
+        "email",
+        "id",
+        "name",
+        "phone",
+        "username",
+        "website"
+    ]
+}</msg>
+<status status="PASS" starttime="20230910 14:24:12.199" endtime="20230910 14:24:12.217"></status>
+</kw>
+<kw name="Object" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON object.*</doc>
+<arguments>
+<arg>response body</arg>
+</arguments>
+<status status="PASS" starttime="20230910 14:24:12.217" endtime="20230910 14:24:12.220"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response body id</arg>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20230910 14:24:12.221" endtime="20230910 14:24:12.221"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body name</arg>
+<arg>Leanne Graham</arg>
+</arguments>
+<status status="PASS" starttime="20230910 14:24:12.222" endtime="20230910 14:24:12.222"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body name</arg>
+<arg>Bret</arg>
+</arguments>
+<status status="PASS" starttime="20230910 14:24:12.222" endtime="20230910 14:24:12.223"></status>
+</kw>
+<kw name="Output Schema" library="REST" type="teardown">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<msg timestamp="20230910 14:24:12.224" level="INFO">
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GET https://jsonplaceholder.typicode.com/users/1",
+    "description": "Automation-Demo.RestAPITests: GET an existing user, notice how the schema gets more accurate",
+    "default": true,
+    "examples": [],
+    "type": "object",
+    "properties": {
+        "request": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "null"
+                },
+                "query": {
+                    "type": "object"
+                }
+            }
+        },
+        "response": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "default": 1,
+                            "enum": [
+                                1
+                            ]
+                        },
+                        "name": {
+                            "type": "string",
+                            "default": "Leanne Graham",
+                            "enum": [
+                                "Leanne Graham",
+                                "Bret"
+                            ]
+                        },
+                        "username": {
+                            "type": "string",
+                            "default": "Bret"
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": "Sincere@april.biz"
+                        },
+                        "address": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string",
+                                    "default": "Kulas Light"
+                                },
+                                "suite": {
+                                    "type": "string",
+                                    "default": "Apt. 556"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "default": "Gwenborough"
+                                },
+                                "zipcode": {
+                                    "type": "string",
+                                    "default": "92998-3874"
+                                },
+                                "geo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lat": {
+                                            "type": "string",
+                                            "default": "-37.3159"
+                                        },
+                                        "lng": {
+                                            "type": "string",
+                                            "default": "81.1496"
+                                        }
+                                    },
+                                    "required": [
+                                        "lat",
+                                        "lng"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "city",
+                                "geo",
+                                "street",
+                                "suite",
+                                "zipcode"
+                            ]
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": "1-770-736-8031 x56442"
+                        },
+                        "website": {
+                            "type": "string",
+                            "default": "hildegard.org"
+                        },
+                        "company": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "default": "Romaguera-Crona"
+                                },
+                                "catchPhrase": {
+                                    "type": "string",
+                                    "default": "Multi-layered client-server neural-net"
+                                },
+                                "bs": {
+                                    "type": "string",
+                                    "default": "harness real-time e-markets"
+                                }
+                            },
+                            "required": [
+                                "bs",
+                                "catchPhrase",
+                                "name"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "company",
+                        "email",
+                        "id",
+                        "name",
+                        "phone",
+                        "username",
+                        "website"
+                    ],
+                    "examples": [
+                        {
+                            "id": 1,
+                            "name": "Leanne Graham",
+                            "username": "Bret",
+                            "email": "Sincere@april.biz",
+                            "address": {
+                                "street": "Kulas Light",
+                                "suite": "Apt. 556",
+                                "city": "Gwenborough",
+                                "zipcode": "92998-3874",
+                                "geo": {
+                                    "lat": "-37.3159",
+                                    "lng": "81.1496"
+                                }
+                            },
+                            "phone": "1-770-736-8031 x56442",
+                            "website": "hildegard.org",
+                            "company": {
+                                "name": "Romaguera-Crona",
+                                "catchPhrase": "Multi-layered client-server neural-net",
+                                "bs": "harness real-time e-markets"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}</msg>
+<status status="PASS" starttime="20230910 14:24:12.223" endtime="20230910 14:24:12.232"></status>
+</kw>
+<tags>
+<tag>Employed</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20230910 14:24:11.915" endtime="20230910 14:24:12.232" critical="yes"></status>
+</test>
+<doc>Test data can be read from variables and files.
+Both JSON and Python type systems are supported for inputs.
+Every request creates a so-called instance. Can be `Output`.
+Most keywords are effective only for the last instance.
+Initial schemas are autogenerated for request and response.
+You can make them more detailed by using assertion keywords.
+The assertion keywords correspond to the JSON types.
+They take in either path to the property or a JSONPath query.
+Using (enum) values in tests optional. Only type is required.
+All the JSON Schema validation keywords are also supported.
+Thus, there is no need to write any own validation logic.
+Not a long path from schemas to full Swagger/OpenAPI specs.
+The persistence of the created instances is the test suite.
+Use keyword `Rest instances` to output the created instances.</doc>
+<status status="PASS" starttime="20230910 14:24:11.900" endtime="20230910 14:24:12.232"></status>
+</suite>
+<status status="PASS" starttime="20230910 14:23:49.289" endtime="20230910 14:24:12.238"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0">Employed</stat>
+<stat pass="1" fail="0">Facebook</stat>
+<stat pass="1" fail="0">JMap</stat>
+<stat pass="3" fail="0">Transparency</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Automation-Demo">Automation-Demo</stat>
-<stat pass="1" fail="0" id="s1-s1" name="AdminDemo">Automation-Demo.AdminDemo</stat>
+<stat pass="3" fail="0" id="s1" name="Automation-Demo">Automation-Demo</stat>
+<stat pass="2" fail="0" id="s1-s1" name="AdminDemo">Automation-Demo.AdminDemo</stat>
+<stat pass="1" fail="0" id="s1-s2" name="RestAPITests">Automation-Demo.RestAPITests</stat>
 </suite>
 </statistics>
 <errors>

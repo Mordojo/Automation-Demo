@@ -5,18 +5,23 @@ Library    String
 Library    Dialogs
 Library    REST
 # Library    JSONLibrary
-Suite Setup    Set Locators From Json    AdminElements.json    
-Test Setup    Open JMap Admin    ${URLAdmin}
-Test Teardown    Close Browser                           
+# Suite Setup    Set Locators From Json    AdminElements.json    
+# Test Setup    Open JMap Admin    ${URLAdmin}
+# Test Teardown    Close Browser                           
 
 
 *** Variables ***
 # Robot --listener allure_robotframework;/set/your/path/here ./my_robot_test
 # Robot AutomationDemo && robotmetrics
 # For github Actions: robot --variable ENV:pp --variable LANG:fr --variable BROWSER:Chrome AdminDemo.robot
+#                     robot --variable ENV:pp --variable LANG:fr --variable BROWSER:Chrome --include Facebook .
+#                     robot --variable ENV:pp --variable LANG:fr --variable BROWSER:Chrome --include Employed .
+#                     robot --variable ENV:ta --variable LANG:en --variable BROWSER:Chrome --include JMap .
+#                     robot --variable ENV:ta --variable LANG:en --variable BROWSER:Chrome --include USE_TAGE:Transparency .
 ${ENV}    pp
 ${LANG}    fr
 ${BROWSER}    Chrome
+${USE_TAGE}    ${EMPTY}
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
@@ -25,14 +30,27 @@ ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe
 
 *** Test Cases ***
 Test Github actions
+    [Tags]    JMap    Transparency
     Log    \n-----> Actual ENV: ${ENV}    console=yes
-    Log    -----> Actual BROWSER: ${BROWSER}    console=yes
     Log    -----> Actual LANG: ${LANG}    console=yes
+    Log    -----> Actual BROWSER: ${BROWSER}    console=yes
 
 Login_with_valid_credentials
-    Login With Creddentials    ${USERNAME}    ${PASSWORD}
-    Verify That The Initial Page Is    Status
-    Logout From JMap Admin
+    [Tags]    JMap
+    Log    \n-----> JMap Test ...    console=yes
+    Log    -----> Actual ENV: ${ENV}    console=yes
+    Log    -----> Actual LANG: ${LANG}    console=yes
+    Log    -----> Actual BROWSER: ${BROWSER}    console=yes
+    # Login With Creddentials    ${USERNAME}    ${PASSWORD}
+    # Verify That The Initial Page Is    Status
+    # Logout From JMap Admin
+    
+Open Facbook Test
+    [Tags]    Facebook    Transparency
+    Log    \n-----> Open Facebook:    console=yes
+    Open Url    https://www.facebook.com/
+    Run Keyword And Continue On Failure    Wait Until Element Contains    //a[@data-testid='open-registration-form-button']    Créer nouveau compte    timeout=60s
+    Close Browser
     
 #Test
     #${json}    Load JSON From File    ${CURDIR}${/}Files${/}AdminElements.json
@@ -40,16 +58,19 @@ Login_with_valid_credentials
     
 
 *** Keywords ***
+Open Url    [Arguments]    ${url}
+    Run Keyword If    '${BROWSER}'=='Chrome'    Open Chrome
+    Go To   ${url}
+    Maximize Browser Window
+    
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
-    Call Method    ${chrome_options}   add_argument    headless
+    # Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    --no-sandbox   # newly added argument
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
     ${var}=     Call Method     ${chrome_options}    to_capabilities 
-    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    #executable_path=${CHROME_DRIVER_PATH}     
-    Go To   ${URLAdmin}
-    Maximize Browser Window
+    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    #executable_path=${CHROME_DRIVER_PATH}
 
 Set Locators From Json    [Arguments]    ${pJsonFile}   
     ${readJson}    Get File    ${CURDIR}${/}Files${/}${pJsonFile} 
@@ -58,6 +79,8 @@ Set Locators From Json    [Arguments]    ${pJsonFile}
             
 Open JMap Admin    [Arguments]    ${url}
     Run Keyword If    '${BROWSER}'=='Chrome'    Open Chrome
+    Go To   ${url}
+    Maximize Browser Window
     
 Login With Creddentials    [Arguments]    ${pUSERNAME}    ${pPASSWORD}
     Log    ${AdminElement["Username"]}  
