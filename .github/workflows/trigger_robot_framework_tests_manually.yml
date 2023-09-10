@@ -5,7 +5,7 @@ on:
     # Inputs the workflow accepts.
     inputs:
       ENV:
-        type: environment
+        type: choice
         description: Select the environment
         options:
         - TI
@@ -16,7 +16,7 @@ on:
         # Input has to be provided for the workflow to run
         # required: true
       LANG:
-        type: language
+        type: choice
         description: Set a language
         options:
         - EN
@@ -26,7 +26,7 @@ on:
         # Input has to be provided for the workflow to run
         # required: true
       BROWSER:
-        type: browser
+        type: choice
         description: Set a browser
         options:
         - Chrome
@@ -37,7 +37,7 @@ on:
         # Input has to be provided for the workflow to run
         #required: true
       TAGS:
-        type: Test execution
+        type: choice
         description: Select a TE suite
         options:
         - Transparency
