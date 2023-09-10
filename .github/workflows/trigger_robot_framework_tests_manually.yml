@@ -6,14 +6,18 @@ on:
     inputs:
       ENV:
         type: environment
-        description: 'Select the environment:'
+        description: Select the environment
+        options:
+        - TI
+        - TA
+        - PP
         # Default value if no value is explicitly provided
         # default: ta
         # Input has to be provided for the workflow to run
         # required: true
       LANG:
         type: language
-        description: 'Set a language:'
+        description: Set a language
         options:
         - EN
         - FR
@@ -23,7 +27,7 @@ on:
         # required: true
       BROWSER:
         type: browser
-        description: 'Set a browser:'
+        description: Set a browser
         options:
         - Chrome
         - Firefox
@@ -34,7 +38,7 @@ on:
         #required: true
       TAGS:
         type: Test execution
-        description: 'Select a TE suite'
+        description: Select a TE suite
         options:
         - Transparency
         - JMap
@@ -42,7 +46,7 @@ on:
         - Employed
       USE_JIRA:
         type: boolean
-        description: 'Do you want to update TE?'
+        description: Do you want to update TE?
         
 jobs:
   # This workflow contains a single job called "build"
