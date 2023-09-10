@@ -6,7 +6,7 @@ on:
     inputs:
       ENV:
         type: choice
-        description: Select the environment
+        description: 'Select the environment:'
         options:
         - TI
         - TA
@@ -27,7 +27,7 @@ on:
         # required: true
       BROWSER:
         type: choice
-        description: Set a browser
+        description: 'Set a browser:'
         options:
         - Chrome
         - Firefox
@@ -38,12 +38,18 @@ on:
         #required: true
       TAGS:
         type: choice
-        description: Select a TE suite
+        description: 'Select a TE suite:'
         options:
         - Transparency
         - JMap
         - Facebook
         - Employed
+      TEST_EXECUTION:
+        type: string
+        description: 'Enter TE prefix or leave it blank if it does not exist:'
+        # Default value if no value is explicitly provided
+        default: ''
+        required: false
       USE_JIRA:
         type: boolean
         description: Do you want to update TE?
