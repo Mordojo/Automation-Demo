@@ -1,4 +1,10 @@
 {
-    "id": 11,
-    "name": "Gil Alexander"
+    "status": "success",
+    "data": {
+        "id": 4303,
+        "name": "Kallouz",
+        "salary": "2100",
+        "age": "27"
+    },
+    "message": "Successfully! Record has been added."
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Telnet" type="library" format="ROBOT" generated="20190914 14:57:51">
-<version>3.1.2</version>
+<keywordspec name="Telnet" type="LIBRARY" format="ROBOT" scope="SUITE" namedargs="true" generated="2024-01-25T02:19:12Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\Telnet.py" lineno="36">
+<version>3.2.2</version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
 <doc>A test library providing communication over Telnet connections.
@@ -254,7 +254,7 @@ False examples:
 
 Considering string ``NONE`` false is new in Robot Framework 3.0.3 and
 considering also ``OFF`` and ``0`` false is new in Robot Framework 3.1.</doc>
-<init>
+<init lineno="283">
 <arguments>
 <arg>timeout=3 seconds</arg>
 <arg>newline=CRLF</arg>
@@ -292,10 +292,8 @@ Examples (use only one of these):
 | Library     | Telnet    | prompt=(&gt; |# )           | prompt_is_regexp=yes |                     | # set prompt as a regular expression |
 | Library     | Telnet    | terminal_emulation=True  | terminal_type=vt100  | window_size=400x100 | # use terminal emulation with defined window size and terminal type |
 | Library     | Telnet    | telnetlib_log_level=NONE |                      |                     | # disable logging messages from the underlying telnetlib |</doc>
-<tags>
-</tags>
 </init>
-<kw name="Close All Connections">
+<kw name="Close All Connections" lineno="472">
 <arguments>
 </arguments>
 <doc>Closes all open connections and empties the connection cache.
@@ -307,10 +305,8 @@ by `Close Connection`.
 
 After this keyword, new indexes returned by `Open Connection`
 keyword are reset to 1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Close Connection">
+<kw name="Close Connection" lineno="689">
 <arguments>
 <arg>loglevel=None</arg>
 </arguments>
@@ -323,10 +319,8 @@ Use `Close All Connections` if you want to make sure all opened
 connections are closed.
 
 See `Logging` section for more information about log levels.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Execute Command">
+<kw name="Execute Command" lineno="1058">
 <arguments>
 <arg>command</arg>
 <arg>loglevel=None</arg>
@@ -347,10 +341,8 @@ internally. Following two examples are thus functionally identical:
 
 See `Logging` section for more information about log levels and `Read
 Until Prompt` for more information about the ``strip_prompt`` parameter.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Login">
+<kw name="Login" lineno="707">
 <arguments>
 <arg>username</arg>
 <arg>password</arg>
@@ -382,10 +374,8 @@ and also this keyword fails.
 
 See `Configuration` section for more information about setting
 newline, timeout, and prompt.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Open Connection">
+<kw name="Open Connection" lineno="364">
 <arguments>
 <arg>host</arg>
 <arg>alias=None</arg>
@@ -419,10 +409,8 @@ switch back to them using `Switch Connection` keyword. It is possible to
 switch either using explicitly given ``alias`` or using index returned
 by this keyword. Indexing starts from 1 and is reset back to it by
 `Close All Connections` keyword.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Read">
+<kw name="Read" lineno="877">
 <arguments>
 <arg>loglevel=None</arg>
 </arguments>
@@ -430,10 +418,8 @@ by this keyword. Indexing starts from 1 and is reset back to it by
 
 Read output is both returned and logged. See `Logging` section for more
 information about log levels.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Read Until">
+<kw name="Read Until" lineno="891">
 <arguments>
 <arg>expected</arg>
 <arg>loglevel=None</arg>
@@ -446,10 +432,8 @@ on the [#Configuration|configured timeout].
 
 See `Logging` section for more information about log levels. Use
 `Read Until Regexp` if more complex matching is needed.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Read Until Prompt">
+<kw name="Read Until Prompt" lineno="1013">
 <arguments>
 <arg>loglevel=None</arg>
 <arg>strip_prompt=False</arg>
@@ -470,10 +454,8 @@ whole prompt, because only the part of the output that matches the
 regular expression is stripped away.
 
 See `Logging` section for more information about log levels.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Read Until Regexp">
+<kw name="Read Until Regexp" lineno="975">
 <arguments>
 <arg>*expected</arg>
 </arguments>
@@ -498,10 +480,8 @@ Examples:
 | `Read Until Regexp` | (#|$) |
 | `Read Until Regexp` | first_regexp | second_regexp |
 | `Read Until Regexp` | \\d{4}-\\d{2}-\\d{2} | DEBUG |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Default Log Level">
+<kw name="Set Default Log Level" lineno="663">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -512,10 +492,8 @@ log level later.
 
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Encoding">
+<kw name="Set Encoding" lineno="604">
 <arguments>
 <arg>encoding=None</arg>
 <arg>errors=None</arg>
@@ -537,10 +515,8 @@ and the error handler later. See `Set Prompt` for a similar example.
 
 If terminal emulation is used, the encoding can not be changed on an open
 connection.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Newline">
+<kw name="Set Newline" lineno="542">
 <arguments>
 <arg>newline</arg>
 </arguments>
@@ -554,10 +530,8 @@ connection.
 
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Prompt">
+<kw name="Set Prompt" lineno="565">
 <arguments>
 <arg>prompt</arg>
 <arg>prompt_is_regexp=False</arg>
@@ -582,10 +556,8 @@ test data.
 
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Telnetlib Log Level">
+<kw name="Set Telnetlib Log Level" lineno="645">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -593,10 +565,8 @@ connection specific configuration.</doc>
 
 Note that ``telnetlib`` can be very noisy thus using the level ``NONE``
 can shutdown the messages generated by this library.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Timeout">
+<kw name="Set Timeout" lineno="516">
 <arguments>
 <arg>timeout</arg>
 </arguments>
@@ -616,10 +586,8 @@ Example:
 
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Switch Connection">
+<kw name="Switch Connection" lineno="436">
 <arguments>
 <arg>index_or_alias</arg>
 </arguments>
@@ -653,10 +621,8 @@ shown below.
 | ${index} =          | `Open Connection` | myhost.net |
 | `Do Something`      |                   |            |
 | `Switch Connection` | ${index}          |            |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write">
+<kw name="Write" lineno="762">
 <arguments>
 <arg>text</arg>
 <arg>loglevel=None</arg>
@@ -676,10 +642,8 @@ command. To get the output, one of the `Read ...` `keywords` must be
 used. See `Writing and reading` section for more details.
 
 See `Logging` section for more information about log levels.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write Bare">
+<kw name="Write Bare" lineno="792">
 <arguments>
 <arg>text</arg>
 </arguments>
@@ -687,10 +651,8 @@ See `Logging` section for more information about log levels.</doc>
 
 This keyword does not append a newline nor consume the written text.
 Use `Write` if these features are needed.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write Control Character">
+<kw name="Write Control Character" lineno="838">
 <arguments>
 <arg>character</arg>
 </arguments>
@@ -706,10 +668,8 @@ control character.
 Example:
 | Write Control Character | BRK | # Send Break command |
 | Write Control Character | 241 | # Send No operation command |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Write Until Expected Output">
+<kw name="Write Until Expected Output" lineno="801">
 <arguments>
 <arg>text</arg>
 <arg>expected</arg>
@@ -738,7 +698,5 @@ The above example writes command ``ps -ef | grep myprocess\r\n`` until
 ``myprocess`` appears in the output. The command is written every 0.5
 seconds and the keyword fails if ``myprocess`` does not appear in
 the output in 5 seconds.</doc>
-<tags>
-</tags>
 </kw>
 </keywordspec>

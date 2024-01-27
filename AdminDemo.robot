@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary        
+Library    SeleniumLibrary    run_on_failure=No operation       
 Library    OperatingSystem    
 Library    String
 Library    Dialogs
@@ -73,6 +73,7 @@ Open Url    [Arguments]    ${url}
     Run Keyword If    '${BROWSER}'=='Chrome'    Open Chrome
     Go To   ${url}
     Maximize Browser Window
+    Sleep    1s        
     
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
@@ -81,7 +82,7 @@ Open Chrome
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
     ${var}=     Call Method     ${chrome_options}    to_capabilities 
-    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    #executable_path=${CHROME_DRIVER_PATH}
+    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    executable_path=${CHROME_DRIVER_PATH}
 
 Set Locators From Json    [Arguments]    ${pJsonFile}   
     ${readJson}    Get File    ${CURDIR}${/}Files${/}${pJsonFile} 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="BuiltIn" type="library" format="ROBOT" generated="20190914 14:57:50">
-<version>3.1.2</version>
+<keywordspec name="BuiltIn" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2024-01-25T02:19:13Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\BuiltIn.py" lineno="3296">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>An always available standard library with often needed keywords.
@@ -34,21 +34,39 @@ error message.
 = Evaluating expressions =
 
 Many keywords, such as `Evaluate`, `Run Keyword If` and `Should Be True`,
-accept an expression that is evaluated in Python. These expressions are
-evaluated using Python's
+accept an expression that is evaluated in Python.
+
+== Evaluation namespace ==
+
+Expressions are evaluated using Python's
 [http://docs.python.org/library/functions.html#eval|eval] function so
 that all Python built-ins like ``len()`` and ``int()`` are available.
-`Evaluate` allows configuring the execution namespace with custom modules,
-and other keywords have [http://docs.python.org/library/os.html|os]
-and [http://docs.python.org/library/sys.html|sys] modules available
-automatically.
+In addition to that, all unrecognized variables are considered to be
+modules that are automatically imported. It is possible to use all
+available Python modules, including the standard modules and the installed
+third party modules.
 
 Examples:
-| `Run Keyword If` | os.sep == '/' | Log                  | Not on Windows |
-| ${random int} =  | `Evaluate`    | random.randint(0, 5) | modules=random |
+| `Should Be True`   | len('${result}') &gt; 3 |
+| `Run Keyword If`   | os.sep == '/'        | Non-Windows Keyword  |
+| ${robot version} = | `Evaluate`           | robot.__version__    |
+
+`Evaluate` also allows configuring the execution namespace with a custom
+namespace and with custom modules to be imported. The latter functionality
+is useful when using nested modules like ``rootmod.submod`` that are
+implemented so that the root module does not automatically import sub
+modules. Otherwise the automatic module import mechanism described earlier
+is enough to get the needed modules imported.
+
+*NOTE:* Automatic module import is a new feature in Robot Framework 3.2.
+Earlier modules needed to be explicitly taken into use when using the
+`Evaluate` keyword and other keywords only had access to ``sys`` and
+``os`` modules.
+
+== Using variables ==
 
 When a variable is used in the expressing using the normal ``${variable}``
-syntax, its value is replaces before the expression is evaluated. This
+syntax, its value is replaced before the expression is evaluated. This
 means that the value used in the expression will be the string
 representation of the variable value, not the variable value itself.
 This is not a problem with numbers and other objects that have a string
@@ -62,17 +80,16 @@ Examples:
 | `Run Keyword If` | '${status}' == 'PASS'     | Log | Passed                |
 | `Run Keyword If` | 'FAIL' in '''${output}''' | Log | Output contains FAIL  |
 
-Starting from Robot Framework 2.9, variables themselves are automatically
-available in the evaluation namespace. They can be accessed using special
-variable syntax without the curly braces like ``$variable``. These
-variables should never be quoted, and in fact they are not even replaced
-inside strings.
+Actual variables values are also available in the evaluation namespace.
+They can be accessed using special variable syntax without the curly
+braces like ``$variable``. These variables should never be quoted.
 
 Examples:
 | `Should Be True` | $rc &lt; 10          | Return code greater than 10  |
 | `Run Keyword If` | $status == 'PASS' | `Log` | Passed               |
 | `Run Keyword If` | 'FAIL' in $output | `Log` | Output contains FAIL |
 | `Should Be True` | len($result) &gt; 1 and $result[1] == 'OK' |
+| `Should Be True` | $result is not None                     |
 
 Using the ``$variable`` syntax slows down expression evaluation a little.
 This should not typically matter, but should be taken into account if
@@ -133,7 +150,7 @@ Unlike with glob patterns normally, path separator characters ``/`` and
 wildcards.
 
 Support for brackets like ``[abc]`` and ``[!a-z]`` is new in
-Robot Framework 3.1
+Robot Framework 3.1.
 
 == Regular expressions ==
 
@@ -154,8 +171,7 @@ as literal strings, can be escaped with the `Regexp Escape` keyword.
 
 `Should Be Equal` and `Should Be Equal As Strings` report the failures using
 [http://en.wikipedia.org/wiki/Diff_utility#Unified_format|unified diff
-format] if both strings have more than two lines. New in Robot Framework
-2.9.1.
+format] if both strings have more than two lines.
 
 Example:
 | ${first} =  | `Catenate` | SEPARATOR=\n | Not in second | Same | Differs | Same |
@@ -254,7 +270,7 @@ but with the following differences:
   strings get the ``u`` prefix and no ``b`` prefix is added to byte
   strings.
 - Containers are not pretty-printed.</doc>
-<kw name="Call Method">
+<kw name="Call Method" lineno="3042">
 <arguments>
 <arg>object</arg>
 <arg>method_name</arg>
@@ -268,9 +284,8 @@ assigned to a variable. Keyword fails both if the object does not have
 a method with the given name or if executing the method raises an
 exception.
 
-Support for ``**kwargs`` is new in Robot Framework 2.9. Since that
-possible equal signs in other arguments must be escaped with a
-backslash like ``\=``.
+Possible equal signs in arguments must be escaped with a backslash
+like ``\=``.
 
 Examples:
 | Call Method      | ${hashtable} | put          | myname  | myvalue |
@@ -280,10 +295,8 @@ Examples:
 | Should Be Equal  | ${value}     | myvalue      |         |         |
 | Call Method      | ${object}    | kwargs    | name=value | foo=bar |
 | Call Method      | ${object}    | positional   | escaped\=equals  |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Catenate">
+<kw name="Catenate" lineno="2574">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -301,10 +314,8 @@ Examples:
 | ${str1} = 'Hello world'
 | ${str2} = 'Hello---world'
 | ${str3} = 'Helloworld'</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Comment">
+<kw name="Comment" lineno="2723">
 <arguments>
 <arg>*messages</arg>
 </arguments>
@@ -315,10 +326,8 @@ are visible in the log, this keyword can be used to display simple
 messages. Given arguments are ignored so thoroughly that they can even
 contain non-existing variables. If you are interested about variable
 values, you can use the `Log` or `Log Many` keywords.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Continue For Loop">
+<kw name="Continue For Loop" lineno="2270">
 <arguments>
 </arguments>
 <doc>Skips the current for loop iteration and continues from the next.
@@ -328,16 +337,15 @@ continues from the next one. Can be used directly in a for loop or
 in a keyword that the loop uses.
 
 Example:
-| :FOR | ${var}         | IN                     | @{VALUES}         |
-|      | Run Keyword If | '${var}' == 'CONTINUE' | Continue For Loop |
-|      | Do Something   | ${var}                 |
+| FOR | ${var}         | IN                     | @{VALUES}         |
+|     | Run Keyword If | '${var}' == 'CONTINUE' | Continue For Loop |
+|     | Do Something   | ${var}                 |
+| END |
 
 See `Continue For Loop If` to conditionally continue a for loop without
 using `Run Keyword If` or other wrapper keywords.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Continue For Loop If">
+<kw name="Continue For Loop If" lineno="2289">
 <arguments>
 <arg>condition</arg>
 </arguments>
@@ -348,13 +356,12 @@ the given condition. The condition is evaluated using the same
 semantics as with `Should Be True` keyword.
 
 Example:
-| :FOR | ${var}               | IN                     | @{VALUES} |
-|      | Continue For Loop If | '${var}' == 'CONTINUE' |
-|      | Do Something         | ${var}                 |</doc>
-<tags>
-</tags>
+| FOR | ${var}               | IN                     | @{VALUES} |
+|     | Continue For Loop If | '${var}' == 'CONTINUE' |
+|     | Do Something         | ${var}                 |
+| END |</doc>
 </kw>
-<kw name="Convert To Binary">
+<kw name="Convert To Binary" lineno="168">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -379,10 +386,8 @@ Examples:
 | ${result} = | Convert To Binary | -2 | prefix=B | length=4 | # Result is -B0010 |
 
 See also `Convert To Integer`, `Convert To Octal` and `Convert To Hex`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Boolean">
+<kw name="Convert To Boolean" lineno="321">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -392,10 +397,8 @@ Handles strings ``True`` and ``False`` (case-insensitive) as expected,
 otherwise returns item's
 [http://docs.python.org/library/stdtypes.html#truth|truth value]
 using Python's ``bool()`` method.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Bytes">
+<kw name="Convert To Bytes" lineno="337">
 <arguments>
 <arg>input</arg>
 <arg>input_type=text</arg>
@@ -442,10 +445,8 @@ Examples (last column shows returned bytes):
 
 Use `Encode String To Bytes` in ``String`` library if you need to
 convert text to bytes using a certain encoding.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Hex">
+<kw name="Convert To Hex" lineno="212">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -475,10 +476,8 @@ Examples:
 | ${result} = | Convert To Hex | 255 | prefix=X | lowercase=yes | # Result is Xff   |
 
 See also `Convert To Integer`, `Convert To Binary` and `Convert To Octal`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Integer">
+<kw name="Convert To Integer" lineno="105">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -507,10 +506,8 @@ Examples:
 
 See also `Convert To Number`, `Convert To Binary`, `Convert To Octal`,
 `Convert To Hex`, and `Convert To Bytes`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Number">
+<kw name="Convert To Number" lineno="251">
 <arguments>
 <arg>item</arg>
 <arg>precision=None</arg>
@@ -543,10 +540,8 @@ you can implement custom keywords using Python's
 [http://docs.python.org/library/fractions.html|fractions] modules.
 
 If you need an integer number, use `Convert To Integer` instead.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To Octal">
+<kw name="Convert To Octal" lineno="190">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -571,10 +566,8 @@ Examples:
 | ${result} = | Convert To Octal | 16 | prefix=oct | length=4 | # Result is oct0020 |
 
 See also `Convert To Integer`, `Convert To Binary` and `Convert To Hex`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert To String">
+<kw name="Convert To String" lineno="304">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -587,10 +580,8 @@ Use `Encode String To Bytes` and `Decode Bytes To String` keywords
 in ``String`` library if you need to convert between Unicode and byte
 strings using different encodings. Use `Convert To Bytes` if you just
 want to create byte strings.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Create Dictionary">
+<kw name="Create Dictionary" lineno="445">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -622,18 +613,9 @@ Examples:
 | Should Be Equal | ${dict} | ${dict2} |
 | &amp;{dict} = | Create Dictionary | ${1}=${2} | &amp;{dict} | foo=new | | # using variables |
 | Should Be True | ${dict} == {1: 2, 'key': 'value', 'foo': 'new'} |
-| Should Be Equal | ${dict.key} | value | | | | # dot-access |
-
-This keyword was changed in Robot Framework 2.9 in many ways:
-- Moved from the Collections library to BuiltIn.
-- Support also non-string keys in ``key=value`` syntax.
-- Returned dictionary is ordered and dot-accessible (i.e. ``DotDict``).
-- Old syntax to give keys and values separately was deprecated, but
-  deprecation was later removed in RF 3.0.1.</doc>
-<tags>
-</tags>
+| Should Be Equal | ${dict.key} | value | | | | # dot-access |</doc>
 </kw>
-<kw name="Create List">
+<kw name="Create List" lineno="431">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -646,19 +628,17 @@ Examples:
 | @{list} =   | Create List | a    | b    | c    |
 | ${scalar} = | Create List | a    | b    | c    |
 | ${ints} =   | Create List | ${1} | ${2} | ${3} |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Evaluate">
+<kw name="Evaluate" lineno="2993">
 <arguments>
 <arg>expression</arg>
 <arg>modules=None</arg>
 <arg>namespace=None</arg>
 </arguments>
-<doc>Evaluates the given expression in Python and returns the results.
+<doc>Evaluates the given expression in Python and returns the result.
 
-``expression`` is evaluated in Python as explained in `Evaluating
-expressions`.
+``expression`` is evaluated in Python as explained in the
+`Evaluating expressions` section.
 
 ``modules`` argument can be used to specify a comma separated
 list of Python modules to be imported and added to the evaluation
@@ -668,26 +648,36 @@ namespace.
 namespace as a dictionary. Possible ``modules`` are added to this
 namespace.
 
+Starting from Robot Framework 3.2, modules used in the expression are
+imported automatically. ``modules`` argument is still needed with
+nested modules like ``rootmod.submod`` that are implemented so that
+the root module does not automatically import sub modules. This is
+illustrated by the ``selenium.webdriver`` example below.
+
 Variables used like ``${variable}`` are replaced in the expression
 before evaluation. Variables are also available in the evaluation
-namespace and can be accessed using special syntax ``$variable``.
-This is a new feature in Robot Framework 2.9 and it is explained more
-thoroughly in `Evaluating expressions`.
+namespace and can be accessed using the special ``$variable`` syntax
+as explained in the `Evaluating expressions` section.
 
-Examples (expecting ``${result}`` is 3.14):
-| ${status} = | Evaluate | 0 &lt; ${result} &lt; 10 | # Would also work with string '3.14' |
-| ${status} = | Evaluate | 0 &lt; $result &lt; 10   | # Using variable itself, not string representation |
-| ${random} = | Evaluate | random.randint(0, sys.maxint) | modules=random, sys |
-| ${ns} =     | Create Dictionary | x=${4}    | y=${2}              |
-| ${result} = | Evaluate | x*10 + y           | namespace=${ns}     |
+Examples (expecting ``${result}`` is number 3.14):
+| ${status} =  | Evaluate | 0 &lt; ${result} &lt; 10 | # Would also work with string '3.14' |
+| ${status} =  | Evaluate | 0 &lt; $result &lt; 10   | # Using variable itself, not string representation |
+| ${random} =  | Evaluate | random.randint(0, sys.maxsize) |
+| ${options} = | Evaluate | selenium.webdriver.ChromeOptions() | modules=selenium.webdriver |
+| ${ns} =      | Create Dictionary | x=${4}    | y=${2}              |
+| ${result} =  | Evaluate | x*10 + y           | namespace=${ns}     |
 =&gt;
 | ${status} = True
 | ${random} = &lt;random integer&gt;
-| ${result} = 42</doc>
-<tags>
-</tags>
+| ${options} = ChromeOptions instance
+| ${result} = 42
+
+*NOTE*: Prior to Robot Framework 3.2 using ``modules=rootmod.submod``
+was not enough to make the root module itself available in the
+evaluation namespace. It needed to be taken into use explicitly like
+``modules=rootmod, rootmod.submod``.</doc>
 </kw>
-<kw name="Exit For Loop">
+<kw name="Exit For Loop" lineno="2305">
 <arguments>
 </arguments>
 <doc>Stops executing the enclosing for loop.
@@ -696,16 +686,15 @@ Exits the enclosing for loop and continues execution after it.
 Can be used directly in a for loop or in a keyword that the loop uses.
 
 Example:
-| :FOR | ${var}         | IN                 | @{VALUES}     |
-|      | Run Keyword If | '${var}' == 'EXIT' | Exit For Loop |
-|      | Do Something   | ${var} |
+| FOR | ${var}         | IN                 | @{VALUES}     |
+|     | Run Keyword If | '${var}' == 'EXIT' | Exit For Loop |
+|     | Do Something   | ${var} |
+| END |
 
 See `Exit For Loop If` to conditionally exit a for loop without
 using `Run Keyword If` or other wrapper keywords.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Exit For Loop If">
+<kw name="Exit For Loop If" lineno="2323">
 <arguments>
 <arg>condition</arg>
 </arguments>
@@ -716,13 +705,12 @@ the given condition. The condition is evaluated using the same
 semantics as with `Should Be True` keyword.
 
 Example:
-| :FOR | ${var}           | IN                 | @{VALUES} |
-|      | Exit For Loop If | '${var}' == 'EXIT' |
-|      | Do Something     | ${var}             |</doc>
-<tags>
-</tags>
+| FOR | ${var}           | IN                 | @{VALUES} |
+|     | Exit For Loop If | '${var}' == 'EXIT' |
+|     | Do Something     | ${var}             |
+| END |</doc>
 </kw>
-<kw name="Fail">
+<kw name="Fail" lineno="509">
 <arguments>
 <arg>msg=None</arg>
 <arg>*tags</arg>
@@ -748,10 +736,8 @@ Examples:
 | Fail | My message       | tag    | -t*  | # Removes all tags starting with 't' except the newly added 'tag'. |
 
 See `Fatal Error` if you need to stop the whole test execution.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Fatal Error">
+<kw name="Fatal Error" lineno="535">
 <arguments>
 <arg>msg=None</arg>
 </arguments>
@@ -762,15 +748,13 @@ message, and subsequent tests fail with a canned message.
 Possible teardowns will nevertheless be executed.
 
 See `Fail` if you only want to stop one test case unconditionally.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Count">
+<kw name="Get Count" lineno="1074">
 <arguments>
-<arg>item1</arg>
-<arg>item2</arg>
+<arg>container</arg>
+<arg>item</arg>
 </arguments>
-<doc>Returns and logs how many times ``item2`` is found from ``item1``.
+<doc>Returns and logs how many times ``item`` is found from ``container``.
 
 This keyword works with Python strings and lists and all objects
 that either have ``count`` method or can be converted to Python lists.
@@ -778,10 +762,8 @@ that either have ``count`` method or can be converted to Python lists.
 Example:
 | ${count} = | Get Count | ${some item} | interesting value |
 | Should Be True | 5 &lt; ${count} &lt; 10 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Length">
+<kw name="Get Length" lineno="1182">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -804,10 +786,8 @@ Examples:
 
 See also `Length Should Be`, `Should Be Empty` and `Should Not Be
 Empty`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Library Instance">
+<kw name="Get Library Instance" lineno="3261">
 <arguments>
 <arg>name=None</arg>
 <arg>all=False</arg>
@@ -834,14 +814,11 @@ the instance must be that name and not the original library name.
 
 If the optional argument ``all`` is given a true value, then a
 dictionary mapping all library names to instances will be returned.
-This feature is new in Robot Framework 2.9.2.
 
 Example:
 | &amp;{all libs} = | Get library instance | all=True |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Time">
+<kw name="Get Time" lineno="2910">
 <arguments>
 <arg>format=timestamp</arg>
 <arg>time_=NOW</arg>
@@ -925,10 +902,8 @@ UTC time is 2006-03-29 12:06:21):
 | @{time} = ['16', '08', '24']
 | @{utc} = ['12', '06', '21']
 | ${hour} = '11'</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Variable Value">
+<kw name="Get Variable Value" lineno="1303">
 <arguments>
 <arg>name</arg>
 <arg>default=None</arg>
@@ -949,10 +924,8 @@ Examples:
 | ${z} is set to Python None if it does not exist previously
 
 See `Set Variable If` for another keyword to set variables dynamically.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Variables">
+<kw name="Get Variables" lineno="1274">
 <arguments>
 <arg>no_decoration=False</arg>
 </arguments>
@@ -969,8 +942,7 @@ current scope.
 By default variables are returned with ``${}``, ``@{}`` or ``&amp;{}``
 decoration based on variable types. Giving a true value (see `Boolean
 arguments`) to the optional argument ``no_decoration`` will return
-the variables without the decoration. This option is new in Robot
-Framework 2.9.
+the variables without the decoration.
 
 Example:
 | ${example_variable} =         | Set Variable | example value         |
@@ -981,10 +953,8 @@ Example:
 | Variable Should Not Exist     | \${name}    |           |           |
 | ${no decoration} =            | Get Variables | no_decoration=Yes |
 | Dictionary Should Contain Key | ${no decoration} | example_variable |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Import Library">
+<kw name="Import Library" lineno="2767">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1012,10 +982,8 @@ Examples:
 | Import Library | MyLibrary |
 | Import Library | ${CURDIR}/../Library.py | arg1 | named=arg2 |
 | Import Library | ${LIBRARIES}/Lib.java | arg | WITH NAME | JavaLib |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Import Resource">
+<kw name="Import Resource" lineno="2829">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -1034,10 +1002,8 @@ Examples:
 | Import Resource | ${CURDIR}/resource.txt |
 | Import Resource | ${CURDIR}/../resources/resource.html |
 | Import Resource | found_from_pythonpath.robot |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Import Variables">
+<kw name="Import Variables" lineno="2804">
 <arguments>
 <arg>path</arg>
 <arg>*args</arg>
@@ -1059,10 +1025,8 @@ Examples:
 | Import Variables | ${CURDIR}/variables.py   |      |      |
 | Import Variables | ${CURDIR}/../vars/env.py | arg1 | arg2 |
 | Import Variables | file_from_pythonpath.py  |      |      |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Keyword Should Exist">
+<kw name="Keyword Should Exist" lineno="2892">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -1076,10 +1040,8 @@ Works both with the short name (e.g. ``Log``) and the full name
 The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Exist`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Length Should Be">
+<kw name="Length Should Be" lineno="1230">
 <arguments>
 <arg>item</arg>
 <arg>length</arg>
@@ -1089,10 +1051,8 @@ See also `Variable Should Exist`.</doc>
 
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Log">
+<kw name="Log" lineno="2600">
 <arguments>
 <arg>message</arg>
 <arg>level=INFO</arg>
@@ -1150,10 +1110,8 @@ Examples:
 
 See `Log Many` if you want to log multiple messages in one go, and
 `Log To Console` if you only want to write to the console.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Log Many">
+<kw name="Log Many" lineno="2672">
 <arguments>
 <arg>*messages</arg>
 </arguments>
@@ -1167,10 +1125,8 @@ Examples:
 
 See `Log` and `Log To Console` keywords if you want to use alternative
 log levels, use HTML, or log to the console.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Log To Console">
+<kw name="Log To Console" lineno="2700">
 <arguments>
 <arg>message</arg>
 <arg>stream=STDOUT</arg>
@@ -1194,25 +1150,19 @@ Examples:
 
 This keyword does not log the message to the normal log file. Use
 `Log` keyword, possibly with argument ``console``, if that is desired.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Log Variables">
+<kw name="Log Variables" lineno="1326">
 <arguments>
 <arg>level=INFO</arg>
 </arguments>
 <doc>Logs all variables in the current scope with given log level.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="No Operation">
+<kw name="No Operation" lineno="2536">
 <arguments>
 </arguments>
 <doc>Does absolutely nothing.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Pass Execution">
+<kw name="Pass Execution" lineno="2462">
 <arguments>
 <arg>message</arg>
 <arg>*tags</arg>
@@ -1258,10 +1208,8 @@ used with care. In the worst case it leads to tests that skip all the
 parts that could actually uncover problems in the tested application.
 In cases where execution cannot continue do to external factors,
 it is often safer to fail the test case and make it non-critical.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Pass Execution If">
+<kw name="Pass Execution If" lineno="2514">
 <arguments>
 <arg>condition</arg>
 <arg>message</arg>
@@ -1275,13 +1223,12 @@ evaluated similarly as with `Should Be True` keyword, and ``message``
 and ``*tags`` have same semantics as with `Pass Execution`.
 
 Example:
-| :FOR | ${var}            | IN                     | @{VALUES}               |
-|      | Pass Execution If | '${var}' == 'EXPECTED' | Correct value was found |
-|      | Do Something      | ${var}                 |</doc>
-<tags>
-</tags>
+| FOR | ${var}            | IN                     | @{VALUES}               |
+|     | Pass Execution If | '${var}' == 'EXPECTED' | Correct value was found |
+|     | Do Something      | ${var}                 |
+| END |</doc>
 </kw>
-<kw name="Regexp Escape">
+<kw name="Regexp Escape" lineno="3073">
 <arguments>
 <arg>*patterns</arg>
 </arguments>
@@ -1295,10 +1242,8 @@ Escaping is done with Python's ``re.escape()`` function.
 Examples:
 | ${escaped} = | Regexp Escape | ${original} |
 | @{strings} = | Regexp Escape | @{strings}  |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Reload Library">
+<kw name="Reload Library" lineno="2752">
 <arguments>
 <arg>name_or_instance</arg>
 </arguments>
@@ -1309,13 +1254,9 @@ when keywords it provides have changed.
 
 The library can be specified by its name or as the active instance of
 the library. The latter is especially useful if the library itself
-calls this keyword as a method.
-
-New in Robot Framework 2.9.</doc>
-<tags>
-</tags>
+calls this keyword as a method.</doc>
 </kw>
-<kw name="Remove Tags">
+<kw name="Remove Tags" lineno="3233">
 <arguments>
 <arg>*tags</arg>
 </arguments>
@@ -1335,10 +1276,8 @@ Example:
 
 See `Set Tags` if you want to add certain tags and `Fail` if you want
 to fail the test case after setting and/or removing tags.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Repeat Keyword">
+<kw name="Repeat Keyword" lineno="1958">
 <arguments>
 <arg>repeat</arg>
 <arg>name</arg>
@@ -1370,10 +1309,8 @@ Examples:
 | Repeat Keyword | 2 minutes | Some Keyword | arg1 | arg2 |
 
 Specifying ``repeat`` as a timeout is new in Robot Framework 3.0.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Replace Variables">
+<kw name="Replace Variables" lineno="1389">
 <arguments>
 <arg>text</arg>
 </arguments>
@@ -1392,10 +1329,8 @@ The file ``template.txt`` contains ``Hello ${NAME}!`` and variable
 | ${template} =   | Get File          | ${CURDIR}/template.txt |
 | ${message} =    | Replace Variables | ${template}            |
 | Should Be Equal | ${message}        | Hello Robot!           |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Return From Keyword">
+<kw name="Return From Keyword" lineno="2340">
 <arguments>
 <arg>*return_values</arg>
 </arguments>
@@ -1433,18 +1368,17 @@ logic into a test library.
 | Find Index
 |    [Arguments]    ${element}    @{items}
 |    ${index} =    Set Variable    ${0}
-|    :FOR    ${item}    IN    @{items}
-|    \    Run Keyword If    '${item}' == '${element}'    Return From Keyword    ${index}
-|    \    ${index} =    Set Variable    ${index + 1}
+|    FOR    ${item}    IN    @{items}
+|        Run Keyword If    '${item}' == '${element}'    Return From Keyword    ${index}
+|        ${index} =    Set Variable    ${index + 1}
+|    END
 |    Return From Keyword    ${-1}    # Also [Return] would work here.
 
 The most common use case, returning based on an expression, can be
 accomplished directly with `Return From Keyword If`. See also
 `Run Keyword And Return` and `Run Keyword And Return If`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Return From Keyword If">
+<kw name="Return From Keyword If" lineno="2392">
 <arguments>
 <arg>condition</arg>
 <arg>*return_values</arg>
@@ -1462,16 +1396,15 @@ Given the same example as in `Return From Keyword`, we can rewrite the
 | Find Index
 |    [Arguments]    ${element}    @{items}
 |    ${index} =    Set Variable    ${0}
-|    :FOR    ${item}    IN    @{items}
-|    \    Return From Keyword If    '${item}' == '${element}'    ${index}
-|    \    ${index} =    Set Variable    ${index + 1}
+|    FOR    ${item}    IN    @{items}
+|        Return From Keyword If    '${item}' == '${element}'    ${index}
+|        ${index} =    Set Variable    ${index + 1}
+|    END
 |    Return From Keyword    ${-1}    # Also [Return] would work here.
 
 See also `Run Keyword And Return` and `Run Keyword And Return If`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword">
+<kw name="Run Keyword" lineno="1641">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1481,10 +1414,8 @@ See also `Run Keyword And Return` and `Run Keyword And Return If`.</doc>
 Because the name of the keyword to execute is given as an argument, it
 can be a variable and thus set dynamically, e.g. from a return value of
 another keyword or from the command line.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword And Continue On Failure">
+<kw name="Run Keyword And Continue On Failure" lineno="1871">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1498,12 +1429,9 @@ Example:
 | Log | This keyword is executed |
 
 The execution is not continued if the failure is caused by invalid syntax,
-timeout, or fatal exception.
-Since Robot Framework 2.9, variable errors are caught by this keyword.</doc>
-<tags>
-</tags>
+timeout, or fatal exception.</doc>
 </kw>
-<kw name="Run Keyword And Expect Error">
+<kw name="Run Keyword And Expect Error" lineno="1891">
 <arguments>
 <arg>expected_error</arg>
 <arg>name</arg>
@@ -1546,12 +1474,9 @@ Examples:
 | Log To Console | ${msg} |
 
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
-caught by this keyword.
-Since Robot Framework 2.9, variable errors are caught by this keyword.</doc>
-<tags>
-</tags>
+caught by this keyword.</doc>
 </kw>
-<kw name="Run Keyword And Ignore Error">
+<kw name="Run Keyword And Ignore Error" lineno="1827">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1568,12 +1493,9 @@ The keyword name and arguments work as in `Run Keyword`. See
 `Run Keyword If` for a usage example.
 
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
-caught by this keyword. Otherwise this keyword itself never fails.
-Since Robot Framework 2.9, variable errors are caught by this keyword.</doc>
-<tags>
-</tags>
+caught by this keyword. Otherwise this keyword itself never fails.</doc>
 </kw>
-<kw name="Run Keyword And Return">
+<kw name="Run Keyword And Return" lineno="2418">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1594,10 +1516,8 @@ Example:
 
 Use `Run Keyword And Return If` if you want to run keyword and return
 based on a condition.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword And Return If">
+<kw name="Run Keyword And Return If" lineno="2444">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1616,10 +1536,8 @@ Example:
 
 Use `Return From Keyword If` if you want to return a certain value
 based on a condition.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword And Return Status">
+<kw name="Run Keyword And Return Status" lineno="1850">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1639,10 +1557,8 @@ Example:
 
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
 caught by this keyword. Otherwise this keyword itself never fails.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If">
+<kw name="Run Keyword If" lineno="1724">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1666,8 +1582,8 @@ And Ignore Error` you can also use `Run Keyword And Return Status`.
 Variables used like ``${variable}``, as in the examples above, are
 replaced in the expression before evaluation. Variables are also
 available in the evaluation namespace and can be accessed using special
-syntax ``$variable``. This is a new feature in Robot Framework 2.9
-and it is explained more thoroughly in `Evaluating expressions`.
+syntax ``$variable`` as explained in the `Evaluating expressions`
+section.
 
 Example:
 | `Run Keyword If` | $result is None or $result == 'FAIL' | `Keyword` |
@@ -1715,10 +1631,8 @@ Attributes they contain can thus be used in the condition:
 | `Run Keyword If` | os.sep == '/' | `Unix Keyword`        |
 | ...              | ELSE IF       | sys.platform.startswith('java') | `Jython Keyword` |
 | ...              | ELSE          | `Windows Keyword`     |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If All Critical Tests Passed">
+<kw name="Run Keyword If All Critical Tests Passed" lineno="2204">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1730,10 +1644,8 @@ any other place will result in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If All Tests Passed">
+<kw name="Run Keyword If All Tests Passed" lineno="2234">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1745,10 +1657,8 @@ anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If Any Critical Tests Failed">
+<kw name="Run Keyword If Any Critical Tests Failed" lineno="2219">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1760,10 +1670,8 @@ anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If Any Tests Failed">
+<kw name="Run Keyword If Any Tests Failed" lineno="2248">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1775,10 +1683,8 @@ anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword If Test Failed">
+<kw name="Run Keyword If Test Failed" lineno="2155">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1789,14 +1695,9 @@ This keyword can only be used in a test teardown. Trying to use it
 anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
-documentation for more details.
-
-Prior to Robot Framework 2.9 failures in test teardown itself were
-not detected by this keyword.</doc>
-<tags>
-</tags>
+documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Test Passed">
+<kw name="Run Keyword If Test Passed" lineno="2169">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1807,14 +1708,9 @@ This keyword can only be used in a test teardown. Trying to use it
 anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
-documentation for more details.
-
-Prior to Robot Framework 2.9 failures in test teardown itself were
-not detected by this keyword.</doc>
-<tags>
-</tags>
+documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Timeout Occurred">
+<kw name="Run Keyword If Timeout Occurred" lineno="2183">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1826,10 +1722,8 @@ anywhere else results in an error.
 
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keyword Unless">
+<kw name="Run Keyword Unless" lineno="1816">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1840,10 +1734,8 @@ documentation for more details.</doc>
 See `Run Keyword If` for more information and an example. Notice that
 this keyword does not support ``ELSE`` or ``ELSE IF`` branches like
 `Run Keyword If` does, though.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Keywords">
+<kw name="Run Keywords" lineno="1654">
 <arguments>
 <arg>*keywords</arg>
 </arguments>
@@ -1876,10 +1768,8 @@ Notice that the ``AND`` control argument must be used explicitly and
 cannot itself come from a variable. If you need to use literal ``AND``
 string as argument, you can either use variables or escape it with
 a backslash like ``\AND``.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Global Variable">
+<kw name="Set Global Variable" lineno="1561">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -1899,10 +1789,8 @@ Because this keyword can change variables everywhere, it should be
 used with care.
 
 See `Set Suite Variable` for more information and examples.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Library Search Order">
+<kw name="Set Library Search Order" lineno="2851">
 <arguments>
 <arg>*search_order</arg>
 </arguments>
@@ -1943,10 +1831,40 @@ or extensions like:
 - The old order is returned and can be used to reset the search order later.
 - Library and resource names in the search order are both case and space
   insensitive.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Log Level">
+<kw name="Set Local Variable" lineno="1436">
+<arguments>
+<arg>name</arg>
+<arg>*values</arg>
+</arguments>
+<doc>Makes a variable available everywhere within the local scope.
+
+Variables set with this keyword are available within the
+local scope of the currently executed test case or in the local scope
+of the keyword in which they are defined. For example, if you set a
+variable in a user keyword, it is available only in that keyword. Other
+test cases or keywords will not see variables set with this keyword.
+
+This keyword is equivalent to a normal variable assignment based on a
+keyword return value.
+
+Example:
+| @{list} =          | Create List | item1     | item2     | item3     |
+
+is equivalent with
+
+| Set Local Variable | @{list} | item1    | item2    | item3    |
+
+This keyword will provide the option of setting local variables inside keywords
+like `Run Keyword If`, `Run Keyword And Return If`, `Run Keyword Unless`
+which until now was not possible by using `Set Variable`.
+
+It will also be possible to use this keyword from external libraries
+that want to set local variables.
+
+New in Robot Framework 3.2.</doc>
+</kw>
+<kw name="Set Log Level" lineno="2734">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -1958,10 +1876,8 @@ INFO, but it can be overridden with the command line option
 
 The available levels: TRACE, DEBUG, INFO (default), WARN, ERROR and NONE (no
 logging).</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Suite Documentation">
+<kw name="Set Suite Documentation" lineno="3163">
 <arguments>
 <arg>doc</arg>
 <arg>append=False</arg>
@@ -1980,10 +1896,8 @@ instead.
 
 The documentation of the current suite is available as a built-in
 variable ``${SUITE DOCUMENTATION}``.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Suite Metadata">
+<kw name="Set Suite Metadata" lineno="3184">
 <arguments>
 <arg>name</arg>
 <arg>value</arg>
@@ -2003,10 +1917,8 @@ arguments`), the metadata of the top level suite is altered instead.
 The metadata of the current suite is available as a built-in variable
 ``${SUITE METADATA}`` in a Python dictionary. Notice that modifying this
 variable directly has no effect on the actual metadata the suite has.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Suite Variable">
+<kw name="Set Suite Variable" lineno="1496">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -2019,11 +1931,11 @@ keyword thus has the same effect as creating them using the Variable
 table in the test data file or importing them from variable files.
 
 Possible child test suites do not see variables set with this keyword
-by default. Starting from Robot Framework 2.9, that can be controlled
-by using ``children=&lt;option&gt;`` as the last argument. If the specified
-``&lt;option&gt;`` is a non-empty string or any other value considered true
-in Python, the variable is set also to the child suites. Parent and
-sibling suites will never see variables set with this keyword.
+by default, but that can be controlled by using ``children=&lt;option&gt;``
+as the last argument. If the specified ``&lt;option&gt;`` given a true value
+(see `Boolean arguments`), the variable is set also to the child
+suites. Parent and sibling suites will never see variables set with
+this keyword.
 
 The name of the variable can be given either as a normal variable name
 (e.g. ``${NAME}``) or in escaped format as ``\${NAME}`` or ``$NAME``.
@@ -2061,10 +1973,8 @@ Example:
 This limitation applies also to `Set Test Variable`, `Set Global
 Variable`, `Variable Should Exist`, `Variable Should Not Exist` and
 `Get Variable Value` keywords.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Tags">
+<kw name="Set Tags" lineno="3208">
 <arguments>
 <arg>*tags</arg>
 </arguments>
@@ -2081,10 +1991,8 @@ The current tags are available as a built-in variable ``@{TEST TAGS}``.
 
 See `Remove Tags` if you want to remove certain tags and `Fail` if
 you want to fail the test case after setting and/or removing tags.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Task Variable">
+<kw name="Set Task Variable" lineno="1487">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -2093,10 +2001,8 @@ you want to fail the test case after setting and/or removing tags.</doc>
 
 This is an alias for `Set Test Variable` that is more applicable when
 creating tasks, not tests. New in RF 3.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Test Documentation">
+<kw name="Set Test Documentation" lineno="3144">
 <arguments>
 <arg>doc</arg>
 <arg>append=False</arg>
@@ -2110,10 +2016,8 @@ as with `Set Test Message` keyword.
 The current test documentation is available as a built-in variable
 ``${TEST DOCUMENTATION}``. This keyword can not be used in suite
 setup or suite teardown.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Test Message">
+<kw name="Set Test Message" lineno="3091">
 <arguments>
 <arg>message</arg>
 <arg>append=False</arg>
@@ -2139,10 +2043,8 @@ Examples:
 | Set Test Message | `*`HTML`*` &lt;b&gt;Hello!&lt;/b&gt; |                      |
 
 This keyword can not be used in suite setup or suite teardown.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Test Variable">
+<kw name="Set Test Variable" lineno="1470">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -2156,10 +2058,8 @@ and also in all other user keywords used in the current test. Other
 test cases will not see variables set with this keyword.
 
 See `Set Suite Variable` for more information and examples.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Variable">
+<kw name="Set Variable" lineno="1408">
 <arguments>
 <arg>*values</arg>
 </arguments>
@@ -2181,10 +2081,8 @@ Variables created with this keyword are available only in the
 scope where they are created. See `Set Global Variable`,
 `Set Test Variable` and `Set Suite Variable` for information on how to
 set variables so that they are available also in a larger scope.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Set Variable If">
+<kw name="Set Variable If" lineno="2097">
 <arguments>
 <arg>condition</arg>
 <arg>*values</arg>
@@ -2226,10 +2124,8 @@ conditions without a limit.
 
 Use `Get Variable Value` if you need to set variables
 dynamically based on whether a variable exist or not.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be Empty">
+<kw name="Should Be Empty" lineno="1242">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -2238,10 +2134,8 @@ dynamically based on whether a variable exist or not.</doc>
 
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be Equal">
+<kw name="Should Be Equal" lineno="598">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2278,10 +2172,8 @@ Examples:
 
 ``ignore_case`` and ``formatter`` are new features in Robot Framework
 3.0.1 and 3.1.2, respectively.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be Equal As Integers">
+<kw name="Should Be Equal As Integers" lineno="702">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2301,10 +2193,8 @@ Examples:
 | Should Be Equal As Integers | 42   | ${42} | Error message |
 | Should Be Equal As Integers | ABCD | abcd  | base=16 |
 | Should Be Equal As Integers | 0b1011 | 11  |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be Equal As Numbers">
+<kw name="Should Be Equal As Numbers" lineno="739">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2342,10 +2232,8 @@ you can implement custom keywords using Python's
 See `Should Not Be Equal As Numbers` for a negative version of this
 keyword and `Should Be Equal` for an explanation on how to override
 the default error message with ``msg`` and ``values``.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be Equal As Strings">
+<kw name="Should Be Equal As Strings" lineno="800">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2368,10 +2256,8 @@ NFC normalized].
 
 ``ignore_case`` and ``formatter`` are new features in Robot Framework
 3.0.1 and 3.1.2, respectively.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Be True">
+<kw name="Should Be True" lineno="557">
 <arguments>
 <arg>condition</arg>
 <arg>msg=None</arg>
@@ -2395,9 +2281,9 @@ Examples:
 
 Variables used like ``${variable}``, as in the examples above, are
 replaced in the expression before evaluation. Variables are also
-available in the evaluation namespace and can be accessed using special
-syntax ``$variable``. This is a new feature in Robot Framework 2.9
-and it is explained more thoroughly in `Evaluating expressions`.
+available in the evaluation namespace, and can be accessed using
+special ``$variable`` syntax as explained in the `Evaluating
+expressions` section.
 
 Examples:
 | Should Be True | $rc &lt; 10          |
@@ -2412,10 +2298,8 @@ several useful attributes:
 | Should Be True | os.linesep == '\r\n'          | # Windows |
 | Should Be True | sys.platform == 'darwin'        | # OS X    |
 | Should Be True | sys.platform.startswith('java') | # Jython  |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Contain">
+<kw name="Should Contain" lineno="916">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -2441,10 +2325,8 @@ Examples:
 | Should Contain | ${output}    | PASS  |
 | Should Contain | ${some list} | value | msg=Failure! | values=False |
 | Should Contain | ${some list} | value | ignore_case=True |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Contain Any">
+<kw name="Should Contain Any" lineno="948">
 <arguments>
 <arg>container</arg>
 <arg>*items</arg>
@@ -2471,18 +2353,16 @@ Examples:
 | Should Contain Any | ${list}   | @{items} | msg=Custom message | values=False |
 
 New in Robot Framework 3.0.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Contain X Times">
+<kw name="Should Contain X Times" lineno="1042">
 <arguments>
-<arg>item1</arg>
-<arg>item2</arg>
+<arg>container</arg>
+<arg>item</arg>
 <arg>count</arg>
 <arg>msg=None</arg>
 <arg>ignore_case=False</arg>
 </arguments>
-<doc>Fails if ``item1`` does not contain ``item2`` ``count`` times.
+<doc>Fails if ``container`` does not contain ``item`` ``count`` times.
 
 Works with strings, lists and all objects that `Get Count` works
 with. The default error message can be overridden with ``msg`` and
@@ -2490,17 +2370,15 @@ the actual count is always logged.
 
 If ``ignore_case`` is given a true value (see `Boolean arguments`) and
 compared items are strings, it indicates that comparison should be
-case-insensitive. If the ``item1`` is a list-like object, string
+case-insensitive. If the ``container`` is a list-like object, string
 items in it are compared case-insensitively. New option in Robot
 Framework 3.0.1.
 
 Examples:
 | Should Contain X Times | ${output}    | hello | 2 |
 | Should Contain X Times | ${some list} | value | 3 | ignore_case=True |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should End With">
+<kw name="Should End With" lineno="870">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2513,10 +2391,8 @@ Examples:
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Match">
+<kw name="Should Match" lineno="1110">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2533,10 +2409,8 @@ Pattern matching is similar as matching files in a shell with
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Match Regexp">
+<kw name="Should Match Regexp" lineno="1126">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2578,10 +2452,8 @@ Examples:
 | ${match} = 'Bar: 43'
 | ${group1} = 'Bar'
 | ${group2} = '43'</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be Empty">
+<kw name="Should Not Be Empty" lineno="1251">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -2590,10 +2462,8 @@ Examples:
 
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be Equal">
+<kw name="Should Not Be Equal" lineno="665">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2609,10 +2479,8 @@ error message with ``msg`` and ``values``.
 If ``ignore_case`` is given a true value (see `Boolean arguments`) and
 both arguments are strings, comparison is done case-insensitively.
 New option in Robot Framework 3.0.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be Equal As Integers">
+<kw name="Should Not Be Equal As Integers" lineno="685">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2629,10 +2497,8 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``.
 
 See `Should Be Equal As Integers` for some usage examples.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be Equal As Numbers">
+<kw name="Should Not Be Equal As Numbers" lineno="722">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2649,10 +2515,8 @@ See `Should Be Equal As Numbers` for examples on how to use
 ``precision`` and why it does not always work as expected. See also
 `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be Equal As Strings">
+<kw name="Should Not Be Equal As Strings" lineno="777">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2672,10 +2536,8 @@ Strings are always [http://www.macchiato.com/unicode/nfc-faq|
 NFC normalized].
 
 ``ignore_case`` is a new feature in Robot Framework 3.0.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Be True">
+<kw name="Should Not Be True" lineno="548">
 <arguments>
 <arg>condition</arg>
 <arg>msg=None</arg>
@@ -2684,10 +2546,8 @@ NFC normalized].
 
 See `Should Be True` for details about how ``condition`` is evaluated
 and how ``msg`` can be used to override the default error message.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Contain">
+<kw name="Should Not Contain" lineno="885">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -2707,10 +2567,8 @@ has exactly the same semantics as with `Should Contain`.
 Examples:
 | Should Not Contain | ${some list} | value  |
 | Should Not Contain | ${output}    | FAILED | ignore_case=True |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Contain Any">
+<kw name="Should Not Contain Any" lineno="995">
 <arguments>
 <arg>container</arg>
 <arg>*items</arg>
@@ -2737,10 +2595,8 @@ Examples:
 | Should Not Contain Any | ${list}   | @{items} | msg=Custom message | values=False |
 
 New in Robot Framework 3.0.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not End With">
+<kw name="Should Not End With" lineno="855">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2753,10 +2609,8 @@ New in Robot Framework 3.0.1.</doc>
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Match">
+<kw name="Should Not Match" lineno="1094">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2773,10 +2627,8 @@ Pattern matching is similar as matching files in a shell with
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Match Regexp">
+<kw name="Should Not Match Regexp" lineno="1173">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2786,10 +2638,8 @@ of the ``ignore_case`` option.</doc>
 <doc>Fails if ``string`` matches ``pattern`` as a regular expression.
 
 See `Should Match Regexp` for more information about arguments.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Not Start With">
+<kw name="Should Not Start With" lineno="825">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2802,10 +2652,8 @@ See `Should Match Regexp` for more information about arguments.</doc>
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Should Start With">
+<kw name="Should Start With" lineno="840">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2818,10 +2666,8 @@ of the ``ignore_case`` option.</doc>
 See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Sleep">
+<kw name="Sleep" lineno="2539">
 <arguments>
 <arg>time_</arg>
 <arg>reason=None</arg>
@@ -2839,10 +2685,8 @@ Examples:
 | Sleep | 1.5                  |
 | Sleep | 2 minutes 10 seconds |
 | Sleep | 10s                  | Wait for a reply |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Variable Should Exist">
+<kw name="Variable Should Exist" lineno="1348">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -2856,10 +2700,8 @@ that the former has some limitations explained in `Set Suite Variable`.
 The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Not Exist` and `Keyword Should Exist`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Variable Should Not Exist">
+<kw name="Variable Should Not Exist" lineno="1368">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -2873,10 +2715,8 @@ that the former has some limitations explained in `Set Suite Variable`.
 The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Exist` and `Keyword Should Exist`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Wait Until Keyword Succeeds">
+<kw name="Wait Until Keyword Succeeds" lineno="2039">
 <arguments>
 <arg>retry</arg>
 <arg>retry_interval</arg>
@@ -2912,12 +2752,6 @@ e.g. by `Fatal Error`) are not caught.
 Running the same keyword multiple times inside this keyword can create
 lots of output and considerably increase the size of the generated
 output files. It is possible to remove unnecessary keywords from
-the outputs using ``--RemoveKeywords WUKS`` command line option.
-
-Support for specifying ``retry`` as a number of times to retry is
-a new feature in Robot Framework 2.9.
-Since Robot Framework 2.9, variable errors are caught by this keyword.</doc>
-<tags>
-</tags>
+the outputs using ``--RemoveKeywords WUKS`` command line option.</doc>
 </kw>
 </keywordspec>

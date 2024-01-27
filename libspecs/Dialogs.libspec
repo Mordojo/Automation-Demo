@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Dialogs" type="library" format="ROBOT" generated="20190914 14:57:53">
-<version>3.1.2</version>
+<keywordspec name="Dialogs" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2024-01-25T02:19:13Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\Dialogs.py" lineno="1">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library providing dialogs for interacting with users.
@@ -16,7 +16,7 @@ sequence.
 
 The library has a known limitation that it cannot be used with timeouts
 on Python. Support for IronPython was added in Robot Framework 2.9.2.</doc>
-<kw name="Execute Manual Step">
+<kw name="Execute Manual Step" lineno="55">
 <arguments>
 <arg>message</arg>
 <arg>default_error=</arg>
@@ -29,10 +29,8 @@ fails and an additional dialog is opened for defining the error message.
 ``message`` is the instruction shown in the initial dialog and
 ``default_error`` is the default value shown in the possible error message
 dialog.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Selection From User">
+<kw name="Get Selection From User" lineno="96">
 <arguments>
 <arg>message</arg>
 <arg>*values</arg>
@@ -46,10 +44,8 @@ the options given to the user.
 
 Example:
 | ${user} = | Get Selection From User | Select user | user1 | user2 | admin |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Selections From User">
+<kw name="Get Selections From User" lineno="110">
 <arguments>
 <arg>message</arg>
 <arg>*values</arg>
@@ -67,10 +63,8 @@ Example:
 | ${users} = | Get Selections From User | Select users | user1 | user2 | admin |
 
 New in Robot Framework 3.1.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Value From User">
+<kw name="Get Value From User" lineno="70">
 <arguments>
 <arg>message</arg>
 <arg>default_value=</arg>
@@ -96,17 +90,13 @@ Example:
 
 Considering strings ``false`` and ``no`` to be false is new in RF 2.9
 and considering string ``none`` false is new in RF 3.0.3.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Pause Execution">
+<kw name="Pause Execution" lineno="47">
 <arguments>
 <arg>message=Test execution paused. Press OK to continue.</arg>
 </arguments>
 <doc>Pauses test execution until user clicks ``Ok`` button.
 
 ``message`` is the message shown in the dialog.</doc>
-<tags>
-</tags>
 </kw>
 </keywordspec>

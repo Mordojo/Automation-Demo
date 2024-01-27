@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="DateTime" type="library" format="ROBOT" generated="20190914 14:57:51">
-<version>3.1.2</version>
+<keywordspec name="DateTime" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2024-01-25T02:19:12Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\DateTime.py" lineno="1">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library for handling date and time values.
@@ -11,7 +11,7 @@ as well as doing simple calculations with them (e.g. `Subtract Time From Date`,
 `Add Time To Time`). It supports dates and times in various formats, and can
 also be used by other libraries programmatically.
 
-= Table of Contents =
+== Table of contents ==
 
 - `Terminology`
 - `Date formats`
@@ -291,7 +291,7 @@ Additionally helper classes ``Date`` and ``Time`` can be used directly:
 |     date = Date(date).convert('datetime')
 |     interval = Time(interval).convert('number')
 |     # ...</doc>
-<kw name="Add Time To Date">
+<kw name="Add Time To Date" lineno="428">
 <arguments>
 <arg>date</arg>
 <arg>time</arg>
@@ -316,10 +316,8 @@ Examples:
 | Should Be Equal | ${date}          | 2014-06-04 12:05:03.111 |              |
 | ${date} =       | Add Time To Date | 2014-05-28 12:05:03.111 | 01:02:03:004 |
 | Should Be Equal | ${date}          | 2014-05-28 13:07:06.115 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Add Time To Time">
+<kw name="Add Time To Time" lineno="476">
 <arguments>
 <arg>time1</arg>
 <arg>time2</arg>
@@ -340,10 +338,8 @@ Examples:
 | Should Be Equal | ${time}          | ${102}            |
 | ${time} =       | Add Time To Time | 3 hours 5 minutes | 01:02:03 | timer | exclude_millis=yes |
 | Should Be Equal | ${time}          | 04:07:03          |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert Date">
+<kw name="Convert Date" lineno="359">
 <arguments>
 <arg>date</arg>
 <arg>result_format=timestamp</arg>
@@ -366,10 +362,8 @@ Examples:
 | Should Be Equal | ${date}      | ${1401267903.111}       |
 | ${date} =       | Convert Date | 5.28.2014 12:05         | exclude_millis=yes | date_format=%m.%d.%Y %H:%M |
 | Should Be Equal | ${date}      | 2014-05-28 12:05:00     |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Convert Time">
+<kw name="Convert Time" lineno="382">
 <arguments>
 <arg>time</arg>
 <arg>result_format=number</arg>
@@ -390,10 +384,8 @@ Examples:
 | Should Be Equal | ${time}       | 1 hour 1 second   |
 | ${time} =       | Convert Time  | ${3661.5} | timer | exclude_milles=yes |
 | Should Be Equal | ${time}       | 01:01:02          |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Current Date">
+<kw name="Get Current Date" lineno="317">
 <arguments>
 <arg>time_zone=local</arg>
 <arg>increment=0</arg>
@@ -423,10 +415,8 @@ Examples:
 | ${date} =       | Get Current Date | result_format=datetime  |
 | Should Be Equal | ${date.year}     | ${2014}                 |
 | Should Be Equal | ${date.month}    | ${6}                    |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Subtract Date From Date">
+<kw name="Subtract Date From Date" lineno="402">
 <arguments>
 <arg>date1</arg>
 <arg>date2</arg>
@@ -453,10 +443,8 @@ Arguments:
 | Should Be Equal | ${time}                 | ${42}                   |
 | ${time} =       | Subtract Date From Date | 2014-05-28 12:05:52     | 2014-05-27 12:05:10 | verbose |
 | Should Be Equal | ${time}                 | 1 day 42 seconds        |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Subtract Time From Date">
+<kw name="Subtract Time From Date" lineno="452">
 <arguments>
 <arg>date</arg>
 <arg>time</arg>
@@ -481,10 +469,8 @@ Examples:
 | Should Be Equal | ${date}                 | 2014-05-28 12:05:03.111 |
 | ${date} =       | Subtract Time From Date | 2014-05-28 13:07:06.115 | 01:02:03:004 |
 | Should Be Equal | ${date}                 | 2014-05-28 12:05:03.111 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Subtract Time From Time">
+<kw name="Subtract Time From Time" lineno="497">
 <arguments>
 <arg>time1</arg>
 <arg>time2</arg>
@@ -506,7 +492,5 @@ Examples:
 | Should Be Equal | ${time}                 | ${50}    |
 | ${time} =       | Subtract Time From Time | ${time}  | 1 minute | compact |
 | Should Be Equal | ${time}                 | - 10s    |</doc>
-<tags>
-</tags>
 </kw>
 </keywordspec>

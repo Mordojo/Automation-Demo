@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Screenshot" type="library" format="ROBOT" generated="20190914 14:57:20">
-<version>3.1.2</version>
+<keywordspec name="Screenshot" type="LIBRARY" format="ROBOT" scope="SUITE" namedargs="true" generated="2024-01-25T02:19:13Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\Screenshot.py" lineno="52">
+<version>3.2.2</version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
 <doc>Test library for taking screenshots on the machine where tests are run.
 
 Notice that successfully taking screenshots requires tests to be run with
 a physical or virtual display.
+
+== Table of contents ==
+
+- `Using with Python`
+- `Using with Jython and IronPython`
+- `Where screenshots are saved`
+- `ScreenCapLibrary`
+- `Importing`
+- `Shortcuts`
+- `Keywords`
 
 = Using with Python =
 
@@ -45,8 +55,15 @@ into the directory where the XML output file is written.
 It is possible to specify a custom location for screenshots using
 ``screenshot_directory`` argument when `importing` the library and
 using `Set Screenshot Directory` keyword during execution. It is also
-possible to save screenshots using an absolute path.</doc>
-<init>
+possible to save screenshots using an absolute path.
+
+= ScreenCapLibrary =
+
+[https://github.com/mihaiparvu/ScreenCapLibrary|ScreenCapLibrary] is an
+external Robot Framework library that can be used as an alternative,
+which additionally provides support for multiple formats, adjusting the
+quality, using GIFs and video capturing.</doc>
+<init lineno="112">
 <arguments>
 <arg>screenshot_directory=None</arg>
 <arg>screenshot_module=None</arg>
@@ -70,10 +87,8 @@ Examples (use only one of these):
 | Library   | Screenshot | screenshot_module=PyGTK |
 
 Specifying explicit screenshot module is new in Robot Framework 2.9.2.</doc>
-<tags>
-</tags>
 </init>
-<kw name="Set Screenshot Directory">
+<kw name="Set Screenshot Directory" lineno="153">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -83,10 +98,8 @@ It is possible to use ``/`` as a path separator in all operating
 systems. Path to the old directory is returned.
 
 The directory can also be set in `importing`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Take Screenshot">
+<kw name="Take Screenshot" lineno="168">
 <arguments>
 <arg>name=screenshot</arg>
 <arg>width=800px</arg>
@@ -114,10 +127,8 @@ Examples: (LOGDIR is determined automatically by the library)
 | Take Screenshot | width=550px      |     | # Specify only width. |
 
 The path where the screenshot is saved is returned.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Take Screenshot Without Embedding">
+<kw name="Take Screenshot Without Embedding" lineno="197">
 <arguments>
 <arg>name=screenshot</arg>
 </arguments>
@@ -126,7 +137,5 @@ The path where the screenshot is saved is returned.</doc>
 This keyword is otherwise identical to `Take Screenshot` but the saved
 screenshot is not embedded into the log file. The screenshot is linked
 so it is nevertheless easily available.</doc>
-<tags>
-</tags>
 </kw>
 </keywordspec>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Process" type="library" format="ROBOT" generated="20190914 14:57:51">
-<version>3.1.2</version>
+<keywordspec name="Process" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2024-01-25T02:19:13Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\Process.py" lineno="30">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>Robot Framework test library for running processes.
@@ -147,11 +147,21 @@ through the `result object` returned when the process ends. Commands are
 expected to write outputs using the console encoding, but `output encoding`
 can be configured using the ``output_encoding`` argument if needed.
 
+If you are not interested in outputs at all, you can explicitly ignore them
+by using a special value ``DEVNULL`` both with ``stdout`` and ``stderr``. For
+example, ``stdout=DEVNULL`` is the same as redirecting output on console
+with ``&gt; /dev/null`` on UNIX-like operating systems or ``&gt; NUL`` on Windows.
+This way the process will not hang even if there would be a lot of output,
+but naturally output is not available after execution either.
+
+Support for the special value ``DEVNULL`` is new in Robot Framework 3.2.
+
 Examples:
 | ${result} = | `Run Process` | program | stdout=${TEMPDIR}/stdout.txt | stderr=${TEMPDIR}/stderr.txt |
 | `Log Many`  | stdout: ${result.stdout} | stderr: ${result.stderr} |
 | ${result} = | `Run Process` | program | stderr=STDOUT |
 | `Log`       | all output: ${result.stdout} |
+| ${result} = | `Run Process` | program | stdout=DEVNULL | stderr=DEVNULL |
 
 Note that the created output files are not automatically removed after
 the test run. The user is responsible to remove them if needed.
@@ -264,7 +274,7 @@ considering also ``OFF`` and ``0`` false is new in Robot Framework 3.1.
 |     `Terminate Process`    ${handle}
 |     ${result} =    `Wait For Process`    First
 |     `Should Be Equal As Integers`    ${result.rc}    0</doc>
-<kw name="Get Process Id">
+<kw name="Get Process Id" lineno="626">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
@@ -274,20 +284,16 @@ If ``handle`` is not given, uses the current `active process`.
 
 Notice that the pid is not the same as the handle returned by
 `Start Process` that is used internally by this library.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Process Object">
+<kw name="Get Process Object" lineno="636">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
 <doc>Return the underlying ``subprocess.Popen`` object.
 
 If ``handle`` is not given, uses the current `active process`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Get Process Result">
+<kw name="Get Process Result" lineno="643">
 <arguments>
 <arg>handle=None</arg>
 <arg>rc=False</arg>
@@ -334,10 +340,8 @@ in general, the main use case for this keyword is returning results
 over the remote library interface. The remote interface does not
 support returning the whole result object, but individual attributes
 can be returned without problems.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Is Process Running">
+<kw name="Is Process Running" lineno="371">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
@@ -346,10 +350,8 @@ can be returned without problems.</doc>
 If ``handle`` is not given, uses the current `active process`.
 
 Returns ``True`` if the process is still running and ``False`` otherwise.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Join Command Line">
+<kw name="Join Command Line" lineno="741">
 <arguments>
 <arg>*args</arg>
 </arguments>
@@ -367,10 +369,8 @@ Example:
 | Should Be Equal | ${cmd} | --option "value with spaces" |
 
 New in Robot Framework 2.9.2.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Process Should Be Running">
+<kw name="Process Should Be Running" lineno="380">
 <arguments>
 <arg>handle=None</arg>
 <arg>error_message=Process is not running.</arg>
@@ -380,10 +380,8 @@ New in Robot Framework 2.9.2.</doc>
 If ``handle`` is not given, uses the current `active process`.
 
 Fails if the process has stopped.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Process Should Be Stopped">
+<kw name="Process Should Be Stopped" lineno="391">
 <arguments>
 <arg>handle=None</arg>
 <arg>error_message=Process is running.</arg>
@@ -393,10 +391,8 @@ Fails if the process has stopped.</doc>
 If ``handle`` is not given, uses the current `active process`.
 
 Fails if the process is still running.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Run Process">
+<kw name="Run Process" lineno="305">
 <arguments>
 <arg>command</arg>
 <arg>*arguments</arg>
@@ -430,10 +426,8 @@ Examples:
 | ${result} = | Run Process | java -Dname\=value Example | shell=True | cwd=${EXAMPLE} |
 
 This keyword does not change the `active process`.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Send Signal To Process">
+<kw name="Send Signal To Process" lineno="572">
 <arguments>
 <arg>signal</arg>
 <arg>handle=None</arg>
@@ -465,10 +459,8 @@ does the shell propagate the signal to the actual started process.
 To send the signal to the whole process group, ``group`` argument can
 be set to any true value (see `Boolean arguments`). This is not
 supported by Jython, however.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Split Command Line">
+<kw name="Split Command Line" lineno="724">
 <arguments>
 <arg>args</arg>
 <arg>escaping=False</arg>
@@ -486,10 +478,8 @@ Examples:
 | Should Be True | $cmd == ['--option', 'value with spaces'] |
 
 New in Robot Framework 2.9.2.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Start Process">
+<kw name="Start Process" lineno="344">
 <arguments>
 <arg>command</arg>
 <arg>*arguments</arg>
@@ -507,10 +497,8 @@ that can be used as a handle to activate the started process if needed.
 Processes are started so that they create a new process group. This
 allows sending signals to and terminating also possible child
 processes. This is not supported on Jython.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Switch Process">
+<kw name="Switch Process" lineno="702">
 <arguments>
 <arg>handle</arg>
 </arguments>
@@ -525,10 +513,8 @@ Example:
 | # currently active process is process2 |
 | Switch Process | process1 |
 | # now active process is process1 |</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Terminate All Processes">
+<kw name="Terminate All Processes" lineno="557">
 <arguments>
 <arg>kill=False</arg>
 </arguments>
@@ -540,10 +526,8 @@ sure that all processes are stopped,
 By default tries to terminate processes gracefully, but can be
 configured to forcefully kill them immediately. See `Terminate Process`
 that this keyword uses internally for more details.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Terminate Process">
+<kw name="Terminate Process" lineno="482">
 <arguments>
 <arg>handle=None</arg>
 <arg>kill=False</arg>
@@ -580,10 +564,8 @@ Limitations:
 - Stopping the whole process group is not supported when using Jython.
 - On Windows forceful kill only stops the main process, not possible
   child processes.</doc>
-<tags>
-</tags>
 </kw>
-<kw name="Wait For Process">
+<kw name="Wait For Process" lineno="402">
 <arguments>
 <arg>handle=None</arg>
 <arg>timeout=None</arg>
@@ -599,7 +581,9 @@ The process to wait for must have been started earlier with
 given in
 [http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#time-format|
 various time formats] supported by Robot Framework, for example, ``42``,
-``42 s``, or ``1 minute 30 seconds``.
+``42 s``, or ``1 minute 30 seconds``. The timeout is ignored if it is
+Python ``None`` (default), string ``NONE`` (case-insensitively), zero,
+or negative.
 
 ``on_timeout`` defines what to do if the timeout occurs. Possible values
 and corresponding actions are explained in the table below. Notice
@@ -630,8 +614,9 @@ Examples:
 | # Kill non-ending process   |                  |                  |
 | ${result} =                 | Wait For Process | timeout=1min 30s | on_timeout=kill |
 | Process Should Be Stopped   |                  |                  |
-| Should Be Equal As Integers | ${result.rc}     | -9               |</doc>
-<tags>
-</tags>
+| Should Be Equal As Integers | ${result.rc}     | -9               |
+
+Ignoring timeout if it is string ``NONE``, zero, or negative is new
+in Robot Framework 3.2.</doc>
 </kw>
 </keywordspec>

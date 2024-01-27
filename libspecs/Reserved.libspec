@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Reserved" type="library" format="ROBOT" generated="20230910 14:40:22">
-<version></version>
+<keywordspec name="Reserved" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2024-01-25T02:55:15Z" specversion="2" source="C:\Python312\Lib\site-packages\robot\libraries\Reserved.py" lineno="20">
+<version />
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>Documentation for library ``Reserved``.</doc>
@@ -8,80 +8,60 @@
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="Continue">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="Elif">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="Else">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="Else If">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="End">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="For">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="If">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="Return">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 <kw name="While">
 <arguments>
 <arg>*varargs</arg>
 </arguments>
-<doc></doc>
-<tags>
-</tags>
+<doc />
 </kw>
 </keywordspec>

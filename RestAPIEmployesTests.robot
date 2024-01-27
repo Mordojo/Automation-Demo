@@ -113,9 +113,10 @@ Create User(s) From Json
     ${object}=    Evaluate    json.loads('''${body}''')    json
     Log    \n${object}    console=yes    
     ${lenght_object}    Get Length    ${object}
-    :FOR    ${i}    IN RANGE    ${lenght_object}
-    \    Log    =========== Create the user : "${object[${i}]}" ====================================    console=yes
-    \    log    Hello, my name is ${object[${i}]["name"]}, i have "${object[${i}]["age"]} old" and my salary is "${object[${i}]["salary"]} $"    WARN
-    \    ${object}=    Evaluate    json.loads('''${object[${i}]}''')    json    
-    \    POST    /api/v1/create    ${object}    timeout=3   
+    FOR    ${i}    IN RANGE    ${lenght_object}
+        Log    =========== Create the user : "${object[${i}]}" ====================================    console=yes
+        log    Hello, my name is ${object[${i}]["name"]}, i have "${object[${i}]["age"]} old" and my salary is "${object[${i}]["salary"]} $"    WARN
+        #${object}=    Evaluate    json.loads('''${object[${i}]}''')    json    
+       POST    /api/v1/create    ${object[${i}]}    timeout=3 
+    END  
     #[Teardown]    Output    response body    ${OUTPUTDIR}/new_user.demo.json
