@@ -1,4 +1,5 @@
 selenium
 robotframework
 robotframework-seleniumlibrary
+setuptools
 RESTinstance
