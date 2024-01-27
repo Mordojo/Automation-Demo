@@ -28,7 +28,7 @@ ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}
-${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
+# ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
 
 *** Test Cases ***
 Test Github actions
@@ -82,7 +82,7 @@ Open Chrome
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
     ${var}=     Call Method     ${chrome_options}    to_capabilities 
-    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    executable_path=${CHROME_DRIVER_PATH}
+    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    # executable_path=${CHROME_DRIVER_PATH}
 
 Set Locators From Json    [Arguments]    ${pJsonFile}   
     ${readJson}    Get File    ${CURDIR}${/}Files${/}${pJsonFile} 
