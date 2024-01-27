@@ -1,5 +1,5 @@
-selenium
-robotframework
-robotframework-seleniumlibrary
+selenium==4.9.1
+robotframework==3.2.2
+robotframework-seleniumlibrary=5.1.1
 setuptools
 RESTinstance
