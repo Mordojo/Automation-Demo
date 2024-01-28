@@ -78,11 +78,13 @@ jobs:
           pip install -r Libraries/requirements.txt
 
       # XXXXXXX
-      - name: Execute Robotframework Docker
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Checkout Robotframework Docker
         uses: joonvena/robotframework-docker-action@v0.1
-        env:
-            BROWSER: ${{ github.event.inputs.BROWSER }}
-            ROBOT_TESTS_DIR: ${{ github.workspace }}/Automation-Demo/Argument_File.txt
+        with:
+            browser: ${{ github.event.inputs.BROWSER }}
+            robot_threads: 1
       
       - name: Run tests
         run: |
