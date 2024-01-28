@@ -64,7 +64,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      
       #python and robotframework setup
       - name: Set up Python 3.12.1
         uses: actions/setup-python@v3
@@ -76,6 +76,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r Libraries/requirements.txt
+
+      # XXXXXXX
+      - name: Execute Robotframework Docker
+        uses: joonvena/robotframework-docker-action@v0.1
+        env:
+            BROWSER: ${{ github.event.inputs.BROWSER }}
+            ROBOT_TESTS_DIR: ${{ github.workspace }}/Automation-Demo
+            ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
       
       - name: Run tests
         run: |
