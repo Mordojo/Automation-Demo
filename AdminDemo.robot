@@ -28,7 +28,7 @@ ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}
-# ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
+${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
 
 *** Test Cases ***
 Test Github actions
@@ -59,8 +59,39 @@ Open Facbook Test
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
     Log    -----> Actual TE: ${NEW_TE}    console=yes
     Log    -----> USE JIRA: ${USE_JIRA}    console=yes
-    Open Url    https://www.facebook.com/
-    Run Keyword And Continue On Failure    Wait Until Element Contains    //a[@data-testid='open-registration-form-button']    Créer nouveau compte    timeout=60s
+    # Set variables
+    &{createNewAccountBtn}    Create Dictionary    en=Create new account    fr=Créer nouveau compte
+    &{signUpBtn}    Create Dictionary    en=Sign Up    fr=S’inscrire
+
+    # Open Facebook
+    Open Url    https://www.facebook.com
+    # Close cookies popup if its appear
+    ${isCookiesPopup}    Run Keyword And Return Status    Wait Until Element Is Enabled    //button[@data-testid='cookie-policy-manage-dialog-decline-button']    timeout=2s        
+    Run Keyword Unless    ${isCookiesPopup}==${False}    Click Button    //button[@data-testid='cookie-policy-manage-dialog-decline-button']  
+    # check current language of browser
+    Wait Until Element Is Visible    //ul[contains(@class, 'uiList localeSelectorList')]/li   
+    ${curSelectedLang}    Get Text    //ul[contains(@class, 'uiList localeSelectorList')]/li[1]
+    Run Keyword If    "${LANG}"=="fr" and "${curSelectedLang}"!="Français (France)"    Click Element    //a[contains(text(),"Français")]
+    ...    ELSE IF    "${LANG}"=="en" and "${curSelectedLang}"!="English (US)"    Click Element    //a[contains(text(),"English")]
+    # Close cookies popup again if its appear
+    ${isCookiesPopup}    Run Keyword And Return Status    Wait Until Element Is Enabled    //button[@data-testid='cookie-policy-manage-dialog-decline-button']    timeout=2s        
+    Run Keyword Unless    ${isCookiesPopup}==${False}    Click Button    //button[@data-testid='cookie-policy-manage-dialog-decline-button']
+    
+    Log    \n****** Verifying Buttons contents in "${LANG}" ******    console=yes
+    Wait Until Element Is Visible    //a[@data-testid='open-registration-form-button']    timeout=30s       
+    ${registrationBtn}    Get Text    //a[@data-testid='open-registration-form-button']
+    Log    -----> ${registrationBtn}    console=yes
+    Run Keyword And Continue On Failure    Should Be Equal As Strings    ${registrationBtn}    ${createNewAccountBtn['${LANG}']}
+    Click Element    //a[@data-testid='open-registration-form-button']
+    Wait Until Element Is Enabled    //input[@name='firstname'] 
+    Wait Until Element Is Enabled    //input[@name='lastname']   
+    Input Text    //input[@name='firstname']    Hassen
+    Input Text    //input[@name='lastname']    Smoklou
+    Click Button    //button[@name='websubmit']
+    ${websubmitBtn}    Get Text    //button[@name='websubmit']
+    Run Keyword And Continue On Failure    Should Be Equal As Strings    ${websubmitBtn}    ${signUpBtn['${LANG}']}
+    Log    -----> ${websubmitBtn}    console=yes
+    Sleep    1s  
     Close Browser
     
 #Test
@@ -72,8 +103,9 @@ Open Facbook Test
 Open Url    [Arguments]    ${url}
     Run Keyword If    '${BROWSER}'=='Chrome'    Open Chrome
     Go To   ${url}
-    Maximize Browser Window
-    Sleep    1s        
+    #Maximize Browser Window 
+    Set Window Size    1920    1080
+    #Sleep    1s               
     
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
@@ -82,7 +114,7 @@ Open Chrome
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
     ${var}=     Call Method     ${chrome_options}    to_capabilities 
-    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    # executable_path=${CHROME_DRIVER_PATH}
+    Create Webdriver   driver_name=Chrome   alias=google   chrome_options=${chrome_options}    executable_path=${CHROME_DRIVER_PATH}
 
 Set Locators From Json    [Arguments]    ${pJsonFile}   
     ${readJson}    Get File    ${CURDIR}${/}Files${/}${pJsonFile} 
