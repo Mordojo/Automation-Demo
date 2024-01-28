@@ -21,6 +21,7 @@ Library    REST
 ${ENV}    pp
 ${LANG}    fr
 ${BROWSER}    Chrome
+${USE_BROWSER}    ${False}
 #${USE_TAGE}    ${EMPTY}
 ${NEW_TE}    ${EMPTY}
 ${USE_JIRA}    ${EMPTY}
@@ -109,7 +110,7 @@ Open Url    [Arguments]    ${url}
     
 Open Chrome
     ${chrome options} =     Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium, selenium.webdriver
-    # Call Method    ${chrome_options}   add_argument    headless
+    Run Keyword If    ${USE_BROWSER}==${False}    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    --no-sandbox   # newly added argument
     Call Method    ${chrome_options}   add_argument    disable-gpu
     Call Method    ${chrome_options}   add_argument    --ignore-certificate-errors
