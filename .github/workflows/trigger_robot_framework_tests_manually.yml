@@ -82,8 +82,7 @@ jobs:
         uses: joonvena/robotframework-docker-action@v0.1
         env:
             BROWSER: ${{ github.event.inputs.BROWSER }}
-            ROBOT_TESTS_DIR: ${{ github.workspace }}/Automation-Demo
-            ROBOT_REPORTS_DIR: ${{ github.workspace }}/reports
+            ROBOT_TESTS_DIR: ${{ github.workspace }}/Automation-Demo/Argument_File.txt
       
       - name: Run tests
         run: |
