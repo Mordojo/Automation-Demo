@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.12.1 on win32)" generated="20240126 19:43:36.269" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.12.1 on win32)" generated="20240128 12:28:50.094" rpa="false">
 <suite id="s1" name="Automation-Demo" source="C:\Users\Hmimabdou\eclipse-workspace2\Automation-Demo">
 <suite id="s1-s1" name="AdminDemo" source="C:\Users\Hmimabdou\eclipse-workspace2\Automation-Demo\AdminDemo.robot">
 <test id="s1-s1-t1" name="Open Facbook Test">
@@ -9,9 +9,9 @@
 <arg>\n-----&gt; Open Facebook:</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.920" level="INFO">
+<msg timestamp="20240128 12:28:50.771" level="INFO">
 -----&gt; Open Facebook:</msg>
-<status status="PASS" starttime="20240126 19:43:36.919" endtime="20240126 19:43:36.920"></status>
+<status status="PASS" starttime="20240128 12:28:50.771" endtime="20240128 12:28:50.771"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -19,8 +19,8 @@
 <arg>-----&gt; Actual ENV: ${ENV}</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.920" level="INFO">-----&gt; Actual ENV: pp</msg>
-<status status="PASS" starttime="20240126 19:43:36.920" endtime="20240126 19:43:36.920"></status>
+<msg timestamp="20240128 12:28:50.772" level="INFO">-----&gt; Actual ENV: pp</msg>
+<status status="PASS" starttime="20240128 12:28:50.772" endtime="20240128 12:28:50.772"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -28,8 +28,8 @@
 <arg>-----&gt; Actual LANG: ${LANG}</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.921" level="INFO">-----&gt; Actual LANG: fr</msg>
-<status status="PASS" starttime="20240126 19:43:36.920" endtime="20240126 19:43:36.921"></status>
+<msg timestamp="20240128 12:28:50.772" level="INFO">-----&gt; Actual LANG: fr</msg>
+<status status="PASS" starttime="20240128 12:28:50.772" endtime="20240128 12:28:50.773"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -37,8 +37,8 @@
 <arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.921" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
-<status status="PASS" starttime="20240126 19:43:36.921" endtime="20240126 19:43:36.921"></status>
+<msg timestamp="20240128 12:28:50.773" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20240128 12:28:50.773" endtime="20240128 12:28:50.774"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -46,8 +46,8 @@
 <arg>-----&gt; Actual TE: ${NEW_TE}</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.922" level="INFO">-----&gt; Actual TE: </msg>
-<status status="PASS" starttime="20240126 19:43:36.921" endtime="20240126 19:43:36.922"></status>
+<msg timestamp="20240128 12:28:50.774" level="INFO">-----&gt; Actual TE: </msg>
+<status status="PASS" starttime="20240128 12:28:50.774" endtime="20240128 12:28:50.774"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
@@ -55,12 +55,36 @@
 <arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
 <arg>console=yes</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.922" level="INFO">-----&gt; USE JIRA: </msg>
-<status status="PASS" starttime="20240126 19:43:36.922" endtime="20240126 19:43:36.923"></status>
+<msg timestamp="20240128 12:28:50.774" level="INFO">-----&gt; USE JIRA: </msg>
+<status status="PASS" starttime="20240128 12:28:50.774" endtime="20240128 12:28:50.775"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>en=Create new account</arg>
+<arg>fr=Créer nouveau compte</arg>
+</arguments>
+<assign>
+<var>&amp;{createNewAccountBtn}</var>
+</assign>
+<msg timestamp="20240128 12:28:50.775" level="INFO">&amp;{createNewAccountBtn} = { en=Create new account | fr=Créer nouveau compte }</msg>
+<status status="PASS" starttime="20240128 12:28:50.775" endtime="20240128 12:28:50.775"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>en=Sign Up</arg>
+<arg>fr=S’inscrire</arg>
+</arguments>
+<assign>
+<var>&amp;{signUpBtn}</var>
+</assign>
+<msg timestamp="20240128 12:28:50.776" level="INFO">&amp;{signUpBtn} = { en=Sign Up | fr=S’inscrire }</msg>
+<status status="PASS" starttime="20240128 12:28:50.775" endtime="20240128 12:28:50.776"></status>
 </kw>
 <kw name="Open Url">
 <arguments>
-<arg>https://www.facebook.com/</arg>
+<arg>https://www.facebook.com</arg>
 </arguments>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -78,8 +102,17 @@
 <assign>
 <var>${chrome options}</var>
 </assign>
-<msg timestamp="20240126 19:43:36.924" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001F44FCA3CE0&gt;</msg>
-<status status="PASS" starttime="20240126 19:43:36.924" endtime="20240126 19:43:36.924"></status>
+<msg timestamp="20240128 12:28:50.777" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000019E4F168950&gt;</msg>
+<status status="PASS" starttime="20240128 12:28:50.777" endtime="20240128 12:28:50.777"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>headless</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:28:50.778" endtime="20240128 12:28:50.778"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -88,7 +121,7 @@
 <arg>add_argument</arg>
 <arg>--no-sandbox</arg>
 </arguments>
-<status status="PASS" starttime="20240126 19:43:36.924" endtime="20240126 19:43:36.924"></status>
+<status status="PASS" starttime="20240128 12:28:50.778" endtime="20240128 12:28:50.778"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -97,7 +130,7 @@
 <arg>add_argument</arg>
 <arg>disable-gpu</arg>
 </arguments>
-<status status="PASS" starttime="20240126 19:43:36.925" endtime="20240126 19:43:36.925"></status>
+<status status="PASS" starttime="20240128 12:28:50.778" endtime="20240128 12:28:50.779"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -106,7 +139,7 @@
 <arg>add_argument</arg>
 <arg>--ignore-certificate-errors</arg>
 </arguments>
-<status status="PASS" starttime="20240126 19:43:36.925" endtime="20240126 19:43:36.925"></status>
+<status status="PASS" starttime="20240128 12:28:50.779" endtime="20240128 12:28:50.779"></status>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <doc>Calls the named method of the given object with the provided arguments.</doc>
@@ -117,8 +150,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20240126 19:43:36.926" level="INFO">${var} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
-<status status="PASS" starttime="20240126 19:43:36.925" endtime="20240126 19:43:36.926"></status>
+<msg timestamp="20240128 12:28:50.780" level="INFO">${var} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['headless', '--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
+<status status="PASS" starttime="20240128 12:28:50.779" endtime="20240128 12:28:50.780"></status>
 </kw>
 <kw name="Create Webdriver" library="SeleniumLibrary">
 <doc>Creates an instance of Selenium WebDriver.</doc>
@@ -128,67 +161,304 @@
 <arg>chrome_options=${chrome_options}</arg>
 <arg>executable_path=${CHROME_DRIVER_PATH}</arg>
 </arguments>
-<msg timestamp="20240126 19:43:36.926" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20240126 19:43:36.926" endtime="20240126 19:43:38.295"></status>
+<msg timestamp="20240128 12:28:50.780" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20240128 12:28:50.780" endtime="20240128 12:28:51.987"></status>
 </kw>
-<status status="PASS" starttime="20240126 19:43:36.923" endtime="20240126 19:43:38.295"></status>
+<status status="PASS" starttime="20240128 12:28:50.777" endtime="20240128 12:28:51.987"></status>
 </kw>
-<status status="PASS" starttime="20240126 19:43:36.923" endtime="20240126 19:43:38.295"></status>
+<status status="PASS" starttime="20240128 12:28:50.776" endtime="20240128 12:28:51.987"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the current browser window to the provided ``url``.</doc>
 <arguments>
 <arg>${url}</arg>
 </arguments>
-<msg timestamp="20240126 19:43:38.296" level="INFO">Opening url 'https://www.facebook.com/'</msg>
-<status status="PASS" starttime="20240126 19:43:38.295" endtime="20240126 19:43:41.259"></status>
+<msg timestamp="20240128 12:28:51.988" level="INFO">Opening url 'https://www.facebook.com'</msg>
+<status status="PASS" starttime="20240128 12:28:51.987" endtime="20240128 12:28:56.237"></status>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240126 19:43:41.259" endtime="20240126 19:43:41.374"></status>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:28:56.237" endtime="20240128 12:28:56.344"></status>
+</kw>
+<status status="PASS" starttime="20240128 12:28:50.776" endtime="20240128 12:28:56.344"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Enabled</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<assign>
+<var>${isCookiesPopup}</var>
+</assign>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:28:56.344" endtime="20240128 12:28:56.379"></status>
+</kw>
+<msg timestamp="20240128 12:28:56.379" level="INFO">${isCookiesPopup} = True</msg>
+<status status="PASS" starttime="20240128 12:28:56.344" endtime="20240128 12:28:56.379"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${isCookiesPopup}==${False}</arg>
+<arg>Click Button</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+</arguments>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+</arguments>
+<msg timestamp="20240128 12:28:56.380" level="INFO">Clicking button '//button[@data-testid='cookie-policy-manage-dialog-decline-button']'.</msg>
+<status status="PASS" starttime="20240128 12:28:56.380" endtime="20240128 12:28:56.452"></status>
+</kw>
+<status status="PASS" starttime="20240128 12:28:56.380" endtime="20240128 12:28:56.453"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//ul[contains(@class, 'uiList localeSelectorList')]/li</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:28:56.453" endtime="20240128 12:28:56.478"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//ul[contains(@class, 'uiList localeSelectorList')]/li[1]</arg>
+</arguments>
+<assign>
+<var>${curSelectedLang}</var>
+</assign>
+<msg timestamp="20240128 12:28:56.504" level="INFO">${curSelectedLang} = English (US)</msg>
+<status status="PASS" starttime="20240128 12:28:56.478" endtime="20240128 12:28:56.505"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${LANG}"=="fr" and "${curSelectedLang}"!="Français (France)"</arg>
+<arg>Click Element</arg>
+<arg>//a[contains(text(),"Français")]</arg>
+<arg>ELSE IF</arg>
+<arg>"${LANG}"=="en" and "${curSelectedLang}"!="English (US)"</arg>
+<arg>Click Element</arg>
+<arg>//a[contains(text(),"English")]</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[contains(text(),"Français")]</arg>
+</arguments>
+<msg timestamp="20240128 12:28:56.506" level="INFO">Clicking element '//a[contains(text(),"Français")]'.</msg>
+<status status="PASS" starttime="20240128 12:28:56.505" endtime="20240128 12:28:58.525"></status>
+</kw>
+<status status="PASS" starttime="20240128 12:28:56.505" endtime="20240128 12:28:58.525"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Enabled</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<assign>
+<var>${isCookiesPopup}</var>
+</assign>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20240128 12:29:00.614" endtime="20240128 12:29:00.614"></status>
+</kw>
+<msg timestamp="20240128 12:29:00.617" level="FAIL">Element with locator '//button[@data-testid='cookie-policy-manage-dialog-decline-button']' not found.</msg>
+<status status="FAIL" starttime="20240128 12:28:58.526" endtime="20240128 12:29:00.617"></status>
+</kw>
+<msg timestamp="20240128 12:29:00.617" level="INFO">${isCookiesPopup} = False</msg>
+<status status="PASS" starttime="20240128 12:28:58.525" endtime="20240128 12:29:00.617"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${isCookiesPopup}==${False}</arg>
+<arg>Click Button</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:00.617" endtime="20240128 12:29:00.617"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n****** Verifying Buttons contents in "${LANG}" ******</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20240128 12:29:00.617" level="INFO">
+****** Verifying Buttons contents in "fr" ******</msg>
+<status status="PASS" starttime="20240128 12:29:00.617" endtime="20240128 12:29:00.619"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<arg>timeout=30s</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:00.619" endtime="20240128 12:29:00.649"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+</arguments>
+<assign>
+<var>${registrationBtn}</var>
+</assign>
+<msg timestamp="20240128 12:29:00.666" level="INFO">${registrationBtn} = Créer nouveau compte</msg>
+<status status="PASS" starttime="20240128 12:29:00.651" endtime="20240128 12:29:00.666"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; ${registrationBtn}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20240128 12:29:00.668" level="INFO">-----&gt; Créer nouveau compte</msg>
+<status status="PASS" starttime="20240128 12:29:00.666" endtime="20240128 12:29:00.668"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Should Be Equal As Strings</arg>
+<arg>${registrationBtn}</arg>
+<arg>${createNewAccountBtn['${LANG}']}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${registrationBtn}</arg>
+<arg>${createNewAccountBtn['${LANG}']}</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:00.668" endtime="20240128 12:29:00.669"></status>
+</kw>
+<status status="PASS" starttime="20240128 12:29:00.668" endtime="20240128 12:29:00.669"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+</arguments>
+<msg timestamp="20240128 12:29:00.669" level="INFO">Clicking element '//a[@data-testid='open-registration-form-button']'.</msg>
+<status status="PASS" starttime="20240128 12:29:00.669" endtime="20240128 12:29:00.717"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//input[@name='firstname']</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:00.717" endtime="20240128 12:29:01.381"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//input[@name='lastname']</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:01.383" endtime="20240128 12:29:01.410"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@name='firstname']</arg>
+<arg>Hassen</arg>
+</arguments>
+<msg timestamp="20240128 12:29:01.410" level="INFO">Typing text 'Hassen' into text field '//input[@name='firstname']'.</msg>
+<status status="PASS" starttime="20240128 12:29:01.410" endtime="20240128 12:29:01.490"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>//input[@name='lastname']</arg>
+<arg>Smoklou</arg>
+</arguments>
+<msg timestamp="20240128 12:29:01.491" level="INFO">Typing text 'Smoklou' into text field '//input[@name='lastname']'.</msg>
+<status status="PASS" starttime="20240128 12:29:01.490" endtime="20240128 12:29:01.581"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@name='websubmit']</arg>
+</arguments>
+<msg timestamp="20240128 12:29:01.582" level="INFO">Clicking button '//button[@name='websubmit']'.</msg>
+<status status="PASS" starttime="20240128 12:29:01.581" endtime="20240128 12:29:01.658"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>//button[@name='websubmit']</arg>
+</arguments>
+<assign>
+<var>${websubmitBtn}</var>
+</assign>
+<msg timestamp="20240128 12:29:01.674" level="INFO">${websubmitBtn} = S’inscrire</msg>
+<status status="PASS" starttime="20240128 12:29:01.658" endtime="20240128 12:29:01.675"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Should Be Equal As Strings</arg>
+<arg>${websubmitBtn}</arg>
+<arg>${signUpBtn['${LANG}']}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${websubmitBtn}</arg>
+<arg>${signUpBtn['${LANG}']}</arg>
+</arguments>
+<status status="PASS" starttime="20240128 12:29:01.675" endtime="20240128 12:29:01.675"></status>
+</kw>
+<status status="PASS" starttime="20240128 12:29:01.675" endtime="20240128 12:29:01.676"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; ${websubmitBtn}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20240128 12:29:01.676" level="INFO">-----&gt; S’inscrire</msg>
+<status status="PASS" starttime="20240128 12:29:01.676" endtime="20240128 12:29:01.676"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>1s</arg>
 </arguments>
-<msg timestamp="20240126 19:43:42.376" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20240126 19:43:41.374" endtime="20240126 19:43:42.376"></status>
-</kw>
-<status status="PASS" starttime="20240126 19:43:36.923" endtime="20240126 19:43:42.376"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>Wait Until Element Contains</arg>
-<arg>//a[@data-testid='open-registration-form-button']</arg>
-<arg>Créer nouveau compte</arg>
-<arg>timeout=60s</arg>
-</arguments>
-<kw name="Wait Until Element Contains" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<arguments>
-<arg>//a[@data-testid='open-registration-form-button']</arg>
-<arg>Créer nouveau compte</arg>
-<arg>timeout=60s</arg>
-</arguments>
-<status status="PASS" starttime="20240126 19:43:42.376" endtime="20240126 19:43:42.402"></status>
-</kw>
-<status status="PASS" starttime="20240126 19:43:42.376" endtime="20240126 19:43:42.403"></status>
+<msg timestamp="20240128 12:29:02.679" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240128 12:29:01.678" endtime="20240128 12:29:02.679"></status>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240126 19:43:42.403" endtime="20240126 19:43:44.550"></status>
+<status status="PASS" starttime="20240128 12:29:02.679" endtime="20240128 12:29:04.754"></status>
 </kw>
 <tags>
 <tag>Facebook</tag>
 <tag>Transparency</tag>
 </tags>
-<status status="PASS" starttime="20240126 19:43:36.919" endtime="20240126 19:43:44.550" critical="yes"></status>
+<status status="PASS" starttime="20240128 12:28:50.770" endtime="20240128 12:29:04.754" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20240126 19:43:36.345" endtime="20240126 19:43:44.552"></status>
+<status status="PASS" starttime="20240128 12:28:50.190" endtime="20240128 12:29:04.756"></status>
 </suite>
-<status status="PASS" starttime="20240126 19:43:36.328" endtime="20240126 19:43:44.552"></status>
+<status status="PASS" starttime="20240128 12:28:50.170" endtime="20240128 12:29:04.756"></status>
 </suite>
 <statistics>
 <total>
