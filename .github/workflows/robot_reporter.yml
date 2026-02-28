@@ -59,7 +59,7 @@ jobs:
         if: always()
         with:
           name: reports
-          path: Files
+          path: reports
             
   generate_report:
         if: always()
