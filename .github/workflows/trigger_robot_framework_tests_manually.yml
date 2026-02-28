@@ -86,7 +86,7 @@ jobs:
          echo TEST BROWSER: ${{github.event.inputs.BROWSER}}
          robot --variable ENV:$TEST_ENV --variable LANG:$TEST_LANG --variable BROWSER:${{ github.event.inputs.BROWSER }} --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} --include ${{ github.event.inputs.TAGS }} .
       - name: Test results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4
         with:
           name: Report
           path: report.html
