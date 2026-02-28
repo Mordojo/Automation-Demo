@@ -77,6 +77,7 @@ jobs:
           pip install -r Libraries/requirements.txt
       
       - name: Run tests
+        if: ${{ always() }}
         run: |
          TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
          TEST_LANG=$(echo ${{ github.event.inputs.LANGUAGE }} | tr '[:upper:]' '[:lower:]')
