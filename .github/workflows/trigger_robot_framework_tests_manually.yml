@@ -91,6 +91,7 @@ jobs:
           name: Report
           path: report.html
       - name: Clean up stuff
+        if: ${{ always() }}
         run: |
           history
           pwd
