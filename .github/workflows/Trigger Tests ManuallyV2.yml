@@ -78,7 +78,7 @@ jobs:
           JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
           API_KEY: ${{ secrets.API_KEY }}
 
-      - name: Prepare test environment variables
+      - name: Prepare test environment
         run: |
           TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
           TEST_LANG=$(echo ${{ github.event.inputs.LANGUAGE }} | tr '[:upper:]' '[:lower:]')
