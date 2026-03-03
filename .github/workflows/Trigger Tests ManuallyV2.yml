@@ -104,7 +104,7 @@ jobs:
             --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
             --include ${{ github.event.inputs.TAGS }} \
             --outputdir reports \
-            --listener allure_robotframework.listener \
+            --listener allure_robotframework \
             .
           echo "status=$?" >> $GITHUB_OUTPUT
 
