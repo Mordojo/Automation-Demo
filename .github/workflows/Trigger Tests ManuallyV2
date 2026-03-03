@@ -1,0 +1,156 @@
+name: Trigger Tests ManuallyV2
+
+on:
+  workflow_dispatch:
+    inputs:
+      ENV:
+        type: choice
+        description: 'Select the environment:'
+        options:
+          - TI
+          - TA
+          - PP
+        required: true
+      LANGUAGE:
+        type: choice
+        description: 'Set a language:'
+        options:
+          - EN
+          - FR
+        required: true
+      BROWSER:
+        type: choice
+        description: 'Set a browser:'
+        options:
+          - Chrome
+          - Firefox
+          - Edge
+        required: true
+      TAGS:
+        type: choice
+        description: 'Select a TE suite:'
+        options:
+          - Transparency
+          - JMap
+          - Facebook
+          - Employed
+        required: true
+      TEST_EXECUTION:
+        type: string
+        description: 'Enter TE prefix or leave it blank if it does not exist:'
+        default: ''
+        required: false
+      USE_JIRA:
+        type: boolean
+        description: 'Do you want to update TE?'
+        default: false
+        required: false
+
+env:
+  PYTHON_VERSION: '3.12.1'
+
+jobs:
+  RobotDemoJob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create .env file from GitHub Secrets
+        run: |
+          cat > .env << EOF
+          JIRA_TOKEN=${{ secrets.JIRA_TOKEN }}
+          API_KEY=${{ secrets.API_KEY }}
+          EOF
+        env:
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+
+      - name: Prepare test environment variables
+        run: |
+          TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
+          TEST_LANG=$(echo ${{ github.event.inputs.LANGUAGE }} | tr '[:upper:]' '[:lower:]')
+          echo "TEST_ENV=$TEST_ENV" >> $GITHUB_ENV
+          echo "TEST_LANG=$TEST_LANG" >> $GITHUB_ENV
+
+          echo "Test Environment: ${{ github.event.inputs.ENV }}"
+          echo "Test Language: ${{ github.event.inputs.LANGUAGE }}"
+          echo "Test Browser: ${{ github.event.inputs.BROWSER }}"
+          echo "Test Tags: ${{ github.event.inputs.TAGS }}"
+          echo "TE Prefix: ${{ github.event.inputs.TEST_EXECUTION }}"
+          echo "Update TE: ${{ github.event.inputs.USE_JIRA }}"
+
+      - name: Run Robot Framework tests with Allure
+        id: robot_tests
+        continue-on-error: true
+        run: |
+          robot \
+            --variable ENV:${{ env.TEST_ENV }} \
+            --variable LANG:${{ env.TEST_LANG }} \
+            --variable BROWSER:${{ github.event.inputs.BROWSER }} \
+            --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} \
+            --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
+            --include ${{ github.event.inputs.TAGS }} \
+            --outputdir reports \
+            --listener allure_robotframework \
+            .
+          echo "status=$?" >> $GITHUB_OUTPUT
+
+      - name: Generate Allure report
+        if: always()
+        run: |
+          allure generate reports/allure --clean -o reports/allure-report
+
+      - name: Upload Robot Framework logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-logs-${{ github.run_number }}
+          path: |
+            reports/log.html
+            reports/report.html
+            reports/output.xml
+          retention-days: 30
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ github.run_number }}
+          path: reports/allure
+          retention-days: 30
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ github.run_number }}
+          path: reports/allure-report
+          retention-days: 30
+
+      - name: Publish Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports/allure-report
+          destination_dir: allure-report/${{ github.run_number }}
+          keep_files: true
+
+      - name: Check test results
+        if: steps.robot_tests.outputs.status != '0'
+        run: |
+          echo "Tests completed with status ${{ steps.robot_tests.outputs.status }}"
+          exit ${{ steps.robot_tests.outputs.status }}
