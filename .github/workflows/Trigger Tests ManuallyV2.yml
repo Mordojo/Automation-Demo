@@ -154,7 +154,7 @@ jobs:
           keep_files: true
 
       - name: Check test results
-        if: steps.robot_tests.outputs.status != '0'
+        if: always()
         run: |
           echo "Tests completed with status ${{ steps.robot_tests.outputs.status }}"
           exit ${{ steps.robot_tests.outputs.status }}
