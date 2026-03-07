@@ -98,7 +98,7 @@ jobs:
 
       - name: Run Robot Framework tests with Allure
         id: robot_tests
-        continue-on-error: true
+        continue-on-error: false
         run: |
           robot \
             --variable ENV:${{ env.TEST_ENV }} \
