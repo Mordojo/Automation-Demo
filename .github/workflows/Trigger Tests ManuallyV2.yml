@@ -48,6 +48,7 @@ on:
 
 env:
   PYTHON_VERSION: '3.12.1'
+  JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
 
 jobs:
   RobotDemoJob:
@@ -85,14 +86,10 @@ jobs:
           echo "Test Tags: ${{ github.event.inputs.TAGS }}"
           echo "TE Prefix: ${{ github.event.inputs.TEST_EXECUTION }}"
           echo "Update TE: ${{ github.event.inputs.USE_JIRA }}"
-          JIRA_TOKEN=$(echo ${{ secrets.JIRA_TOKEN }}) >> $GITHUB_ENV
           
       - name: Run Robot Framework tests with Allure
         id: robot_tests
         continue-on-error: false
-        env:
-          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-          API_KEY: ${{ secrets.API_KEY }}
         run: |
           mkdir -p reports/allure-results
           robot \
@@ -101,7 +98,6 @@ jobs:
             --variable BROWSER:${{ github.event.inputs.BROWSER }} \
             --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} \
             --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
-            --variable JIRA_TOKEN:${{ env.JIRA_TOKEN }} \
             --include ${{ github.event.inputs.TAGS }} \
             --outputdir reports \
             --listener allure_robotframework:reports/allure-results \
