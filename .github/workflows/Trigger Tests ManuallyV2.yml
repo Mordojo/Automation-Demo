@@ -72,27 +72,6 @@ jobs:
         run: |
           npm install -g allure-commandline
 
-      - name: Create .env file from GitHub Secrets
-        run: |
-          cat > .env << EOF
-          JIRA_TOKEN=${{ secrets.JIRA_TOKEN }}
-          API_KEY=${{ secrets.API_KEY }}
-          EOF
-          echo "✓ .env file created successfully"
-
-      - name: Load environment variables
-        run: |
-          if [ -f "PyLibs/env_loader.py" ]; then
-            python PyLibs/env_loader.py
-          else
-            while IFS='=' read -r key value; do
-              [ -z "$key" ] && continue
-              [[ "$key" == "#"* ]] && continue
-              echo "$key=$value" >> $GITHUB_ENV
-            done < .env
-          fi
-          echo "Environment variables loaded"
-
       - name: Prepare test environment
         run: |
           TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
@@ -111,8 +90,8 @@ jobs:
         id: robot_tests
         continue-on-error: false
         env:
-          JIRA_TOKEN: ${{ env.JIRA_TOKEN }}
-          API_KEY: ${{ env.API_KEY }}
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
           mkdir -p reports/allure-results
           robot \
