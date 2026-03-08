@@ -4,7 +4,7 @@ Library    OperatingSystem
 Library    String
 Library    Dialogs
 Library    REST
-Library    PyLibs/env_loader.py
+Library    ../../PyLibs/env_loader.py
 # Library    JSONLibrary
 # Suite Setup    Set Locators From Json    AdminElements.json    
 # Test Setup    Open JMap Admin    ${URLAdmin}

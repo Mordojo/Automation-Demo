@@ -1,6 +1,6 @@
 *** Settings ***
 Library    REST    https://jsonplaceholder.typicode.com
-Library    PyLibs/env_loader.py
+Library    ../../PyLibs/env_loader.py
 Documentation   Test data can be read from variables and files.
 ...             Both JSON and Python type systems are supported for inputs.
 ...             Every request creates a so-called instance. Can be `Output`.
