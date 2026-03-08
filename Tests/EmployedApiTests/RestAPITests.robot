@@ -25,12 +25,13 @@ Suite Teardown    Log    ---> Suite Teardown: RestAPITests.robot    console=yes
 *** Variables ***
 ${json}         { "id": 11, "name": "Gil Alexander" }
 &{dict}         name=Julie Langford
-
+${USERS_ENDPOINT}    %{USERS_ENDPOINT=__dummy__}
 
 *** Test Cases ***
 GET an existing user, notice how the schema gets more accurate
     [Tags]    Employed    Transparency
-    GET         /users/1                  # this creates a new instance
+    Log    -----> USERS ENDPOINT: ${USERS_ENDPOINT}    console=yes
+    GET         ${USERS_ENDPOINT}/1                  # this creates a new instance
     Output schema   response body
     Object      response body             # values are fully optional
     Integer     response body id          1

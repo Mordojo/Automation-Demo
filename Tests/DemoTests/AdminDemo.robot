@@ -47,6 +47,8 @@ Test Github actions
     Log    -----> Actual TE: ${NEW_TE}    console=yes
     Log    -----> USE JIRA: ${USE_JIRA}    console=yes
     Log    -----> JIRA TOKEN: ${JIRA_TOKEN}    console=yes
+    ${header}=    Create Dictionary    Authorization=Bearer ${JIRA_TOKEN}
+
 
 Login_with_valid_credentials
     [Tags]    JMap
