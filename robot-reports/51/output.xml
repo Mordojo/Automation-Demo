@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.12.1 on linux)" generated="20260308 20:15:29.871" rpa="false">
+<suite id="s1" name="Tests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests">
+<suite id="s1-s1" name="DemoTests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/DemoTests">
+<suite id="s1-s1-s1" name="AdminDemo" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/DemoTests/AdminDemo.robot">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.429" level="INFO">---&gt; Suite Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:30.428" endtime="20260308 20:15:30.429"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="Test Github actions">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.430" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:30.429" endtime="20260308 20:15:30.430"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.430" level="INFO">
+-----&gt; Actual ENV: pp</msg>
+<status status="PASS" starttime="20260308 20:15:30.430" endtime="20260308 20:15:30.430"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.430" level="INFO">-----&gt; Actual LANG: fr</msg>
+<status status="PASS" starttime="20260308 20:15:30.430" endtime="20260308 20:15:30.430"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.431" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20260308 20:15:30.430" endtime="20260308 20:15:30.431"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.431" level="INFO">-----&gt; Actual TE: </msg>
+<status status="PASS" starttime="20260308 20:15:30.431" endtime="20260308 20:15:30.431"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.431" level="INFO">-----&gt; USE JIRA: false</msg>
+<status status="PASS" starttime="20260308 20:15:30.431" endtime="20260308 20:15:30.432"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; JIRA TOKEN: ${JIRA_TOKEN}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.432" level="INFO">-----&gt; JIRA TOKEN: DF65778SDV989FVNC1-KDF</msg>
+<status status="PASS" starttime="20260308 20:15:30.432" endtime="20260308 20:15:30.432"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=Bearer ${JIRA_TOKEN}</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20260308 20:15:30.432" level="INFO">${header} = {'Authorization': 'Bearer DF65778SDV989FVNC1-KDF'}</msg>
+<status status="PASS" starttime="20260308 20:15:30.432" endtime="20260308 20:15:30.432"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.433" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:30.433" endtime="20260308 20:15:30.433"></status>
+</kw>
+<tags>
+<tag>JMap</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20260308 20:15:30.429" endtime="20260308 20:15:30.433" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="Open Facbook Test">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.434" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:30.434" endtime="20260308 20:15:30.434"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n-----&gt; Open Facebook:</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.434" level="INFO">
+-----&gt; Open Facebook:</msg>
+<status status="PASS" starttime="20260308 20:15:30.434" endtime="20260308 20:15:30.434"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.434" level="INFO">-----&gt; Actual ENV: pp</msg>
+<status status="PASS" starttime="20260308 20:15:30.434" endtime="20260308 20:15:30.435"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.435" level="INFO">-----&gt; Actual LANG: fr</msg>
+<status status="PASS" starttime="20260308 20:15:30.435" endtime="20260308 20:15:30.435"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.435" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20260308 20:15:30.435" endtime="20260308 20:15:30.435"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.435" level="INFO">-----&gt; Actual TE: </msg>
+<status status="PASS" starttime="20260308 20:15:30.435" endtime="20260308 20:15:30.436"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.436" level="INFO">-----&gt; USE JIRA: false</msg>
+<status status="PASS" starttime="20260308 20:15:30.436" endtime="20260308 20:15:30.436"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>en=Create new account</arg>
+<arg>fr=Créer nouveau compte</arg>
+</arguments>
+<assign>
+<var>&amp;{createNewAccountBtn}</var>
+</assign>
+<msg timestamp="20260308 20:15:30.436" level="INFO">&amp;{createNewAccountBtn} = { en=Create new account | fr=Créer nouveau compte }</msg>
+<status status="PASS" starttime="20260308 20:15:30.436" endtime="20260308 20:15:30.436"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>en=Sign Up</arg>
+<arg>fr=S’inscrire</arg>
+</arguments>
+<assign>
+<var>&amp;{signUpBtn}</var>
+</assign>
+<msg timestamp="20260308 20:15:30.437" level="INFO">&amp;{signUpBtn} = { en=Sign Up | fr=S’inscrire }</msg>
+<status status="PASS" starttime="20260308 20:15:30.436" endtime="20260308 20:15:30.437"></status>
+</kw>
+<kw name="Open Url">
+<arguments>
+<arg>https://www.facebook.com</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${BROWSER}'=='Chrome'</arg>
+<arg>Open Chrome</arg>
+</arguments>
+<kw name="Open Chrome">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome options}</var>
+</assign>
+<msg timestamp="20260308 20:15:30.437" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f52741578c0&gt;</msg>
+<status status="PASS" starttime="20260308 20:15:30.437" endtime="20260308 20:15:30.437"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${USE_BROWSER}==${False}</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>headless</arg>
+</arguments>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>headless</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.438"></status>
+</kw>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.438"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.438"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-gpu</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.438"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.438"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+</arguments>
+<assign>
+<var>${var}</var>
+</assign>
+<msg timestamp="20260308 20:15:30.439" level="INFO">${var} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['headless', '--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
+<status status="PASS" starttime="20260308 20:15:30.438" endtime="20260308 20:15:30.439"></status>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>driver_name=Chrome</arg>
+<arg>alias=google</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20260308 20:15:30.439" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20260308 20:15:30.439" endtime="20260308 20:15:36.361"></status>
+</kw>
+<status status="PASS" starttime="20260308 20:15:30.437" endtime="20260308 20:15:36.361"></status>
+</kw>
+<status status="PASS" starttime="20260308 20:15:30.437" endtime="20260308 20:15:36.361"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20260308 20:15:36.361" level="INFO">Opening url 'https://www.facebook.com'</msg>
+<status status="PASS" starttime="20260308 20:15:36.361" endtime="20260308 20:15:37.445"></status>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:37.445" endtime="20260308 20:15:37.697"></status>
+</kw>
+<status status="PASS" starttime="20260308 20:15:30.437" endtime="20260308 20:15:37.697"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Enabled</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<assign>
+<var>${isCookiesPopup}</var>
+</assign>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+</arguments>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20260308 20:15:39.863" endtime="20260308 20:15:39.864"></status>
+</kw>
+<msg timestamp="20260308 20:15:39.865" level="FAIL">Element with locator '//button[@data-testid='cookie-policy-manage-dialog-decline-button']' not found.</msg>
+<status status="FAIL" starttime="20260308 20:15:37.697" endtime="20260308 20:15:39.865"></status>
+</kw>
+<msg timestamp="20260308 20:15:39.865" level="INFO">${isCookiesPopup} = False</msg>
+<status status="PASS" starttime="20260308 20:15:37.697" endtime="20260308 20:15:39.865"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${isCookiesPopup}==${False}</arg>
+<arg>Click Button</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:39.865" endtime="20260308 20:15:39.865"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>//ul[contains(@class, 'uiList localeSelectorList')]/li</arg>
+</arguments>
+<kw name="No Operation" library="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20260308 20:15:45.012" endtime="20260308 20:15:45.013"></status>
+</kw>
+<msg timestamp="20260308 20:15:45.013" level="FAIL">Element '//ul[contains(@class, 'uiList localeSelectorList')]/li' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20260308 20:15:39.865" endtime="20260308 20:15:45.013"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.014" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:45.014" endtime="20260308 20:15:45.014"></status>
+</kw>
+<tags>
+<tag>Facebook</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="FAIL" starttime="20260308 20:15:30.433" endtime="20260308 20:15:45.014" critical="yes">Element '//ul[contains(@class, 'uiList localeSelectorList')]/li' not visible after 5 seconds.</status>
+</test>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.015" level="INFO">---&gt; Suite Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 20:15:45.015" endtime="20260308 20:15:45.015"></status>
+</kw>
+<status status="FAIL" starttime="20260308 20:15:29.888" endtime="20260308 20:15:45.015"></status>
+</suite>
+<status status="FAIL" starttime="20260308 20:15:29.887" endtime="20260308 20:15:45.016"></status>
+</suite>
+<suite id="s1-s2" name="EmployedApiTests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/EmployedApiTests">
+<suite id="s1-s2-s1" name="RestAPITests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/EmployedApiTests/RestAPITests.robot">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Setup: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.024" level="INFO">---&gt; Suite Setup: RestAPITests.robot</msg>
+<status status="PASS" starttime="20260308 20:15:45.024" endtime="20260308 20:15:45.024"></status>
+</kw>
+<test id="s1-s2-s1-t1" name="GET an existing user, notice how the schema gets more accurate">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Setup: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.025" level="INFO">---&gt; Test Setup: RestAPITests.robot</msg>
+<status status="PASS" starttime="20260308 20:15:45.025" endtime="20260308 20:15:45.025"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; USERS ENDPOINT: ${USERS_ENDPOINT}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.025" level="INFO">-----&gt; USERS ENDPOINT: /users</msg>
+<status status="PASS" starttime="20260308 20:15:45.025" endtime="20260308 20:15:45.025"></status>
+</kw>
+<kw name="GET" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${USERS_ENDPOINT}/1</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:45.026" endtime="20260308 20:15:45.182"></status>
+</kw>
+<kw name="Output Schema" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<arguments>
+<arg>response body</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.182" level="INFO">
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "default": 1
+        },
+        "name": {
+            "type": "string",
+            "default": "Leanne Graham"
+        },
+        "username": {
+            "type": "string",
+            "default": "Bret"
+        },
+        "email": {
+            "type": "string",
+            "default": "Sincere@april.biz"
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "street": {
+                    "type": "string",
+                    "default": "Kulas Light"
+                },
+                "suite": {
+                    "type": "string",
+                    "default": "Apt. 556"
+                },
+                "city": {
+                    "type": "string",
+                    "default": "Gwenborough"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "default": "92998-3874"
+                },
+                "geo": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "string",
+                            "default": "-37.3159"
+                        },
+                        "lng": {
+                            "type": "string",
+                            "default": "81.1496"
+                        }
+                    },
+                    "required": [
+                        "lat",
+                        "lng"
+                    ]
+                }
+            },
+            "required": [
+                "city",
+                "geo",
+                "street",
+                "suite",
+                "zipcode"
+            ]
+        },
+        "phone": {
+            "type": "string",
+            "default": "1-770-736-8031 x56442"
+        },
+        "website": {
+            "type": "string",
+            "default": "hildegard.org"
+        },
+        "company": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "Romaguera-Crona"
+                },
+                "catchPhrase": {
+                    "type": "string",
+                    "default": "Multi-layered client-server neural-net"
+                },
+                "bs": {
+                    "type": "string",
+                    "default": "harness real-time e-markets"
+                }
+            },
+            "required": [
+                "bs",
+                "catchPhrase",
+                "name"
+            ]
+        }
+    },
+    "required": [
+        "address",
+        "company",
+        "email",
+        "id",
+        "name",
+        "phone",
+        "username",
+        "website"
+    ]
+}</msg>
+<status status="PASS" starttime="20260308 20:15:45.182" endtime="20260308 20:15:45.188"></status>
+</kw>
+<kw name="Object" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON object.*</doc>
+<arguments>
+<arg>response body</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:45.188" endtime="20260308 20:15:45.195"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response body id</arg>
+<arg>1</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:45.195" endtime="20260308 20:15:45.196"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body name</arg>
+<arg>Leanne Graham</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:45.196" endtime="20260308 20:15:45.197"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body name</arg>
+<arg>Bret</arg>
+</arguments>
+<status status="PASS" starttime="20260308 20:15:45.197" endtime="20260308 20:15:45.197"></status>
+</kw>
+<kw name="Output Schema" library="REST" type="teardown">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<msg timestamp="20260308 20:15:45.198" level="INFO">
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GET https://jsonplaceholder.typicode.com/users/1",
+    "description": "Tests.EmployedApiTests.RestAPITests: GET an existing user, notice how the schema gets more accurate",
+    "default": true,
+    "examples": [],
+    "type": "object",
+    "properties": {
+        "request": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "null"
+                },
+                "query": {
+                    "type": "object"
+                }
+            }
+        },
+        "response": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "default": 1,
+                            "enum": [
+                                1
+                            ]
+                        },
+                        "name": {
+                            "type": "string",
+                            "default": "Leanne Graham",
+                            "enum": [
+                                "Leanne Graham",
+                                "Bret"
+                            ]
+                        },
+                        "username": {
+                            "type": "string",
+                            "default": "Bret"
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": "Sincere@april.biz"
+                        },
+                        "address": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string",
+                                    "default": "Kulas Light"
+                                },
+                                "suite": {
+                                    "type": "string",
+                                    "default": "Apt. 556"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "default": "Gwenborough"
+                                },
+                                "zipcode": {
+                                    "type": "string",
+                                    "default": "92998-3874"
+                                },
+                                "geo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lat": {
+                                            "type": "string",
+                                            "default": "-37.3159"
+                                        },
+                                        "lng": {
+                                            "type": "string",
+                                            "default": "81.1496"
+                                        }
+                                    },
+                                    "required": [
+                                        "lat",
+                                        "lng"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "city",
+                                "geo",
+                                "street",
+                                "suite",
+                                "zipcode"
+                            ]
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": "1-770-736-8031 x56442"
+                        },
+                        "website": {
+                            "type": "string",
+                            "default": "hildegard.org"
+                        },
+                        "company": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "default": "Romaguera-Crona"
+                                },
+                                "catchPhrase": {
+                                    "type": "string",
+                                    "default": "Multi-layered client-server neural-net"
+                                },
+                                "bs": {
+                                    "type": "string",
+                                    "default": "harness real-time e-markets"
+                                }
+                            },
+                            "required": [
+                                "bs",
+                                "catchPhrase",
+                                "name"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "company",
+                        "email",
+                        "id",
+                        "name",
+                        "phone",
+                        "username",
+                        "website"
+                    ],
+                    "examples": [
+                        {
+                            "id": 1,
+                            "name": "Leanne Graham",
+                            "username": "Bret",
+                            "email": "Sincere@april.biz",
+                            "address": {
+                                "street": "Kulas Light",
+                                "suite": "Apt. 556",
+                                "city": "Gwenborough",
+                                "zipcode": "92998-3874",
+                                "geo": {
+                                    "lat": "-37.3159",
+                                    "lng": "81.1496"
+                                }
+                            },
+                            "phone": "1-770-736-8031 x56442",
+                            "website": "hildegard.org",
+                            "company": {
+                                "name": "Romaguera-Crona",
+                                "catchPhrase": "Multi-layered client-server neural-net",
+                                "bs": "harness real-time e-markets"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}</msg>
+<status status="PASS" starttime="20260308 20:15:45.197" endtime="20260308 20:15:45.199"></status>
+</kw>
+<tags>
+<tag>Employed</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20260308 20:15:45.024" endtime="20260308 20:15:45.199" critical="yes"></status>
+</test>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Teardown: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 20:15:45.200" level="INFO">---&gt; Suite Teardown: RestAPITests.robot</msg>
+<status status="PASS" starttime="20260308 20:15:45.200" endtime="20260308 20:15:45.200"></status>
+</kw>
+<doc>Test data can be read from variables and files.
+Both JSON and Python type systems are supported for inputs.
+Every request creates a so-called instance. Can be `Output`.
+Most keywords are effective only for the last instance.
+Initial schemas are autogenerated for request and response.
+You can make them more detailed by using assertion keywords.
+The assertion keywords correspond to the JSON types.
+They take in either path to the property or a JSONPath query.
+Using (enum) values in tests optional. Only type is required.
+All the JSON Schema validation keywords are also supported.
+Thus, there is no need to write any own validation logic.
+Not a long path from schemas to full Swagger/OpenAPI specs.
+The persistence of the created instances is the test suite.
+Use keyword `Rest instances` to output the created instances.</doc>
+<status status="PASS" starttime="20260308 20:15:45.018" endtime="20260308 20:15:45.200"></status>
+</suite>
+<status status="PASS" starttime="20260308 20:15:45.017" endtime="20260308 20:15:45.202"></status>
+</suite>
+<status status="FAIL" starttime="20260308 20:15:29.872" endtime="20260308 20:15:45.202"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1">Critical Tests</stat>
+<stat pass="2" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Employed</stat>
+<stat pass="0" fail="1">Facebook</stat>
+<stat pass="1" fail="0">JMap</stat>
+<stat pass="2" fail="1">Transparency</stat>
+</tag>
+<suite>
+<stat pass="2" fail="1" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="1" id="s1-s1" name="DemoTests">Tests.DemoTests</stat>
+<stat pass="1" fail="1" id="s1-s1-s1" name="AdminDemo">Tests.DemoTests.AdminDemo</stat>
+<stat pass="1" fail="0" id="s1-s2" name="EmployedApiTests">Tests.EmployedApiTests</stat>
+<stat pass="1" fail="0" id="s1-s2-s1" name="RestAPITests">Tests.EmployedApiTests.RestAPITests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
