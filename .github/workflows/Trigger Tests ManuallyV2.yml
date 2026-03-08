@@ -69,6 +69,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r Libraries/requirements.txt
 
+      # Debug repo structure (optional)
+      - name: Debug repo structure
+        run: ls -R
+
       - name: Prepare test environment
         run: |
           TEST_ENV=$(echo ${{ github.event.inputs.ENV }} | tr '[:upper:]' '[:lower:]')
@@ -96,16 +100,14 @@ jobs:
             --include ${{ github.event.inputs.TAGS }} \
             .
 
-      - name: Generate Allure report
-        uses: andgineer/allure-report@v3.6
-        if: always()
-        with:
-          allure-results: allure-results
-          website: allure-history
-
-      - name: Upload Allure report
+      - name: Test results
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: allure-report
-          path: allure-history
+          name: Report
+          path: report.html
+      - name: Clean up stuff
+        if: ${{ always() }}
+        run: |
+          history
+          pwd
