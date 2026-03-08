@@ -78,9 +78,8 @@ jobs:
           JIRA_TOKEN=${{ secrets.JIRA_TOKEN }}
           API_KEY=${{ secrets.API_KEY }}
           EOF
-        env:
-          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-          API_KEY: ${{ secrets.API_KEY }}
+          echo "✓ .env file created successfully"
+          echo "JIRA_TOKEN value: ${{ secrets.JIRA_TOKEN }}"
 
       - name: Prepare test environment
         run: |
@@ -95,9 +94,7 @@ jobs:
           echo "Test Tags: ${{ github.event.inputs.TAGS }}"
           echo "TE Prefix: ${{ github.event.inputs.TEST_EXECUTION }}"
           echo "Update TE: ${{ github.event.inputs.USE_JIRA }}"
-          echo "JIRA TOKEN: ${{ github.env.JIRA_TOKEN}}"
-          echo "JIRA_TOKEN=$JIRA_TOKEN" >> $GITHUB_ENV
-
+          
       - name: Run Robot Framework tests with Allure
         id: robot_tests
         continue-on-error: false
