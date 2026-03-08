@@ -99,60 +99,18 @@ jobs:
             --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} \
             --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
             --include ${{ github.event.inputs.TAGS }} \
-            --outputdir reports \
-            --listener allure_robotframework:reports/allure-results \
-            .
-          STATUS=$?
-          echo "status=$STATUS" >> $GITHUB_OUTPUT
-          exit $STATUS
+            --listener allure_robotframework:allure-results \
 
       - name: Generate Allure report
+        uses: andgineer/allure-report@v3.6
         if: always()
-        run: |
-          if [ -d "reports/allure-results" ]; then
-            allure generate reports/allure-results --clean -o reports/allure-report
-          else
-            echo "No allure results found"
-          fi
-
-      - name: Upload Robot Framework logs
-        if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: robot-logs-${{ github.run_number }}
-          path: |
-            reports/log.html
-            reports/report.html
-            reports/output.xml
-          retention-days: 30
-
-      - name: Upload Allure results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results-${{ github.run_number }}
-          path: reports/allure-results
-          retention-days: 30
+          allure-results: allure-results
+          website: allure-history
 
       - name: Upload Allure report
-        if: always()
         uses: actions/upload-artifact@v4
-        with:
-          name: allure-report-${{ github.run_number }}
-          path: reports/allure-report
-          retention-days: 30
-
-      - name: Publish Allure report to GitHub Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: reports/allure-report
-          destination_dir: allure-report/${{ github.run_number }}
-          keep_files: true
-
-      - name: Check test results
-        if: always()
-        run: |
-          echo "Tests completed with status ${{ steps.robot_tests.outputs.status }}"
-          exit ${{ steps.robot_tests.outputs.status }}
+          name: allure-report
+          path: allure-history
