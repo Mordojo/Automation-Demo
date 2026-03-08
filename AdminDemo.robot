@@ -25,10 +25,12 @@ ${USE_BROWSER}    ${False}
 #${USE_TAGE}    ${EMPTY}
 ${NEW_TE}    ${EMPTY}
 ${USE_JIRA}    ${EMPTY}
+${JIRA_TOKEN}    ${EMPTY}
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}
+${JIRA_TOKEN}
 # ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
 
 *** Test Cases ***
@@ -39,6 +41,7 @@ Test Github actions
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
     Log    -----> Actual TE: ${NEW_TE}    console=yes
     Log    -----> USE JIRA: ${USE_JIRA}    console=yes
+    Log    -----> USE JIRA: ${JIRA_TOKEN}    console=yes
 
 Login_with_valid_credentials
     [Tags]    JMap
