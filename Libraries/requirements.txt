@@ -4,3 +4,4 @@ robotframework-seleniumlibrary==5.1.1
 allure-robotframework==2.13.2
 setuptools
 RESTinstance
+python-dotenv

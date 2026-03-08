@@ -4,6 +4,7 @@ Library    OperatingSystem
 Library    String
 Library    Dialogs
 Library    REST
+Library    PyLibs/env_loader.py
 # Library    JSONLibrary
 # Suite Setup    Set Locators From Json    AdminElements.json    
 # Test Setup    Open JMap Admin    ${URLAdmin}
@@ -30,7 +31,7 @@ ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}
-${JIRA_TOKEN}
+${JIRA_TOKEN}    ${EMPTY}
 # ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
 
 *** Test Cases ***
@@ -41,7 +42,7 @@ Test Github actions
     Log    -----> Actual BROWSER: ${BROWSER}    console=yes
     Log    -----> Actual TE: ${NEW_TE}    console=yes
     Log    -----> USE JIRA: ${USE_JIRA}    console=yes
-    Log    -----> USE JIRA: ${JIRA_TOKEN}    console=yes
+    Log    -----> JIRA TOKEN: ${JIRA_TOKEN}    console=yes
 
 Login_with_valid_credentials
     [Tags]    JMap

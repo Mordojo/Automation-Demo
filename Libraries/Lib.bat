@@ -4,3 +4,4 @@ pip install setuptools
 pip install RESTinstance
 pip install --upgrade robotframework-jsonlibrary
 pip install allure-robotframework
+pip install python-dotenv
