@@ -79,7 +79,19 @@ jobs:
           API_KEY=${{ secrets.API_KEY }}
           EOF
           echo "✓ .env file created successfully"
-          echo "JIRA_TOKEN value: ${{ secrets.JIRA_TOKEN }}"
+
+      - name: Load environment variables
+        run: |
+          if [ -f "env_loader.py" ]; then
+            python env_loader.py
+          else
+            while IFS='=' read -r key value; do
+              [ -z "$key" ] && continue
+              [[ "$key" == "#"* ]] && continue
+              echo "$key=$value" >> $GITHUB_ENV
+            done < .env
+          fi
+          echo "Environment variables loaded"
 
       - name: Prepare test environment
         run: |
