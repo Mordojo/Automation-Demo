@@ -1,0 +1,1 @@
+[{"uid":"d62f4d4262f11710","name":"Test Github actions","time":{"start":1772956079895,"stop":1772956079899,"duration":4},"status":"passed","severity":"critical"},{"uid":"d0639dbc35a08120","name":"Login_with_valid_credentials","time":{"start":1772956079901,"stop":1772956079905,"duration":4},"status":"passed","severity":"critical"}]
