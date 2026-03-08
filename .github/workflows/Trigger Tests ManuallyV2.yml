@@ -91,15 +91,14 @@ jobs:
         id: robot_tests
         continue-on-error: false
         run: |
-          mkdir -p reports/allure-results
           robot \
+            --listener allure_robotframework:allure-results \
             --variable ENV:${{ env.TEST_ENV }} \
             --variable LANG:${{ env.TEST_LANG }} \
             --variable BROWSER:${{ github.event.inputs.BROWSER }} \
             --variable NEW_TE:${{ github.event.inputs.TEST_EXECUTION }} \
             --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
             --include ${{ github.event.inputs.TAGS }} \
-            --listener allure_robotframework:allure-results \
 
       - name: Generate Allure report
         uses: andgineer/allure-report@v3.6
