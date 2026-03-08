@@ -90,6 +90,7 @@ jobs:
       - name: Run Robot Framework tests with Allure
         continue-on-error: false
         run: |
+          mkdir -p results
           robot \
             --listener allure_robotframework:allure-results \
             --variable ENV:${{ env.TEST_ENV }} \
@@ -99,13 +100,18 @@ jobs:
             --variable USE_JIRA:${{ github.event.inputs.USE_JIRA }} \
             --include ${{ github.event.inputs.TAGS }} \
             .
-
-      - name: Test results
-        if: ${{ always() }}
+      
+      - name: Upload Test report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: Report
-          path: report.html
+          name: Robot test report-${{ github.run_number }}
+          path: |
+            reports/log.html
+            reports/report.html
+            reports/output.xml
+          retention-days: 30
+
       - name: Clean up stuff
         if: ${{ always() }}
         run: |
