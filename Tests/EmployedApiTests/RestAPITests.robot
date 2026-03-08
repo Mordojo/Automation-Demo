@@ -16,6 +16,11 @@ Documentation   Test data can be read from variables and files.
 ...             The persistence of the created instances is the test suite.
 ...             Use keyword `Rest instances` to output the created instances.
 
+Suite Setup    Log    ---> Suite Setup: RestAPITests.robot    console=yes
+Test Setup    Log    ---> Test Setup: RestAPITests.robot    console=yes
+Test Teardown    Log    ---> Test Teardown: RestAPITests.robot    console=yes
+Suite Teardown    Log    ---> Suite Teardown: RestAPITests.robot    console=yes
+
 
 *** Variables ***
 ${json}         { "id": 11, "name": "Gil Alexander" }

@@ -1,35 +1,895 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2026-03-08T14:49:09.781577" rpa="false" schemaversion="5">
-<suite id="s1" name="RestAPITests" source="c:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests\EmployedApiTests\RestAPITests.robot">
-<test id="s1-t1" name="POST with valid params to create a new user, can be output to a file" line="45">
-<kw name="POST" owner="REST">
-<arg>/users</arg>
-<arg>${json}</arg>
+<robot generator="Robot 7.0.1 (Python 3.12.1 on win32)" generated="2026-03-08T15:40:45.620926" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests">
+<suite id="s1-s1" name="DemoTests" source="C:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests\DemoTests">
+<suite id="s1-s1-s1" name="AdminDemo" source="C:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests\DemoTests\AdminDemo.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-03-08T15:40:46.225596" level="INFO">---&gt; Suite Setup: AdminDemo.robot</msg>
+<arg>---&gt; Suite Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.225596" elapsed="0.000000"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Test Github actions" line="42">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-03-08T15:40:46.225596" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.225596" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.227952" level="INFO">
+-----&gt; Actual ENV: pp</msg>
+<arg>\n-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.227952" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.227952" level="INFO">-----&gt; Actual LANG: fr</msg>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.227952" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.230385" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.230385" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.230385" level="INFO">-----&gt; Actual TE: ESHARE-007</msg>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.230385" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.232484" level="INFO">-----&gt; USE JIRA: false</msg>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.232484" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.232484" level="INFO">-----&gt; JIRA TOKEN: ABCDEFGHIJKLMNOPQRSTUVWXYZ</msg>
+<arg>-----&gt; JIRA TOKEN: ${JIRA_TOKEN}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.232484" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-03-08T15:40:46.232484" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.232484" elapsed="0.002090"/>
+</kw>
+<tag>JMap</tag>
+<tag>Transparency</tag>
+<status status="PASS" start="2026-03-08T15:40:46.225596" elapsed="0.008978"/>
+</test>
+<test id="s1-s1-s1-t2" name="Open Facbook Test" line="63">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-03-08T15:40:46.236642" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.236642" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.236642" level="INFO">
+-----&gt; Open Facebook:</msg>
+<arg>\n-----&gt; Open Facebook:</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.236642" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.238676" level="INFO">-----&gt; Actual ENV: pp</msg>
+<arg>-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.238676" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.238676" level="INFO">-----&gt; Actual LANG: fr</msg>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.238676" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.238676" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.238676" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.241184" level="INFO">-----&gt; Actual TE: ESHARE-007</msg>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.241184" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.241184" level="INFO">-----&gt; USE JIRA: false</msg>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.241184" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.243750" level="INFO">&amp;{createNewAccountBtn} = { en=Create new account | fr=Créer nouveau compte }</msg>
+<var>&amp;{createNewAccountBtn}</var>
+<arg>en=Create new account</arg>
+<arg>fr=Créer nouveau compte</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.241184" elapsed="0.002566"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.246221" level="INFO">&amp;{signUpBtn} = { en=Sign Up | fr=S’inscrire }</msg>
+<var>&amp;{signUpBtn}</var>
+<arg>en=Sign Up</arg>
+<arg>fr=S’inscrire</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.246221" elapsed="0.000000"/>
+</kw>
+<kw name="Open Url">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Open Chrome">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.248720" level="INFO">${chrome options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001A5D1336C60&gt;</msg>
+<var>${chrome options}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<arg>modules=selenium, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<arg>${USE_BROWSER}==${False}</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<msg time="2026-03-08T15:40:46.248720" level="INFO">${var} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['headless', '--no-sandbox', 'disable-gpu', '--ignore-certificate-errors']}}</msg>
+<var>${var}</var>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-08T15:40:46.248720" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2026-03-08T15:40:46.248720" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<kw name="No Operation" owner="BuiltIn">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" start="2026-03-08T15:40:49.806694" elapsed="0.000000"/>
+</kw>
+<msg time="2026-03-08T15:40:49.806694" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</msg>
+<arg>driver_name=Chrome</arg>
+<arg>alias=google</arg>
+<arg>chrome_options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2026-03-08T15:40:46.248720" elapsed="3.671717">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</status>
+</kw>
+<status status="FAIL" start="2026-03-08T15:40:46.248720" elapsed="3.671717">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</status>
+</kw>
+<arg>'${BROWSER}'=='Chrome'</arg>
+<arg>Open Chrome</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2026-03-08T15:40:46.246221" elapsed="3.674216">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.920437" elapsed="0.000000"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.920437" elapsed="0.000000"/>
+</kw>
+<arg>https://www.facebook.com</arg>
+<status status="FAIL" start="2026-03-08T15:40:46.246221" elapsed="3.674216">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</status>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${isCookiesPopup}</var>
+<arg>Wait Until Element Is Enabled</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.922506" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-03-08T15:40:49.922506" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${isCookiesPopup}==${False}</arg>
+<arg>Click Button</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.922506" elapsed="0.002148"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//ul[contains(@class, 'uiList localeSelectorList')]/li</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.924654" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${curSelectedLang}</var>
+<arg>//ul[contains(@class, 'uiList localeSelectorList')]/li[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.924654" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${LANG}"=="fr" and "${curSelectedLang}"!="Français (France)"</arg>
+<arg>Click Element</arg>
+<arg>//a[contains(text(),"Français")]</arg>
+<arg>ELSE IF</arg>
+<arg>"${LANG}"=="en" and "${curSelectedLang}"!="English (US)"</arg>
+<arg>Click Element</arg>
+<arg>//a[contains(text(),"English")]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.924654" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${isCookiesPopup}</var>
+<arg>Wait Until Element Is Enabled</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<arg>timeout=2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.926713" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword Unless" owner="BuiltIn">
+<msg time="2026-03-08T15:40:49.926713" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<arg>${isCookiesPopup}==${False}</arg>
+<arg>Click Button</arg>
+<arg>//button[@data-testid='cookie-policy-manage-dialog-decline-button']</arg>
+<doc>*DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.926713" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>\n****** Verifying Buttons contents in "${LANG}" ******</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.928833" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.928833" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${registrationBtn}</var>
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.928833" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>-----&gt; ${registrationBtn}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.928833" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${registrationBtn}</arg>
+<arg>${createNewAccountBtn['${LANG}']}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.930974" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//a[@data-testid='open-registration-form-button']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.930974" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>//input[@name='firstname']</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.930974" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>//input[@name='lastname']</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.930974" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>//input[@name='firstname']</arg>
+<arg>Hassen</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.933083" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>//input[@name='lastname']</arg>
+<arg>Smoklou</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.933083" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@name='websubmit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.933083" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${websubmitBtn}</var>
+<arg>//button[@name='websubmit']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.933083" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${websubmitBtn}</arg>
+<arg>${signUpBtn['${LANG}']}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.935680" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>-----&gt; ${websubmitBtn}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.935680" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.935680" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-03-08T15:40:49.935680" elapsed="0.002195"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-03-08T15:40:49.937875" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:49.937875" elapsed="0.000000"/>
+</kw>
+<tag>Facebook</tag>
+<tag>Transparency</tag>
+<status status="FAIL" start="2026-03-08T15:40:46.234574" elapsed="3.703301">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 130
+Current browser version is 145.0.7632.160 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Stacktrace:
+	GetHandleVerifier [0x00007FF7AD6BE1F5+2972373]
+	(No symbol) [0x00007FF7AD3555F0]
+	(No symbol) [0x00007FF7AD1F57FA]
+	(No symbol) [0x00007FF7AD2343B7]
+	(No symbol) [0x00007FF7AD233485]
+	(No symbol) [0x00007FF7AD22D86B]
+	(No symbol) [0x00007FF7AD228D6E]
+	(No symbol) [0x00007FF7AD276CA1]
+	(No symbol) [0x00007FF7AD276320]
+	(No symbol) [0x00007FF7AD26B823]
+	(No symbol) [0x00007FF7AD2375E8]
+	(No symbol) [0x00007FF7AD238751]
+	GetHandleVerifier [0x00007FF7AD6E47BD+3129501]
+	GetHandleVerifier [0x00007FF7AD734D00+3458528]
+	GetHandleVerifier [0x00007FF7AD72B05D+3418429]
+	GetHandleVerifier [0x00007FF7AD4B687B+844123]
+	(No symbol) [0x00007FF7AD360AFF]
+	(No symbol) [0x00007FF7AD35C6D4]
+	(No symbol) [0x00007FF7AD35C86D]
+	(No symbol) [0x00007FF7AD34BD79]
+	BaseThreadInitThunk [0x00007FFD4F68E8D7+23]
+	RtlUserThreadStart [0x00007FFD518CC40C+44]
+</status>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-03-08T15:40:49.939973" level="INFO">---&gt; Suite Teardown: AdminDemo.robot</msg>
+<arg>---&gt; Suite Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:49.939973" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-03-08T15:40:45.651053" elapsed="4.288920"/>
+</suite>
+<status status="FAIL" start="2026-03-08T15:40:45.651053" elapsed="4.291038"/>
+</suite>
+<suite id="s1-s2" name="EmployedApiTests" source="C:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests\EmployedApiTests">
+<suite id="s1-s2-s1" name="RestAPITests" source="C:\Users\Hmimabdou\Projects\RebotGitHubProject\Automation-Demo\Tests\EmployedApiTests\RestAPITests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-03-08T15:40:49.954964" level="INFO">---&gt; Suite Setup: RestAPITests.robot</msg>
+<arg>---&gt; Suite Setup: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:49.954964" elapsed="0.000000"/>
+</kw>
+<test id="s1-s2-s1-t1" name="GET an existing user, notice how the schema gets more accurate" line="31">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-03-08T15:40:49.954964" level="INFO">---&gt; Test Setup: RestAPITests.robot</msg>
+<arg>---&gt; Test Setup: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:49.954964" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="REST">
+<arg>/users/1</arg>
 <tag>http</tag>
-<doc>*Sends a POST request to the endpoint.*</doc>
-<status status="PASS" start="2026-03-08T14:49:10.514979" elapsed="0.875062"/>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<status status="PASS" start="2026-03-08T15:40:49.957040" elapsed="0.460417"/>
 </kw>
-<kw name="Integer" owner="REST">
-<arg>response status</arg>
-<arg>201</arg>
-<tag>assertions</tag>
-<doc>*Asserts the field as JSON integer.*</doc>
-<status status="PASS" start="2026-03-08T14:49:11.395256" elapsed="0.001036"/>
-</kw>
-<kw name="Output" owner="REST" type="TEARDOWN">
-<msg time="2026-03-08T14:49:11.408044" level="INFO">
+<kw name="Output Schema" owner="REST">
+<msg time="2026-03-08T15:40:50.417457" level="INFO">
 {
-    "id": 11,
-    "name": "Gil Alexander"
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "default": 1
+        },
+        "name": {
+            "type": "string",
+            "default": "Leanne Graham"
+        },
+        "username": {
+            "type": "string",
+            "default": "Bret"
+        },
+        "email": {
+            "type": "string",
+            "default": "Sincere@april.biz"
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "street": {
+                    "type": "string",
+                    "default": "Kulas Light"
+                },
+                "suite": {
+                    "type": "string",
+                    "default": "Apt. 556"
+                },
+                "city": {
+                    "type": "string",
+                    "default": "Gwenborough"
+                },
+                "zipcode": {
+                    "type": "string",
+                    "default": "92998-3874"
+                },
+                "geo": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "string",
+                            "default": "-37.3159"
+                        },
+                        "lng": {
+                            "type": "string",
+                            "default": "81.1496"
+                        }
+                    },
+                    "required": [
+                        "lat",
+                        "lng"
+                    ]
+                }
+            },
+            "required": [
+                "city",
+                "geo",
+                "street",
+                "suite",
+                "zipcode"
+            ]
+        },
+        "phone": {
+            "type": "string",
+            "default": "1-770-736-8031 x56442"
+        },
+        "website": {
+            "type": "string",
+            "default": "hildegard.org"
+        },
+        "company": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "Romaguera-Crona"
+                },
+                "catchPhrase": {
+                    "type": "string",
+                    "default": "Multi-layered client-server neural-net"
+                },
+                "bs": {
+                    "type": "string",
+                    "default": "harness real-time e-markets"
+                }
+            },
+            "required": [
+                "bs",
+                "catchPhrase",
+                "name"
+            ]
+        }
+    },
+    "required": [
+        "address",
+        "company",
+        "email",
+        "id",
+        "name",
+        "phone",
+        "username",
+        "website"
+    ]
 }</msg>
 <arg>response body</arg>
-<arg>${OUTPUTDIR}/new_user.demo.json</arg>
 <tag>I/O</tag>
-<doc>*Outputs JSON to terminal or a file.*</doc>
-<status status="PASS" start="2026-03-08T14:49:11.407034" elapsed="0.049088"/>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.417457" elapsed="0.015790"/>
 </kw>
-<status status="PASS" start="2026-03-08T14:49:10.513969" elapsed="0.942153"/>
+<kw name="Object" owner="REST">
+<arg>response body</arg>
+<tag>assertions</tag>
+<doc>*Asserts the field as JSON object.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.433247" elapsed="0.006285"/>
+</kw>
+<kw name="Integer" owner="REST">
+<arg>response body id</arg>
+<arg>1</arg>
+<tag>assertions</tag>
+<doc>*Asserts the field as JSON integer.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.441601" elapsed="0.000000"/>
+</kw>
+<kw name="String" owner="REST">
+<arg>response body name</arg>
+<arg>Leanne Graham</arg>
+<tag>assertions</tag>
+<doc>*Asserts the field as JSON string.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.441601" elapsed="0.000000"/>
+</kw>
+<kw name="String" owner="REST">
+<arg>response body name</arg>
+<arg>Bret</arg>
+<tag>assertions</tag>
+<doc>*Asserts the field as JSON string.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.443720" elapsed="0.000000"/>
+</kw>
+<kw name="Output Schema" owner="REST" type="TEARDOWN">
+<msg time="2026-03-08T15:40:50.443720" level="INFO">
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GET https://jsonplaceholder.typicode.com/users/1",
+    "description": "Tests.EmployedApiTests.RestAPITests: GET an existing user, notice how the schema gets more accurate",
+    "default": true,
+    "examples": [],
+    "type": "object",
+    "properties": {
+        "request": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "null"
+                },
+                "query": {
+                    "type": "object"
+                }
+            }
+        },
+        "response": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "default": 1,
+                            "enum": [
+                                1
+                            ]
+                        },
+                        "name": {
+                            "type": "string",
+                            "default": "Leanne Graham",
+                            "enum": [
+                                "Leanne Graham",
+                                "Bret"
+                            ]
+                        },
+                        "username": {
+                            "type": "string",
+                            "default": "Bret"
+                        },
+                        "email": {
+                            "type": "string",
+                            "default": "Sincere@april.biz"
+                        },
+                        "address": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string",
+                                    "default": "Kulas Light"
+                                },
+                                "suite": {
+                                    "type": "string",
+                                    "default": "Apt. 556"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "default": "Gwenborough"
+                                },
+                                "zipcode": {
+                                    "type": "string",
+                                    "default": "92998-3874"
+                                },
+                                "geo": {
+                                    "type": "object",
+                                    "properties": {
+                                        "lat": {
+                                            "type": "string",
+                                            "default": "-37.3159"
+                                        },
+                                        "lng": {
+                                            "type": "string",
+                                            "default": "81.1496"
+                                        }
+                                    },
+                                    "required": [
+                                        "lat",
+                                        "lng"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "city",
+                                "geo",
+                                "street",
+                                "suite",
+                                "zipcode"
+                            ]
+                        },
+                        "phone": {
+                            "type": "string",
+                            "default": "1-770-736-8031 x56442"
+                        },
+                        "website": {
+                            "type": "string",
+                            "default": "hildegard.org"
+                        },
+                        "company": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "default": "Romaguera-Crona"
+                                },
+                                "catchPhrase": {
+                                    "type": "string",
+                                    "default": "Multi-layered client-server neural-net"
+                                },
+                                "bs": {
+                                    "type": "string",
+                                    "default": "harness real-time e-markets"
+                                }
+                            },
+                            "required": [
+                                "bs",
+                                "catchPhrase",
+                                "name"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "company",
+                        "email",
+                        "id",
+                        "name",
+                        "phone",
+                        "username",
+                        "website"
+                    ],
+                    "examples": [
+                        {
+                            "id": 1,
+                            "name": "Leanne Graham",
+                            "username": "Bret",
+                            "email": "Sincere@april.biz",
+                            "address": {
+                                "street": "Kulas Light",
+                                "suite": "Apt. 556",
+                                "city": "Gwenborough",
+                                "zipcode": "92998-3874",
+                                "geo": {
+                                    "lat": "-37.3159",
+                                    "lng": "81.1496"
+                                }
+                            },
+                            "phone": "1-770-736-8031 x56442",
+                            "website": "hildegard.org",
+                            "company": {
+                                "name": "Romaguera-Crona",
+                                "catchPhrase": "Multi-layered client-server neural-net",
+                                "bs": "harness real-time e-markets"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}</msg>
+<tag>I/O</tag>
+<doc>*Outputs JSON Schema to terminal or a file.*</doc>
+<status status="PASS" start="2026-03-08T15:40:50.443720" elapsed="0.003616"/>
+</kw>
+<tag>Employed</tag>
+<tag>Transparency</tag>
+<status status="PASS" start="2026-03-08T15:40:49.954964" elapsed="0.492372"/>
 </test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-03-08T15:40:50.449423" level="INFO">---&gt; Suite Teardown: RestAPITests.robot</msg>
+<arg>---&gt; Suite Teardown: RestAPITests.robot</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-08T15:40:50.449423" elapsed="0.000000"/>
+</kw>
 <doc>Test data can be read from variables and files.
 Both JSON and Python type systems are supported for inputs.
 Every request creates a so-called instance. Can be `Output`.
@@ -44,18 +904,32 @@ Thus, there is no need to write any own validation logic.
 Not a long path from schemas to full Swagger/OpenAPI specs.
 The persistence of the created instances is the test suite.
 Use keyword `Rest instances` to output the created instances.</doc>
-<status status="PASS" start="2026-03-08T14:49:09.788059" elapsed="1.670115"/>
+<status status="PASS" start="2026-03-08T15:40:49.946264" elapsed="0.503159"/>
+</suite>
+<status status="PASS" start="2026-03-08T15:40:49.944162" elapsed="0.507409"/>
+</suite>
+<status status="FAIL" start="2026-03-08T15:40:45.623428" elapsed="4.830236"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">Employed</stat>
+<stat pass="0" fail="1" skip="0">Facebook</stat>
+<stat pass="1" fail="0" skip="0">JMap</stat>
+<stat pass="2" fail="1" skip="0">Transparency</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="RestAPITests">RestAPITests</stat>
+<stat pass="2" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="1" skip="0" id="s1-s1" name="DemoTests">Tests.DemoTests</stat>
+<stat pass="1" fail="1" skip="0" id="s1-s1-s1" name="AdminDemo">Tests.DemoTests.AdminDemo</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="EmployedApiTests">Tests.EmployedApiTests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2-s1" name="RestAPITests">Tests.EmployedApiTests.RestAPITests</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-03-08T15:40:49.922506" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
+<msg time="2026-03-08T15:40:49.926713" level="WARN">Keyword 'BuiltIn.Run Keyword Unless' is deprecated. </msg>
 </errors>
 </robot>

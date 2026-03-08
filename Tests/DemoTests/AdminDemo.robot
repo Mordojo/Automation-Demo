@@ -8,7 +8,12 @@ Library    ../../PyLibs/env_loader.py
 # Library    JSONLibrary
 # Suite Setup    Set Locators From Json    AdminElements.json    
 # Test Setup    Open JMap Admin    ${URLAdmin}
-# Test Teardown    Close Browser                           
+# Test Teardown    Close Browser
+
+Suite Setup    Log    ---> Suite Setup: AdminDemo.robot    console=yes
+Test Setup    Log    ---> Test Setup: AdminDemo.robot    console=yes
+Test Teardown    Log    ---> Test Teardown: AdminDemo.robot    console=yes
+Suite Teardown    Log    ---> Suite Teardown: AdminDemo.robot    console=yes                           
 
 
 *** Variables ***
