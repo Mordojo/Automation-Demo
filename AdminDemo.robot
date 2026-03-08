@@ -26,12 +26,11 @@ ${USE_BROWSER}    ${False}
 #${USE_TAGE}    ${EMPTY}
 ${NEW_TE}    ${EMPTY}
 ${USE_JIRA}    ${EMPTY}
-${JIRA_TOKEN}    ${EMPTY}
 ${URLAdmin}    http://54.39.78.142:8080
 ${USERNAME}    demo
 ${PASSWORD}    demo
 ${AdminElement}    ${EMPTY}
-${JIRA_TOKEN}    ${EMPTY}
+${JIRA_TOKEN}    %{JIRA_TOKEN=__dummy__}
 # ${CHROME_DRIVER_PATH}    ${CURDIR}${/}BrowsersDriver${/}chromedriver.exe   
 
 *** Test Cases ***

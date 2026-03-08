@@ -1,8 +1,10 @@
-# env_loader.py
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
-def load_environment_variables():
-    load_dotenv()
-    # You can also return a dictionary of variables if needed,
-    # but loading them to os.environ allows direct access in Robot Framework
+project_root = os.path.abspath(os.path.join(os.getcwd()))
+dotenv_path = os.path.join(project_root, '.env')
+print("project_root =", project_root)
+print("dotenv_path =", dotenv_path)
+
+load_dotenv(dotenv_path=dotenv_path)
+# print("JIRA_TOKEN =", os.getenv("JIRA_TOKEN"))
