@@ -49,6 +49,7 @@ on:
 env:
   PYTHON_VERSION: '3.12.1'
   JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+  USERS_ENDPOINT: ${{ secrets.USERS_ENDPOINT }}
 
 jobs:
   RobotDemoJob:
