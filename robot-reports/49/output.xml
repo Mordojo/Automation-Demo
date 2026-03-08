@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.12.1 on linux)" generated="20260308 19:52:35.147" rpa="false">
+<suite id="s1" name="Tests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests">
+<suite id="s1-s1" name="DemoTests" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/DemoTests">
+<suite id="s1-s1-s1" name="AdminDemo" source="/home/runner/work/Automation-Demo/Automation-Demo/Tests/DemoTests/AdminDemo.robot">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.774" level="INFO">---&gt; Suite Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.774" endtime="20260308 19:52:35.774"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="Test Github actions">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.775" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.775" endtime="20260308 19:52:35.775"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.775" level="INFO">
+-----&gt; Actual ENV: ti</msg>
+<status status="PASS" starttime="20260308 19:52:35.775" endtime="20260308 19:52:35.775"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.776" level="INFO">-----&gt; Actual LANG: en</msg>
+<status status="PASS" starttime="20260308 19:52:35.775" endtime="20260308 19:52:35.776"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.776" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20260308 19:52:35.776" endtime="20260308 19:52:35.776"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.776" level="INFO">-----&gt; Actual TE: </msg>
+<status status="PASS" starttime="20260308 19:52:35.776" endtime="20260308 19:52:35.776"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.777" level="INFO">-----&gt; USE JIRA: false</msg>
+<status status="PASS" starttime="20260308 19:52:35.777" endtime="20260308 19:52:35.777"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; JIRA TOKEN: ${JIRA_TOKEN}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.777" level="INFO">-----&gt; JIRA TOKEN: DF65778SDV989FVNC1-KDF</msg>
+<status status="PASS" starttime="20260308 19:52:35.777" endtime="20260308 19:52:35.777"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.777" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.777" endtime="20260308 19:52:35.778"></status>
+</kw>
+<tags>
+<tag>JMap</tag>
+<tag>Transparency</tag>
+</tags>
+<status status="PASS" starttime="20260308 19:52:35.774" endtime="20260308 19:52:35.778" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="Login_with_valid_credentials">
+<kw name="Log" library="BuiltIn" type="setup">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Setup: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.779" level="INFO">---&gt; Test Setup: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.778" endtime="20260308 19:52:35.779"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>\n-----&gt; JMap Test ...</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.779" level="INFO">
+-----&gt; JMap Test ...</msg>
+<status status="PASS" starttime="20260308 19:52:35.779" endtime="20260308 19:52:35.779"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual ENV: ${ENV}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.779" level="INFO">-----&gt; Actual ENV: ti</msg>
+<status status="PASS" starttime="20260308 19:52:35.779" endtime="20260308 19:52:35.779"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual LANG: ${LANG}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.780" level="INFO">-----&gt; Actual LANG: en</msg>
+<status status="PASS" starttime="20260308 19:52:35.780" endtime="20260308 19:52:35.780"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual BROWSER: ${BROWSER}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.780" level="INFO">-----&gt; Actual BROWSER: Chrome</msg>
+<status status="PASS" starttime="20260308 19:52:35.780" endtime="20260308 19:52:35.780"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; Actual TE: ${NEW_TE}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.780" level="INFO">-----&gt; Actual TE: </msg>
+<status status="PASS" starttime="20260308 19:52:35.780" endtime="20260308 19:52:35.780"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>-----&gt; USE JIRA: ${USE_JIRA}</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.781" level="INFO">-----&gt; USE JIRA: false</msg>
+<status status="PASS" starttime="20260308 19:52:35.781" endtime="20260308 19:52:35.781"></status>
+</kw>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Test Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.781" level="INFO">---&gt; Test Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.781" endtime="20260308 19:52:35.781"></status>
+</kw>
+<tags>
+<tag>JMap</tag>
+</tags>
+<status status="PASS" starttime="20260308 19:52:35.778" endtime="20260308 19:52:35.781" critical="yes"></status>
+</test>
+<kw name="Log" library="BuiltIn" type="teardown">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>---&gt; Suite Teardown: AdminDemo.robot</arg>
+<arg>console=yes</arg>
+</arguments>
+<msg timestamp="20260308 19:52:35.782" level="INFO">---&gt; Suite Teardown: AdminDemo.robot</msg>
+<status status="PASS" starttime="20260308 19:52:35.782" endtime="20260308 19:52:35.782"></status>
+</kw>
+<status status="PASS" starttime="20260308 19:52:35.165" endtime="20260308 19:52:35.782"></status>
+</suite>
+<status status="PASS" starttime="20260308 19:52:35.164" endtime="20260308 19:52:35.783"></status>
+</suite>
+<status status="PASS" starttime="20260308 19:52:35.148" endtime="20260308 19:52:35.784"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0">JMap</stat>
+<stat pass="1" fail="0">Transparency</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" id="s1-s1" name="DemoTests">Tests.DemoTests</stat>
+<stat pass="2" fail="0" id="s1-s1-s1" name="AdminDemo">Tests.DemoTests.AdminDemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
